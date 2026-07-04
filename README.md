@@ -1,8 +1,8 @@
-# NMiltonResearch.github.io
+# NMAIResearch.github.io
 
-The portfolio landing page for N. Milton — independent research on the finance, energy and risk of the AI build-out.
+The portfolio landing page for NM AI Research — independent research on the finance, energy and risk of the AI build-out.
 
-**Live:** https://nmiltonresearch.github.io/
+**Live:** https://nmairesearch.github.io/
 
 One front door linking the interactive tools and the open-access papers (all on Zenodo, CC BY 4.0, ORCID [0009-0003-4213-7769](https://orcid.org/0009-0003-4213-7769)).
 
