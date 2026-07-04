@@ -45,6 +45,9 @@
   .paper .m{font-size:12px;color:var(--slate)}
   .tag{display:inline-block;font-size:11px;font-weight:bold;color:var(--good);
     background:var(--goodbg);border-radius:4px;padding:1px 7px;margin-left:8px;vertical-align:middle}
+  .stack{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;
+    color:var(--slate);margin-top:6px;letter-spacing:.1px}
+  .tool .stack{margin-top:8px}
 
   footer{margin-top:42px;border-top:1px solid var(--line);padding-top:16px;
     font-size:12.5px;color:var(--slate)}
@@ -71,21 +74,24 @@
       <h3>CEO Pay-vs-Delivery Scorecard</h3>
       <p>What the S&amp;P-100's highest-paid CEOs <em>took</em> versus what they <em>delivered</em>. Toggle granted vs realized pay and watch the league table reorder; or read the board's own payout-vs-target beside peer-relative return.</p>
       <a class="open" href="https://nmairesearch.github.io/ceo-pay-scorecard/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20709603" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20736360" target="_blank" rel="noopener">DOI</a></span>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20709603" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20736360" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/ceo-pay-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · SEC EDGAR (Pay-vs-Performance) · CSV · build.py</div>
     </div>
 
     <div class="tool">
       <h3>AI Energy-Demand Forecast Scorecard</h3>
       <p>How the field forecasts data-centre electricity demand. Measure dispersion only within comparable slices (units and scopes are not interchangeable), and trace the transparency funnel: verified &rarr; confirmable &rarr; reproducible.</p>
       <a class="open" href="https://nmairesearch.github.io/forecast-scorecard/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20708978" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738144" target="_blank" rel="noopener">DOI</a></span>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20708978" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738144" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/forecast-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · primary forecast documents · CSV · build.py</div>
     </div>
 
     <div class="tool">
       <h3>Contingent vs Robust AI Power Demand</h3>
       <p>How much <em>announced</em> generation actually gets <em>built</em>. A deflation calculator runs any announced capacity through three measured PJM-queue attrition stages — about one announced MW in five is delivered.</p>
       <a class="open" href="https://nmairesearch.github.io/contingent-demand/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20706509" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738291" target="_blank" rel="noopener">DOI</a></span>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20706509" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738291" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/contingent-demand" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · PJM interconnection queue · CSV · build.py</div>
     </div>
 
   </div>
@@ -110,30 +116,35 @@
       <h3>AI-Literacy Load by Occupation</h3>
       <p>A reproducible map of where AI-fluency becomes part of the job — occupation-level AI-usage penetration crossed with the augment/automate mix, from the open Anthropic Economic Index.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20778969" target="_blank" rel="noopener">10.5281/zenodo.20778969</a></span>
+      <div class="stack">Python stdlib · Anthropic Economic Index · O*NET · scripts in the DOI bundle</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
       <h3>AI Reliance: how deep, and how reversible</h3>
       <p>A reproducible measure of systematic AI dependency — reliability, downstream attribution, penetration and reversibility — built from primary status-page and government data.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20763481" target="_blank" rel="noopener">10.5281/zenodo.20763481</a></span>
+      <div class="stack">Python stdlib · provider status-page JSON · primary government data · scripts in the DOI bundle</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
       <h3>The CEO Pay-vs-Delivery Scorecard <span class="tag">interactive ↗</span></h3>
       <p>A reproducible, descriptive audit setting the S&amp;P-100's highest-paid CEOs' realized pay beside what they delivered.</p>
-      <span class="m"><a href="https://doi.org/10.5281/zenodo.20709603" target="_blank" rel="noopener">10.5281/zenodo.20709603</a></span>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20709603" target="_blank" rel="noopener">10.5281/zenodo.20709603</a> · <a href="https://github.com/NMAIResearch/ceo-pay-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · SEC EDGAR (Pay-vs-Performance) · build.py</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
       <h3>The AI Energy-Demand Forecast Scorecard <span class="tag">interactive ↗</span></h3>
       <p>A reproducible audit of how the field forecasts data-centre electricity demand — dispersion, revisions, and transparency.</p>
-      <span class="m"><a href="https://doi.org/10.5281/zenodo.20708978" target="_blank" rel="noopener">10.5281/zenodo.20708978</a></span>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20708978" target="_blank" rel="noopener">10.5281/zenodo.20708978</a> · <a href="https://github.com/NMAIResearch/forecast-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · primary forecast documents · build.py</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
       <h3>Contingent vs Robust AI Power Demand <span class="tag">interactive ↗</span></h3>
       <p>How much announced generation gets built — a realized-completion anchor from the PJM interconnection queue.</p>
-      <span class="m"><a href="https://doi.org/10.5281/zenodo.20706509" target="_blank" rel="noopener">10.5281/zenodo.20706509</a></span>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20706509" target="_blank" rel="noopener">10.5281/zenodo.20706509</a> · <a href="https://github.com/NMAIResearch/contingent-demand" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · PJM interconnection queue · build.py</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
@@ -146,6 +157,7 @@
       <h3>The AI Private-Valuation Marks-vs-Reality Ledger</h3>
       <p>A pre-registered, reproducible record of how private AI valuations survive contact with a real public price.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20709174" target="_blank" rel="noopener">10.5281/zenodo.20709174</a></span>
+      <div class="stack">Python stdlib · N-PORT / S-1 / Form 4 (SEC) · scripts in the DOI bundle</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
@@ -164,6 +176,7 @@
       <h3>How Much Electricity Does Bot Web Traffic Actually Use?</h3>
       <p>A transparent bound on the electricity used by automated web traffic — the proof-of-method for the deflation discipline.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20707001" target="_blank" rel="noopener">10.5281/zenodo.20707001</a></span>
+      <div class="stack">Python stdlib · Cloudflare Radar · primary sources · scripts in the DOI bundle</div>
     </div></div>
 
     <div class="paper"><div class="yr">2026</div><div>
