@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N. Milton — independent research: technology, energy & AI</title>
+<meta name="description" content="Independent research rebuilding contested figures in technology, energy and AI from primary public data — papers and interactive tools.">
+<style>
+  :root{
+    --navy:#1a365d; --slate:#4a5568; --body:#2d3748; --alt:#f7fafc;
+    --line:#e2e8f0; --accent:#2b6cb0; --good:#276749; --goodbg:#f0fff4;
+  }
+  *{box-sizing:border-box}
+  body{font-family:Arial,Helvetica,sans-serif;color:var(--body);margin:0;
+    background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 22px 64px}
+
+  header{border-bottom:2px solid var(--navy);padding-bottom:22px;margin-bottom:8px}
+  h1{color:var(--navy);font-size:30px;margin:0 0 8px}
+  .lede{font-size:16px;color:var(--body);margin:0 0 14px;max-width:760px}
+  .links{font-size:13.5px;color:var(--slate)}
+  .links a{margin-right:16px}
+
+  h2{color:var(--navy);font-size:19px;margin:38px 0 4px;display:flex;align-items:baseline;gap:10px}
+  h2 .c{font-size:12.5px;color:var(--slate);font-weight:normal}
+  .intro{color:var(--slate);font-size:14px;margin:4px 0 16px;max-width:780px}
+
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .tool{border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:8px;
+    padding:16px 18px;background:#fff;display:flex;flex-direction:column}
+  .tool h3{color:var(--navy);font-size:16px;margin:0 0 6px}
+  .tool p{font-size:13.5px;color:var(--body);margin:0 0 14px;flex:1}
+  .tool .open{display:inline-block;font-weight:bold;font-size:14px;margin-bottom:8px}
+  .tool .meta{font-size:12px;color:var(--slate)}
+  .tool .meta a{color:var(--slate);text-decoration:underline}
+
+  .papers{margin-top:6px;border-top:1px solid var(--line)}
+  .paper{display:grid;grid-template-columns:54px 1fr;gap:14px;padding:15px 4px;
+    border-bottom:1px solid var(--line)}
+  .paper .yr{color:var(--slate);font-size:13px;font-variant-numeric:tabular-nums;padding-top:1px}
+  .paper h3{font-size:15px;margin:0 0 4px;color:var(--navy);font-weight:bold;line-height:1.35}
+  .paper p{font-size:13.5px;color:var(--body);margin:0 0 6px}
+  .paper .m{font-size:12px;color:var(--slate)}
+  .tag{display:inline-block;font-size:11px;font-weight:bold;color:var(--good);
+    background:var(--goodbg);border-radius:4px;padding:1px 7px;margin-left:8px;vertical-align:middle}
+
+  footer{margin-top:42px;border-top:1px solid var(--line);padding-top:16px;
+    font-size:12.5px;color:var(--slate)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>N. Milton</h1>
+    <p class="lede">Independent researcher analysing the finance and operations of technology, energy and the artificial-intelligence build-out — rebuilding contested figures from primary public data, and scoring forecasts, valuations and stated targets against what actually happens. Every figure traceable; every method reproducible.</p>
+    <p class="links">
+      <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">ORCID 0009-0003-4213-7769</a>
+      <a href="https://github.com/NMiltonResearch" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Milton%2C%20N.%22" target="_blank" rel="noopener">Zenodo</a>
+    </p>
+  </header>
+
+  <h2>Interactive tools <span class="c">explore the data behind the papers</span></h2>
+  <p class="intro">Self-contained, dependency-free front-ends over the frozen, citable datasets — change an input and watch the figure move. Each is reproducible and archived with its own DOI.</p>
+  <div class="tools">
+
+    <div class="tool">
+      <h3>CEO Pay-vs-Delivery Scorecard</h3>
+      <p>What the S&amp;P-100's highest-paid CEOs <em>took</em> versus what they <em>delivered</em>. Toggle granted vs realized pay and watch the league table reorder; or read the board's own payout-vs-target beside peer-relative return.</p>
+      <a class="open" href="https://nmiltonresearch.github.io/ceo-pay-scorecard/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20709603" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20736360" target="_blank" rel="noopener">DOI</a></span>
+    </div>
+
+    <div class="tool">
+      <h3>AI Energy-Demand Forecast Scorecard</h3>
+      <p>How the field forecasts data-centre electricity demand. Measure dispersion only within comparable slices (units and scopes are not interchangeable), and trace the transparency funnel: verified &rarr; confirmable &rarr; reproducible.</p>
+      <a class="open" href="https://nmiltonresearch.github.io/forecast-scorecard/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20708978" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738144" target="_blank" rel="noopener">DOI</a></span>
+    </div>
+
+    <div class="tool">
+      <h3>Contingent vs Robust AI Power Demand</h3>
+      <p>How much <em>announced</em> generation actually gets <em>built</em>. A deflation calculator runs any announced capacity through three measured PJM-queue attrition stages — about one announced MW in five is delivered.</p>
+      <a class="open" href="https://nmiltonresearch.github.io/contingent-demand/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20706509" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738291" target="_blank" rel="noopener">DOI</a></span>
+    </div>
+
+  </div>
+
+  <h2>Papers <span class="c">open-access, reproducible, primary-sourced</span></h2>
+  <p class="intro">Working papers on the AI build-out's finances, energy and risk — each built free from primary public data, with a script that recomputes the figures. Published open-access on Zenodo under CC BY 4.0.</p>
+  <div class="papers">
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>The CEO Pay-vs-Delivery Scorecard <span class="tag">interactive ↗</span></h3>
+      <p>A reproducible, descriptive audit setting the S&amp;P-100's highest-paid CEOs' realized pay beside what they delivered.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20709603" target="_blank" rel="noopener">10.5281/zenodo.20709603</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>The AI Energy-Demand Forecast Scorecard <span class="tag">interactive ↗</span></h3>
+      <p>A reproducible audit of how the field forecasts data-centre electricity demand — dispersion, revisions, and transparency.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20708978" target="_blank" rel="noopener">10.5281/zenodo.20708978</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>Contingent vs Robust AI Power Demand <span class="tag">interactive ↗</span></h3>
+      <p>How much announced generation gets built — a realized-completion anchor from the PJM interconnection queue.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20706509" target="_blank" rel="noopener">10.5281/zenodo.20706509</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>The AI Capital-Infrastructure Barbell</h3>
+      <p>A supply-and-demand risk assessment of the AI build-out: a likelihood-by-severity register of where the system is fragile.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20708803" target="_blank" rel="noopener">10.5281/zenodo.20708803</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>The AI Private-Valuation Marks-vs-Reality Ledger</h3>
+      <p>A pre-registered, reproducible record of how private AI valuations survive contact with a real public price.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20709174" target="_blank" rel="noopener">10.5281/zenodo.20709174</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>AI Cost Watch</h3>
+      <p>Tracking the unit economics and cost re-pricing of AI — the gap between cheaper tokens and cheaper AI.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20682980" target="_blank" rel="noopener">10.5281/zenodo.20682980</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>The AI Industry: a PESTLE scan</h3>
+      <p>A structured scan of the political, economic, social, technological, legal and environmental pressures on the AI industry.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20719282" target="_blank" rel="noopener">10.5281/zenodo.20719282</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>How Much Electricity Does Bot Web Traffic Actually Use?</h3>
+      <p>A transparent bound on the electricity used by automated web traffic — the proof-of-method for the deflation discipline.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20707001" target="_blank" rel="noopener">10.5281/zenodo.20707001</a></span>
+    </div></div>
+
+    <div class="paper"><div class="yr">2026</div><div>
+      <h3>Anomalous Constant Domains and Anomalous Void Transmission</h3>
+      <p>A published negative result in cosmology — kept on the record because reporting what did not work is part of the discipline.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.20512148" target="_blank" rel="noopener">10.5281/zenodo.20512148</a></span>
+    </div></div>
+
+  </div>
+
+  <footer>
+    All work open-access under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · ORCID <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">0009-0003-4213-7769</a> · independent research, not investment advice.
+  </footer>
+
+</div>
+</body>
+</html>
