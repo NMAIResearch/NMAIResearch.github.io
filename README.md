@@ -1,6 +1,6 @@
 # NMAIResearch.github.io
 
-The portfolio landing page for NM AI Research — independent research on the finance, energy and risk of the AI build-out.
+The portfolio landing page for NM AI Research - independent research on the finance, energy and risk of the AI build-out.
 
 **Live:** https://nmairesearch.github.io/
 
