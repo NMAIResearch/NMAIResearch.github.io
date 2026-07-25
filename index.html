@@ -59,6 +59,17 @@
 
   footer{margin-top:42px;border-top:1px solid var(--line);padding-top:16px;
     font-size:12.5px;color:var(--slate)}
+
+  .find{display:flex;gap:10px;align-items:center;margin:18px 0 0;flex-wrap:wrap}
+  .find input{flex:1;min-width:220px;font:inherit;font-size:14px;padding:9px 12px;
+    border:1px solid var(--line);border-radius:7px;color:var(--body);background:#fff}
+  .find input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+  .find button{font:inherit;font-size:13px;padding:8px 13px;border:1px solid var(--line);
+    border-radius:7px;background:#fff;color:var(--slate);cursor:pointer}
+  .find button:hover{border-color:var(--accent);color:var(--accent)}
+  .found{font-size:12.5px;color:var(--slate);margin:8px 0 0;min-height:18px}
+  .found b{color:var(--navy)}
+  .hidden{display:none !important}
 </style>
 </head>
 <body>
@@ -76,11 +87,17 @@
     </p>
   </header>
 
-  <h2>Interactive tools <span class="c">explore the data behind the papers</span></h2>
-  <p class="intro">Self-contained, dependency-free front-ends over the frozen, citable datasets. Change an input and watch the figure move. Each is reproducible; the ones built on a frozen dataset are archived with their own DOI.</p>
+  <div class="find">
+    <input id="q" type="search" placeholder="Search the work: XBRL, PJM queue, water, executive pay, export controls&hellip;" autocomplete="off" aria-label="Search papers and tools">
+    <button id="clr" type="button">Clear</button>
+  </div>
+  <p class="found" id="found"></p>
+
+  <h2 id="h-tools">Interactive tools <span class="c">explore the data behind the papers</span></h2>
+  <p class="intro" id="i-tools">Self-contained, dependency-free front-ends over the frozen, citable datasets. Change an input and watch the figure move. Each is reproducible; the ones built on a frozen dataset are archived with their own DOI.</p>
   <div class="tools">
 
-    <div class="tool">
+    <div class="tool" data-kw="AI electricity demand | data centre energy | forecast evaluation | energy forecasting | transparency | reproducibility | AI infrastructure | unit economics">
       <h3>AI Energy-Demand Forecast Scorecard</h3>
       <p>How the field forecasts data-centre electricity demand. Measure dispersion only within comparable slices (units and scopes are not interchangeable), and trace the transparency funnel: verified &rarr; confirmable &rarr; reproducible.</p>
       <a class="open" href="https://nmairesearch.github.io/forecast-scorecard/">Open the tool &rarr;</a>
@@ -88,7 +105,7 @@
       <div class="stack">Python stdlib · primary forecast documents · CSV · build.py</div>
     </div>
 
-    <div class="tool">
+    <div class="tool" data-kw="ai data centres | electricity demand | interconnection queue | pjm | energy forecasting | deflation analysis | reproducible research | contingent demand | FERC order 2023">
       <h3>Contingent vs Robust AI Power Demand</h3>
       <p>How much <em>announced</em> generation actually gets <em>built</em>. A deflation calculator runs any announced capacity through three measured PJM-queue attrition stages. About one announced MW in five is delivered.</p>
       <a class="open" href="https://nmairesearch.github.io/contingent-demand/">Open the tool &rarr;</a>
@@ -96,7 +113,7 @@
       <div class="stack">Python stdlib · PJM interconnection queue · CSV · build.py</div>
     </div>
 
-    <div class="tool">
+    <div class="tool" data-kw="AI economics | inference cost | token pricing | token expenditure index | unit economics | FinOps for AI | AI infrastructure | hyperscaler capex | developer productivity | AI code quality">
       <h3>AI Cost Watch</h3>
       <p>Whether the AI buildout's unit economics are holding. Pick an edition for the month's signal and developments, or track one indicator across the issues. The signal it watches, a hyperscaler capex-guidance down-revision, has not fired in five issues.</p>
       <a class="open" href="https://nmairesearch.github.io/cost-watch/">Open the tool &rarr;</a>
@@ -104,7 +121,7 @@
       <div class="stack">Python stdlib · AI Cost Watch series (5 issues) · JSON · build.py</div>
     </div>
 
-    <div class="tool">
+    <div class="tool" data-kw="executive compensation | CEO pay | pay versus performance | Compensation Actually Paid | SEC EDGAR | proxy statements | reproducibility | corporate governance | S&amp;P 500 | shareholder return">
       <h3>CEO Pay-vs-Delivery Scorecard</h3>
       <p>What the S&amp;P 500's highest-paid CEOs <em>took</em> versus what they <em>delivered</em>, now across all 494 companies. Toggle granted vs realized pay and watch the league table reorder; or read the board's own payout-vs-target beside peer-relative return.</p>
       <a class="open" href="https://nmairesearch.github.io/ceo-pay-scorecard/">Open the tool &rarr;</a>
@@ -112,7 +129,7 @@
       <div class="stack">Python stdlib · SEC EDGAR (Pay-vs-Performance) · CSV · build.py</div>
     </div>
 
-    <div class="tool">
+    <div class="tool" data-kw="reproducibility | open-weight models | model provenance | AI audit | algorithmic accountability | uncertainty estimation | token entropy | numeric extraction | silent errors | misattribution | XBRL | SEC filings | table serialisation | model disclosure | cluster bootstrap">
       <h3>Does Entropy Catch the Errors?</h3>
       <p>The uncertainty signal an open-weight deployment gets for free, tested as an error detector on numeric extraction from SEC filings. Set the false-alarm budget yourself and read off what it catches, what it misses, and how many correct answers you re-read to find one real error. It stays at zero on every model accurate enough to deploy.</p>
       <a class="open" href="https://nmairesearch.github.io/model-dependency/">Open the tool &rarr;</a>
@@ -130,30 +147,30 @@
 
   </div>
 
-  <h2>Papers <span class="c">open-access, reproducible, primary-sourced</span></h2>
-  <p class="intro">Working papers on the AI build-out's finances, energy and risk, and on how digital and retail systems are engineered to shape spending and choice. Built from primary public data with reproducible scripts wherever the question is quantitative, and published open-access on Zenodo under CC BY 4.0. The underlying datasets are also on <a href="https://huggingface.co/NMAIResearch" target="_blank" rel="noopener">Hugging Face</a>. <strong>Start here:</strong> the <a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">Water Tracker</a>, the <a href="https://doi.org/10.5281/zenodo.20572928" target="_blank" rel="noopener">Forecast Scorecard</a> and the <a href="https://doi.org/10.5281/zenodo.20941003" target="_blank" rel="noopener">Consumer Incidence</a> ledger, each with runnable code.</p>
+  <h2 id="h-papers">Papers <span class="c">open-access, reproducible, primary-sourced</span></h2>
+  <p class="intro" id="i-papers">Working papers on the AI build-out's finances, energy and risk, and on how digital and retail systems are engineered to shape spending and choice. Built from primary public data with reproducible scripts wherever the question is quantitative, and published open-access on Zenodo under CC BY 4.0. The underlying datasets are also on <a href="https://huggingface.co/NMAIResearch" target="_blank" rel="noopener">Hugging Face</a>. <strong>Start here:</strong> the <a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">Water Tracker</a>, the <a href="https://doi.org/10.5281/zenodo.20572928" target="_blank" rel="noopener">Forecast Scorecard</a> and the <a href="https://doi.org/10.5281/zenodo.20941003" target="_blank" rel="noopener">Consumer Incidence</a> ledger, each with runnable code.</p>
   <div class="papers">
 
     <div class="grp">Energy &amp; infrastructure</div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI data centres | water consumption | Water Consumption Impact index | hydropower coupling | closed-loop cooling | reproducibility | electricity-water intensity factor | water footprint | Colorado River | sustainability"><div>
       <h3>AI Data-Centre Water Tracker</h3>
       <p>An open, reproducible referee for data-centre water burden. It rebuilds the Water Consumption Impact index for ten sites from public data and self-checks each value against the source, then adds the two channels that framework leaves open: the hydropower coupling, and the off-site relocation of water that closed-loop cooling produces (which moves roughly 92 to 95 per cent of the footprint to the grid rather than removing it). Figures are bands and decompositions, and every input is named and motive-tagged.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">10.5281/zenodo.21318960</a> &middot; <a href="https://github.com/NMAIResearch/ai-water-tracker" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; operator environmental reports &middot; USGS / USBR reservoir data &middot; reproduce.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI electricity demand | data centre energy | forecast evaluation | energy forecasting | transparency | reproducibility | AI infrastructure | unit economics"><div>
       <h3>The AI Energy-Demand Forecast Scorecard <span class="tag">interactive &uarr;</span></h3>
       <p>A reproducible audit of how the field forecasts data-centre electricity demand: dispersion, revisions and transparency.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20572928" target="_blank" rel="noopener">10.5281/zenodo.20572928</a> &middot; <a href="https://github.com/NMAIResearch/forecast-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; primary forecast documents &middot; build.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="ai data centres | electricity demand | interconnection queue | pjm | energy forecasting | deflation analysis | reproducible research | contingent demand | FERC order 2023"><div>
       <h3>Contingent vs Robust AI Power Demand <span class="tag">interactive &uarr;</span></h3>
       <p>How much announced generation gets built, a realized-completion anchor from the PJM interconnection queue.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20559430" target="_blank" rel="noopener">10.5281/zenodo.20559430</a> &middot; <a href="https://github.com/NMAIResearch/contingent-demand" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; PJM interconnection queue &middot; build.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="bot traffic | data centre energy | AI energy | deflation | order-of-magnitude bound | Cloudflare Radar | IEA | marginal versus average allocation | denominator | reproducibility"><div>
       <h3>How Much Electricity Does Bot Web Traffic Actually Use?</h3>
       <p>A transparent order-of-magnitude bound on the electricity used by automated web traffic, and the proof-of-method for the deflation discipline. A naive multiply of the two most-circulated inputs gives about 257 TWh a year; two largely separate methods bracket the real figure at order 10 TWh, and then disagree with each other by a factor of five on the central value. That disagreement is the result, because bridging traffic measurements to energy measurements takes three choices and each one moves the answer by a multiple.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20512703" target="_blank" rel="noopener">10.5281/zenodo.20512703</a> &middot; <a href="https://github.com/NMAIResearch/bot-energy-bound" target="_blank" rel="noopener">code &amp; data</a></span>
@@ -161,65 +178,65 @@
     </div></div>
 
     <div class="grp">Finance &amp; markets</div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI infrastructure | supply-side risk | compute build-out | grid constraints | TSMC | rare earths | HBM | advanced packaging | export controls | open-weight models | capital expenditure | tail risk | reproducibility"><div>
       <h3>The AI Capital-Infrastructure Barbell</h3>
       <p>A supply-and-demand risk assessment of the AI build-out: a likelihood-by-severity register of where the system is fragile.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20586863" target="_blank" rel="noopener">10.5281/zenodo.20586863</a> &middot; <a href="https://github.com/NMAIResearch/barbell-risk" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; PJM IMM &middot; IEA &middot; LBNL &middot; SEC filings &middot; reproduce.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI valuations | IPO | private markets | SpaceX | CoreWeave | pre-registration | reproducibility | marks-vs-reality | financial transparency | venture marks"><div>
       <h3>The AI Private-Valuation Marks-vs-Reality Ledger</h3>
       <p>A pre-registered, reproducible record of how private AI valuations survive contact with a real public price.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20672581" target="_blank" rel="noopener">10.5281/zenodo.20672581</a></span>
       <div class="stack">Python stdlib &middot; N-PORT / S-1 / Form 4 (SEC) &middot; scripts in the DOI bundle</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="executive compensation | CEO pay | pay versus performance | Compensation Actually Paid | SEC EDGAR | proxy statements | reproducibility | corporate governance | S&amp;P 500 | shareholder return"><div>
       <h3>The CEO Pay-vs-Delivery Scorecard <span class="tag">interactive &uarr;</span></h3>
       <p>A reproducible, descriptive audit setting the S&amp;P 500's highest-paid CEOs' realized pay beside what they delivered.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20680108" target="_blank" rel="noopener">10.5281/zenodo.20680108</a> &middot; <a href="https://github.com/NMAIResearch/ceo-pay-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; SEC EDGAR (Pay-vs-Performance) &middot; build.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI economics | inference cost | token pricing | token expenditure index | unit economics | FinOps for AI | AI infrastructure | hyperscaler capex | developer productivity | AI code quality"><div>
       <h3>AI Cost Watch</h3>
       <p>Tracking the unit economics and cost re-pricing of AI: the gap between cheaper tokens and cheaper AI.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20541643" target="_blank" rel="noopener">10.5281/zenodo.20541643</a></span>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI industry | PESTLE | environmental scan | data-centre energy | semiconductors | export controls | AI capex | enterprise AI adoption | energy transition | geopolitics of trade"><div>
       <h3>The AI Industry: a PESTLE scan</h3>
       <p>A structured scan of the political, economic, social, technological, legal and environmental pressures on the AI industry.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20680575" target="_blank" rel="noopener">10.5281/zenodo.20680575</a></span>
     </div></div>
 
     <div class="grp">Consumers &amp; reliance</div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI economics | consumer incidence | AI infrastructure | data centres | electricity prices | ratepayer costs | high-bandwidth memory | data centre tax abatements | data centre water use | unit economics"><div>
       <h3>The Consumer Incidence of the AI Buildout</h3>
       <p>A reproducible ledger of how the AI data-centre build-out reaches a single household (device prices, AI-laden subscriptions, electricity, public subsidy and retirement exposure), with each channel's AI-attributable share bounded, the contested energy row given both sides, and water deliberately held outside this household ledger and given its own dedicated tracker instead. Two archetype households; lead with the low bound.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20941003" target="_blank" rel="noopener">10.5281/zenodo.20941003</a></span>
       <div class="stack">Python stdlib &middot; primary public data (EIA, PJM IMM, BLS, Good Jobs First, Counterpoint) &middot; scripts in the DOI bundle</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI reliance | consumer AI | AI pricing tiers | dependence | bundling | lock-in | price elasticity | reproducible research"><div>
       <h3>Consumer Reliance Architecture</h3>
       <p>How individual AI dependency is built, priced, and made hard to leave: a reproducible profile of the commercial machinery (pricing tiers, caps, metering, portability) across US, EU, Chinese and companion providers, with a revealed-elasticity test of which squeezes actually retain users. The consumer leg of the reliance trilogy.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20807278" target="_blank" rel="noopener">10.5281/zenodo.20807278</a></span>
       <div class="stack">Python stdlib &middot; public pricing pages &middot; Google Trends &middot; scripts in the DOI bundle</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI dependency | reliability | reversibility | vendor lock-in | off-switch | model gating | export controls | government AI adoption | legacy systems | reproducibility | downstream attribution | AI reliance"><div>
       <h3>AI Reliance: how deep, and how reversible</h3>
       <p>A reproducible measure of systematic AI dependency across four layers (reliability, downstream attribution, penetration, reversibility), now carrying a dated off-switch register (the June export-control suspension of two Anthropic models, OpenAI's government-gated GPT-5.6, and the July Hugging Face breach) and a demand-side cohort layer. Built from provider status-page JSON and primary government data.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20763480" target="_blank" rel="noopener">10.5281/zenodo.20763480</a> &middot; <a href="https://zenodo.org/records/21504749" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; provider status-page JSON &middot; OMB / GAO government data &middot; cohort survey CSV &middot; reproduce.py + build.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="agentic commerce | AI shopping agents | prompt injection | deceptive patterns | self-preferencing | consumer protection | principal-agent problem | algorithmic auditing | AI governance | competition policy"><div>
       <h3>Who Does Your Shopping Agent Work For?</h3>
       <p>An analysis of agent-mediated commerce: where the hype stands against what is delivered, why the &ldquo;neutral agent&rdquo; is a false assumption, who controls the resulting chokepoint, and which defences are actually enforceable.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20790896" target="_blank" rel="noopener">10.5281/zenodo.20790896</a></span>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="consumer protection | behavioural economics | dark patterns | drip pricing | shrinkflation | choice overload | surveillance pricing | loss aversion | consumer decision-making | media literacy"><div>
       <h3>Designed, Not Accidental</h3>
       <p>An evidence review of how physical and online retail environments are engineered to increase spending, why individual vigilance is an inadequate defence, and what works in its place.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20788844" target="_blank" rel="noopener">10.5281/zenodo.20788844</a></span>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI literacy | Anthropic Economic Index | O*NET | automation | augmentation | future of work | occupational AI exposure | reproducible research"><div>
       <h3>AI-Literacy Load by Occupation</h3>
       <p>A reproducible map of where AI-fluency becomes part of the job: occupation-level AI-usage penetration crossed with the augment/automate mix, from the open Anthropic Economic Index.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20778968" target="_blank" rel="noopener">10.5281/zenodo.20778968</a></span>
@@ -227,13 +244,13 @@
     </div></div>
 
     <div class="grp">Method &amp; foundations</div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="reproducibility | open-weight models | model provenance | AI audit | algorithmic accountability | uncertainty estimation | token entropy | numeric extraction | silent errors | misattribution | XBRL | SEC filings | table serialisation | model disclosure | cluster bootstrap"><div>
       <h3>The Model Is a Dependency <span class="tag">interactive &uarr;</span></h3>
       <p>Open model weights are advocated on two grounds that get conflated: that they let you say what you ran, and that they let you check whether what you ran was right. This paper separates the two and tests the second on a task where the errors are silent, numeric extraction from real SEC compensation tables scored against each filer&rsquo;s own XBRL tags. Token-level entropy sits at chance exactly where the errors concentrate and has no threshold that carries between models, and a deterministic source-membership check catches none of the 106 misattributions, because a misattributed figure has its digits in the source. The two interventions that do raise accuracy, model capacity and majority voting over presentations, both run against a closed API. Provenance survives, in a weaker form than usually assumed.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.21543579" target="_blank" rel="noopener">10.5281/zenodo.21543579</a> &middot; <a href="https://github.com/NMAIResearch/model-dependency" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; SEC DEF 14A filings &middot; filer XBRL tags &middot; nine pinned open-weight models &middot; reproduce.py</div>
     </div></div>
-    <div class="paper"><div>
+    <div class="paper" data-kw="AI automation | recursive self-improvement | frontier safety frameworks | responsible scaling policy | preparedness framework | claims audit | disclosure quality | reproducibility | AI research and development | motive-neutral analysis"><div>
       <h3>The AI Research-Automation Scorecard</h3>
       <p>A motive-neutral referee for the &ldquo;AI writes most of our code&rdquo; claims. It grades eight vendor and adopter statements on four evidentiary tests: whether a denominator is stated, whether the figure is audited, whether it is reproducible, and whether a second source confirms it. It keeps a separate dated register of the labs' own research-loop red-lines, reported rather than scored.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.21325372" target="_blank" rel="noopener">10.5281/zenodo.21325372</a></span>
@@ -253,5 +270,63 @@
   </footer>
 
 </div>
+
+<script>
+// Client-side search over the page itself. No network call: every entry's title, summary,
+// stack line and DOI are already in this document, and each one's Zenodo keywords were baked
+// into data-kw by enrich_keywords.py. Re-run that script after publishing a new work.
+(function(){
+  const q = document.getElementById("q");
+  const found = document.getElementById("found");
+  const entries = [...document.querySelectorAll(".tool, .paper")].map(el => ({
+    el,
+    kind: el.classList.contains("tool") ? "tool" : "paper",
+    // Keywords are weighted by being present, not by count; this is a filter, not a ranker.
+    hay: (el.textContent + " " + (el.dataset.kw || "")).toLowerCase().replace(/\s+/g, " ")
+  }));
+  const groups = [...document.querySelectorAll(".grp")];
+  const sections = [
+    {h: "h-tools", i: "i-tools", box: document.querySelector(".tools"), kind: "tool"},
+    {h: "h-papers", i: "i-papers", box: document.querySelector(".papers"), kind: "paper"}
+  ];
+  const show = (el, on) => el && el.classList.toggle("hidden", !on);
+
+  function run(){
+    // Every space-separated term must appear somewhere in the entry (AND, not OR).
+    const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let hits = 0;
+    for (const e of entries){
+      const ok = terms.every(t => e.hay.includes(t));
+      show(e.el, ok);
+      if (ok) hits++;
+    }
+    // A group heading survives only if something under it did.
+    for (const g of groups){
+      let live = false;
+      for (let n = g.nextElementSibling; n && !n.classList.contains("grp"); n = n.nextElementSibling)
+        if (n.classList.contains("paper") && !n.classList.contains("hidden")) { live = true; break; }
+      show(g, live);
+    }
+    for (const s of sections){
+      const live = entries.some(e => e.kind === s.kind && !e.el.classList.contains("hidden"));
+      show(document.getElementById(s.h), live);
+      show(document.getElementById(s.i), live);
+      show(s.box, live);
+    }
+    if (!terms.length){ found.innerHTML = ""; return; }
+    found.innerHTML = hits
+      ? `<b>${hits}</b> of ${entries.length} entries match &ldquo;${q.value.trim()}&rdquo;.`
+      : `Nothing matches &ldquo;${q.value.trim()}&rdquo;. Everything here is also on
+         <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo</a>,
+         which searches the full text of each record.`;
+  }
+
+  q.addEventListener("input", run);
+  document.getElementById("clr").addEventListener("click", () => { q.value = ""; run(); q.focus(); });
+  // Deep link: index.html?q=xbrl
+  const pre = new URLSearchParams(location.search).get("q");
+  if (pre){ q.value = pre; run(); }
+})();
+</script>
 </body>
 </html>
