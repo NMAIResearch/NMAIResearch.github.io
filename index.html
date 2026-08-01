@@ -134,7 +134,7 @@
       <h3>What Admits a Document to FineWeb-Edu</h3>
       <p>Three operational details of a published data-quality filter, measured across 84 million documents and reproducible from a seeded sample.</p>
       <a class="open" href="https://nmairesearch.github.io/fineweb-edu-threshold/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">DOI</a></span>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740081" target="_blank" rel="noopener">DOI</a></span>
     </div>
     <div class="feat">
       <div class="big">494</div>
@@ -199,7 +199,7 @@
       <h3>FineWeb-Edu Threshold Explorer</h3>
       <p>The filter behind a widely used training corpus keeps documents scoring 3 or more, and that 3 is a rounded integer. Move the raw cut across the 233 scores the classifier can actually represent, switch the rounding rule to watch 458,461 documents cross the boundary, and check the rounding identity in the page.</p>
       <a class="open" href="https://nmairesearch.github.io/fineweb-edu-threshold/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740081" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
       <div class="stack">Vanilla JS &middot; 84,005,795 scored documents on a 233-point grid &middot; CSV &middot; build_tool.py</div>
     </div>
 
@@ -318,7 +318,7 @@
     <div class="paper" data-kw="fineweb | fineweb-edu | data curation | dataset filtering | quality classifier | training data | web corpora | reproducibility | AI audit | auditability | truncation | context window | bfloat16 | floating point | rounding | threshold | common crawl"><div>
       <h3>What Actually Admits a Document to FineWeb-Edu</h3>
       <p>Three operational details in a published data-quality filter, measured across 84 million documents from 94 Common Crawl snapshots: the documented threshold of 3 is applied to a rounded integer, so the real admission boundary is a raw score above 2.5 and most of the retained corpus was let in by rounding; the classifier reads at most 510 tokens, so it never saw most of what it admitted, a blind spot that widens as web pages lengthen; and it ran in bfloat16, whose grid lands exactly on the tie point, cutting 458,461 documents by rounding parity. None is a defect; the point is how much a one-line threshold hides, and that it is checkable only because the scores are published.</p>
-      <span class="m"><a href="https://nmairesearch.github.io/fineweb-edu-threshold/">interactive tool</a> &middot; <a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">10.5281/zenodo.21740082</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
+      <span class="m"><a href="https://nmairesearch.github.io/fineweb-edu-threshold/">interactive tool</a> &middot; <a href="https://doi.org/10.5281/zenodo.21740081" target="_blank" rel="noopener">10.5281/zenodo.21740081</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
       <div class="stack">Python &middot; FineWeb-Edu-score-2 (94 Common Crawl snapshots) &middot; seeded manifest &middot; analyse_full.py &middot; marginal_test.py</div>
     </div></div>
     <div class="paper" data-kw="reproducibility | open-weight models | model provenance | AI audit | algorithmic accountability | uncertainty estimation | token entropy | numeric extraction | silent errors | misattribution | XBRL | SEC filings | table serialisation | model disclosure | cluster bootstrap"><div>
