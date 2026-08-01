@@ -41,8 +41,8 @@
   .tool h3{color:var(--navy);font-size:16px;margin:0 0 6px}
   .tool p{font-size:13.5px;color:var(--body);margin:0 0 14px;flex:1}
   .tool .open{display:inline-block;font-weight:bold;font-size:14px;margin-bottom:8px}
-  .tool .meta{font-size:12px;color:var(--slate)}
-  .tool .meta a{color:var(--slate);text-decoration:underline}
+  .tool .meta,.feat .meta{font-size:12px;color:var(--slate)}
+  .tool .meta a,.feat .meta a{color:var(--slate);text-decoration:underline}
 
   .papers{margin-top:6px}
   .paper{padding:14px 4px;border-bottom:1px solid var(--line)}
@@ -133,7 +133,8 @@
       <div class="lab">documents cut from FineWeb-Edu by a floating-point rounding tie</div>
       <h3>What Admits a Document to FineWeb-Edu</h3>
       <p>Three operational details of a published data-quality filter, measured across 84 million documents and reproducible from a seeded sample.</p>
-      <a class="open" href="https://doi.org/10.5281/zenodo.21740082">Read the study &rarr;</a>
+      <a class="open" href="https://nmairesearch.github.io/fineweb-edu-threshold/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">DOI</a></span>
     </div>
     <div class="feat">
       <div class="big">494</div>
@@ -172,10 +173,10 @@
 
     <div class="tool" data-kw="AI economics | inference cost | token pricing | token expenditure index | unit economics | FinOps for AI | AI infrastructure | hyperscaler capex | developer productivity | AI code quality">
       <h3>AI Cost Watch</h3>
-      <p>Whether the AI buildout's unit economics are holding. Pick an edition for the month's signal and developments, or track one indicator across the issues. The signal it watches, a hyperscaler capex-guidance down-revision, has not fired in five issues.</p>
+      <p>Whether the AI buildout's unit economics are holding. Pick an edition for the month's signal and developments, or track one indicator across the issues. The signal it watches, a hyperscaler capex-guidance down-revision, has not fired in six issues.</p>
       <a class="open" href="https://nmairesearch.github.io/cost-watch/">Open the tool &rarr;</a>
       <span class="meta">series <a href="https://doi.org/10.5281/zenodo.20541643" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/cost-watch" target="_blank" rel="noopener">code &amp; data</a></span>
-      <div class="stack">Python stdlib · AI Cost Watch series (5 issues) · JSON · build.py</div>
+      <div class="stack">Python stdlib · AI Cost Watch series (6 issues) · JSON · build.py</div>
     </div>
 
     <div class="tool" data-kw="executive compensation | CEO pay | pay versus performance | Compensation Actually Paid | SEC EDGAR | proxy statements | reproducibility | corporate governance | S&amp;P 500 | shareholder return">
@@ -194,15 +195,17 @@
       <div class="stack">Python stdlib &middot; 594 pinned local model calls &middot; filer XBRL ground truth &middot; build.py</div>
     </div>
 
-    <div class="tool">
-      <h3>AI News Board <span class="tag">beta</span></h3>
-      <p>AI news coverage assessed on four axes: the publisher's incentive in the claim, whether quoted figures state the base they are measured against, which items cite which, and a link to a published base rate from the work below where one applies. Figures and citations are taken verbatim from the article text and stored with their position. Each label records the method that produced it.</p>
-      <a class="open" href="https://nmairesearch.github.io/ai-news-board/">Open the board &rarr;</a>
-      <span class="meta">live board (beta) · <a href="https://github.com/NMAIResearch/ai-news-board" target="_blank" rel="noopener">code &amp; data</a></span>
-      <div class="stack">Python stdlib · RSS/Atom + sitemaps · regulators, research institutes, vendor newsrooms · build.py</div>
+    <div class="tool" data-kw="fineweb | fineweb-edu | training data | data curation | dataset filtering | quality classifier | web corpora | threshold | rounding | half to even | bfloat16 | floating point | quantisation | truncation | context window | common crawl | AI audit | reproducibility">
+      <h3>FineWeb-Edu Threshold Explorer</h3>
+      <p>The filter behind a widely used training corpus keeps documents scoring 3 or more, and that 3 is a rounded integer. Move the raw cut across the 233 scores the classifier can actually represent, switch the rounding rule to watch 458,461 documents cross the boundary, and check the rounding identity in the page.</p>
+      <a class="open" href="https://nmairesearch.github.io/fineweb-edu-threshold/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
+      <div class="stack">Vanilla JS &middot; 84,005,795 scored documents on a 233-point grid &middot; CSV &middot; build_tool.py</div>
     </div>
 
+
   </div>
+  <p class="intro" id="i-board" style="margin-top:14px">Also live, in beta and outside the set above because it runs on a moving feed rather than a frozen dataset: the <a href="https://nmairesearch.github.io/ai-news-board/">AI News Board</a>, which assesses AI news coverage by the publisher's incentive in the claim and by whether quoted figures state the base they are measured against (<a href="https://github.com/NMAIResearch/ai-news-board" target="_blank" rel="noopener">code &amp; data</a>).</p>
 
   <h2 id="h-papers">Papers <span class="c">open-access, reproducible, primary-sourced</span></h2>
   <p class="intro" id="i-papers">Working papers on the AI build-out's finances, energy and risk, and on how digital and retail systems are engineered to shape spending and choice. Built from primary public data with reproducible scripts wherever the question is quantitative, and published open-access on Zenodo under CC BY 4.0. The underlying datasets are also on <a href="https://huggingface.co/NMAIResearch" target="_blank" rel="noopener">Hugging Face</a>. <strong>Start here:</strong> the <a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">Water Tracker</a>, the <a href="https://doi.org/10.5281/zenodo.20572928" target="_blank" rel="noopener">Forecast Scorecard</a> and the <a href="https://doi.org/10.5281/zenodo.20941003" target="_blank" rel="noopener">Consumer Incidence</a> ledger, each with runnable code.</p>
@@ -315,7 +318,7 @@
     <div class="paper" data-kw="fineweb | fineweb-edu | data curation | dataset filtering | quality classifier | training data | web corpora | reproducibility | AI audit | auditability | truncation | context window | bfloat16 | floating point | rounding | threshold | common crawl"><div>
       <h3>What Actually Admits a Document to FineWeb-Edu</h3>
       <p>Three operational details in a published data-quality filter, measured across 84 million documents from 94 Common Crawl snapshots: the documented threshold of 3 is applied to a rounded integer, so the real admission boundary is a raw score above 2.5 and most of the retained corpus was let in by rounding; the classifier reads at most 510 tokens, so it never saw most of what it admitted, a blind spot that widens as web pages lengthen; and it ran in bfloat16, whose grid lands exactly on the tie point, cutting 458,461 documents by rounding parity. None is a defect; the point is how much a one-line threshold hides, and that it is checkable only because the scores are published.</p>
-      <span class="m"><a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">10.5281/zenodo.21740082</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
+      <span class="m"><a href="https://nmairesearch.github.io/fineweb-edu-threshold/">interactive tool</a> &middot; <a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">10.5281/zenodo.21740082</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
       <div class="stack">Python &middot; FineWeb-Edu-score-2 (94 Common Crawl snapshots) &middot; seeded manifest &middot; analyse_full.py &middot; marginal_test.py</div>
     </div></div>
     <div class="paper" data-kw="reproducibility | open-weight models | model provenance | AI audit | algorithmic accountability | uncertainty estimation | token entropy | numeric extraction | silent errors | misattribution | XBRL | SEC filings | table serialisation | model disclosure | cluster bootstrap"><div>
@@ -361,7 +364,7 @@
   }));
   const groups = [...document.querySelectorAll(".grp")];
   const sections = [
-    {h: "h-tools", i: "i-tools", box: document.querySelector(".tools"), kind: "tool"},
+    {h: "h-tools", i: "i-tools", note: "i-board", box: document.querySelector(".tools"), kind: "tool"},
     {h: "h-papers", i: "i-papers", box: document.querySelector(".papers"), kind: "paper"}
   ];
   const show = (el, on) => el && el.classList.toggle("hidden", !on);
@@ -386,6 +389,7 @@
       const live = entries.some(e => e.kind === s.kind && !e.el.classList.contains("hidden"));
       show(document.getElementById(s.h), live);
       show(document.getElementById(s.i), live);
+      show(document.getElementById(s.note), live);   // the board note rides with its section
       show(s.box, live);
     }
     if (!terms.length){ found.innerHTML = ""; return; }
