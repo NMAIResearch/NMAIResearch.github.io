@@ -70,6 +70,29 @@
   .found{font-size:12.5px;color:var(--slate);margin:8px 0 0;min-height:18px}
   .found b{color:var(--navy)}
   .hidden{display:none !important}
+
+  /* --- 2026 refresh: positioning, stat tiles, featured, methods --- */
+  .positioning{font-size:15px;font-weight:600;color:var(--navy);margin:12px 0 2px;max-width:760px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 4px}
+  .stat{border:1px solid var(--line);border-radius:8px;padding:12px 15px;background:#fff}
+  .stat b{display:block;color:var(--navy);font-size:18px;line-height:1.15}
+  .stat span{font-size:12.5px;color:var(--slate)}
+  .cvchip{display:inline-block;font-size:13px;color:var(--slate);border:1px dashed #cbd5e0;
+    border-radius:7px;padding:3px 10px;margin-right:16px}
+  .methods{font-size:12.5px;color:var(--slate);margin:12px 0 0;max-width:840px}
+  .methods b{color:var(--navy);text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-right:4px}
+  .methods code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;
+    background:var(--alt);border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--body)}
+  .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:4px 0 6px}
+  .feat{border:1px solid var(--line);border-radius:8px;padding:15px 17px;
+    background:#fff;display:flex;flex-direction:column}
+  .feat .big{color:var(--navy);font-size:19px;font-weight:bold;line-height:1.1}
+  .feat .lab{font-size:12px;color:var(--slate);margin:3px 0 12px;min-height:30px}
+  .feat h3{color:var(--navy);font-size:15px;margin:0 0 6px}
+  .feat p{font-size:13px;color:var(--body);margin:0 0 12px;flex:1}
+  .feat a.open{font-weight:bold;font-size:13.5px}
+  .lede,.intro,.paper p{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+  .grp{text-transform:uppercase;letter-spacing:.06em;font-size:12px}
 </style>
 </head>
 <body>
@@ -77,15 +100,49 @@
 
   <header>
     <h1>NM AI Research</h1>
+    <p class="positioning">Independent AI-and-finance analyst: reproducible model audit, AI assurance and governance.</p>
     <p class="lede">Independent analyst on the technology, energy and AI build-out: how it is financed and operated, and how its products shape what people spend and choose. Contested figures are rebuilt from primary public data and scored against what actually happens, with a reproducible method and runnable code behind every quantitative claim.</p>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>open-access studies</span></div>
+      <div class="stat"><b>22</b><span>Zenodo DOIs, CC BY 4.0</span></div>
+      <div class="stat"><b>6</b><span>interactive tools</span></div>
+      <div class="stat"><b>Reproducible</b><span>claims, with code and data</span></div>
+    </div>
     <p class="links">
+      <span class="cvchip" title="CV is being updated">CV / one-pager (updating)</span>
       <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">ORCID 0009-0003-4213-7769</a>
       <a href="https://github.com/NMAIResearch" target="_blank" rel="noopener">GitHub</a>
       <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo</a>
       <a href="https://huggingface.co/NMAIResearch" target="_blank" rel="noopener">Hugging Face</a>
       <a href="mailto:NMAIResearch@proton.me">Email</a>
     </p>
+    <p class="methods"><b>Methods and tools</b> SEC EDGAR / XBRL &middot; PJM and FERC queue data &middot; model evaluation &middot; motive-tiering &middot; <code>Python</code> stdlib, reproducible <code>build.py</code> pipelines</p>
   </header>
+
+  <h2 id="h-featured" style="margin-top:26px">Start here <span class="c">three that show the method</span></h2>
+  <div class="featured">
+    <div class="feat">
+      <div class="big">0%</div>
+      <div class="lab">of silent extraction errors caught by the free uncertainty signal</div>
+      <h3>The Model Is a Dependency</h3>
+      <p>Do open weights let you audit a model, or only say what you ran? Tested on numeric extraction from real SEC filings against each filer's own XBRL tags.</p>
+      <a class="open" href="https://nmairesearch.github.io/model-dependency/">Open the tool &rarr;</a>
+    </div>
+    <div class="feat">
+      <div class="big">458,461</div>
+      <div class="lab">documents cut from FineWeb-Edu by a floating-point rounding tie</div>
+      <h3>What Admits a Document to FineWeb-Edu</h3>
+      <p>Three operational details of a published data-quality filter, measured across 84 million documents and reproducible from a seeded sample.</p>
+      <a class="open" href="https://doi.org/10.5281/zenodo.21740082">Read the study &rarr;</a>
+    </div>
+    <div class="feat">
+      <div class="big">494</div>
+      <div class="lab">S&amp;P 500 companies: what the CEO took against what they delivered</div>
+      <h3>CEO Pay-vs-Delivery Scorecard</h3>
+      <p>Toggle granted against realized pay and watch the league table reorder, beside the board's own payout-vs-target.</p>
+      <a class="open" href="https://nmairesearch.github.io/ceo-pay-scorecard/">Open the tool &rarr;</a>
+    </div>
+  </div>
 
   <div class="find">
     <input id="q" type="search" placeholder="Search the work: XBRL, PJM queue, water, executive pay, export controls&hellip;" autocomplete="off" aria-label="Search papers and tools">
@@ -255,6 +312,12 @@
     </div></div>
 
     <div class="grp">Method &amp; foundations</div>
+    <div class="paper" data-kw="fineweb | fineweb-edu | data curation | dataset filtering | quality classifier | training data | web corpora | reproducibility | AI audit | auditability | truncation | context window | bfloat16 | floating point | rounding | threshold | common crawl"><div>
+      <h3>What Actually Admits a Document to FineWeb-Edu</h3>
+      <p>Three operational details in a published data-quality filter, measured across 84 million documents from 94 Common Crawl snapshots: the documented threshold of 3 is applied to a rounded integer, so the real admission boundary is a raw score above 2.5 and most of the retained corpus was let in by rounding; the classifier reads at most 510 tokens, so it never saw most of what it admitted, a blind spot that widens as web pages lengthen; and it ran in bfloat16, whose grid lands exactly on the tie point, cutting 458,461 documents by rounding parity. None is a defect; the point is how much a one-line threshold hides, and that it is checkable only because the scores are published.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.21740082" target="_blank" rel="noopener">10.5281/zenodo.21740082</a> &middot; <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">code &amp; data</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
+      <div class="stack">Python &middot; FineWeb-Edu-score-2 (94 Common Crawl snapshots) &middot; seeded manifest &middot; analyse_full.py &middot; marginal_test.py</div>
+    </div></div>
     <div class="paper" data-kw="reproducibility | open-weight models | model provenance | AI audit | algorithmic accountability | uncertainty estimation | token entropy | numeric extraction | silent errors | misattribution | XBRL | SEC filings | table serialisation | model disclosure | cluster bootstrap"><div>
       <h3>The Model Is a Dependency <span class="tag">interactive &uarr;</span></h3>
       <p>Open model weights are advocated on two grounds that get conflated: that they let you say what you ran, and that they let you check whether what you ran was right. This paper separates the two and tests the second on a task where the errors are silent, numeric extraction from real SEC compensation tables scored against each filer&rsquo;s own XBRL tags. Token-level entropy sits at chance exactly where the errors concentrate and has no threshold that carries between models, and a deterministic source-membership check catches none of the 106 misattributions, because a misattributed figure has its digits in the source. The two interventions that do raise accuracy, model capacity and majority voting over presentations, both run against a closed API. Provenance survives, in a weaker form than usually assumed.</p>
