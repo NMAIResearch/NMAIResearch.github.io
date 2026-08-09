@@ -4,10 +4,10 @@ The portfolio landing page for NM AI Research - independent research on the fina
 
 **Live:** https://nmairesearch.github.io/
 
-One front door linking the interactive tools and the open-access papers (all on Zenodo, CC BY 4.0, ORCID [0009-0003-4213-7769](https://orcid.org/0009-0003-4213-7769)).
+One front door linking the interactive tools and open-access studies on Zenodo, with file-level licence notices and ORCID [0009-0003-4213-7769](https://orcid.org/0009-0003-4213-7769).
 
-- **Interactive tools:** CEO Pay-vs-Delivery · AI Energy-Demand Forecast Scorecard · Contingent vs Robust AI Power Demand
-- **Papers:** nine working papers (2026), each reproducible from primary public data.
+- **Interactive tools:** self-contained front-ends over frozen or versioned research datasets.
+- **Studies:** reproducible working papers and analytical notes built from public data.
 
 A single self-contained `index.html` (no dependencies, no build step). Edit it directly to add a new tool or paper.
 
