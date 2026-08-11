@@ -107,7 +107,7 @@
     <div class="stats">
       <div class="stat"><b>20</b><span>open-access studies</span></div>
       <div class="stat"><b>22</b><span>Zenodo DOIs, CC BY 4.0</span></div>
-      <div class="stat"><b>7</b><span>interactive tools</span></div>
+      <div class="stat"><b>8</b><span>interactive tools</span></div>
       <div class="stat"><b>Reproducible</b><span>claims, with code and data</span></div>
     </div>
     <p class="links">
@@ -157,12 +157,12 @@
   <p class="intro" id="i-tools">Self-contained, dependency-free front-ends over the frozen, citable datasets. Change an input and watch the figure move. Each is reproducible; the ones built on a frozen dataset are archived with their own DOI.</p>
   <div class="tools">
 
-    <div class="tool" data-kw="AI electricity demand | data centre energy | forecast evaluation | energy forecasting | transparency | reproducibility | AI infrastructure | unit economics">
-      <h3>AI Energy-Demand Forecast Scorecard</h3>
-      <p>How the field forecasts data-centre electricity demand. Measure dispersion only within comparable slices (units and scopes are not interchangeable), and trace the transparency funnel: verified &rarr; confirmable &rarr; reproducible.</p>
-      <a class="open" href="https://nmairesearch.github.io/forecast-scorecard/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20572928" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738144" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/forecast-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
-      <div class="stack">Python stdlib · primary forecast documents · CSV · build.py</div>
+    <div class="tool" data-kw="EU AI Act | Article 50 | AI transparency | AI disclosure | watermarking | content provenance | C2PA | SynthID | chatbot disclosure | machine-readable marking | Code of Practice | AI governance | AI assurance | consumer AI | regulatory compliance">
+      <h3>Article 50 Transparency Explorer</h3>
+      <p>What twelve consumer AI products publicly evidenced against the EU AI Act's Article 50 transparency clauses, four days after the duty applied. Click any cell to read the artefact, access date and capture state behind it, and toggle the one interpretive rule to watch which cells move. Not a compliance assessment.</p>
+      <a class="open" href="https://nmairesearch.github.io/article50-explorer/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21819102" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/NMAIResearch/article50-scoreboard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Vanilla JS &middot; 12 products &times; 10 items, frozen CSV &middot; build_tool.py</div>
     </div>
 
     <div class="tool" data-kw="ai data centres | electricity demand | interconnection queue | pjm | energy forecasting | deflation analysis | reproducible research | contingent demand | FERC order 2023">
@@ -173,12 +173,28 @@
       <div class="stack">Python stdlib · PJM interconnection queue · CSV · build.py</div>
     </div>
 
+    <div class="tool" data-kw="AI data centres | water consumption | potable water | reclaimed water | surface water | groundwater | Water Consumption Impact | hydropower coupling | water footprint | sustainability | reproducibility">
+      <h3>AI Data-Centre Water Evidence Explorer</h3>
+      <p>Which water figures are measured, which are planning assumptions, and what kind of water is involved. Switch reporting years and metrics, inspect every site's evidence status, and keep unknown water sources visible rather than inferred.</p>
+      <a class="open" href="https://nmairesearch.github.io/ai-water-tracker/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/NMAIResearch/ai-water-tracker" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib &middot; 10-site frozen seed &middot; CSV &middot; build_tool.py</div>
+    </div>
+
     <div class="tool" data-kw="AI economics | inference cost | token pricing | token expenditure index | unit economics | FinOps for AI | AI infrastructure | hyperscaler capex | developer productivity | AI code quality">
       <h3>AI Cost Watch</h3>
       <p>Whether the AI buildout's unit economics are holding. Pick an edition for the month's signal and developments, or track one indicator across the issues. The signal it watches, a hyperscaler capex-guidance down-revision, has not fired in six issues.</p>
       <a class="open" href="https://nmairesearch.github.io/cost-watch/">Open the tool &rarr;</a>
       <span class="meta">series <a href="https://doi.org/10.5281/zenodo.20541643" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/cost-watch" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib · AI Cost Watch series (6 issues) · JSON · build.py</div>
+    </div>
+
+    <div class="tool" data-kw="AI electricity demand | data centre energy | forecast evaluation | energy forecasting | transparency | reproducibility | AI infrastructure | unit economics">
+      <h3>AI Energy-Demand Forecast Scorecard</h3>
+      <p>How the field forecasts data-centre electricity demand. Measure dispersion only within comparable slices (units and scopes are not interchangeable), and trace the transparency funnel: verified &rarr; confirmable &rarr; reproducible.</p>
+      <a class="open" href="https://nmairesearch.github.io/forecast-scorecard/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20572928" target="_blank" rel="noopener">DOI</a> · tool <a href="https://doi.org/10.5281/zenodo.20738144" target="_blank" rel="noopener">DOI</a> · <a href="https://github.com/NMAIResearch/forecast-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib · primary forecast documents · CSV · build.py</div>
     </div>
 
     <div class="tool" data-kw="executive compensation | CEO pay | pay versus performance | Compensation Actually Paid | SEC EDGAR | proxy statements | reproducibility | corporate governance | S&amp;P 500 | shareholder return">
@@ -205,14 +221,6 @@
       <div class="stack">Vanilla JS &middot; 84,005,795 scored documents on a 233-point grid &middot; CSV &middot; build_tool.py</div>
     </div>
 
-    <div class="tool" data-kw="EU AI Act | Article 50 | AI transparency | AI disclosure | watermarking | content provenance | C2PA | SynthID | chatbot disclosure | machine-readable marking | Code of Practice | AI governance | AI assurance | consumer AI | regulatory compliance">
-      <h3>Article 50 Transparency Explorer</h3>
-      <p>What twelve consumer AI products publicly evidenced against the EU AI Act's Article 50 transparency clauses, four days after the duty applied. Click any cell to read the artefact, access date and capture state behind it, and toggle the one interpretive rule to watch which cells move. Not a compliance assessment.</p>
-      <a class="open" href="https://nmairesearch.github.io/article50-explorer/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21819102" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/NMAIResearch/article50-scoreboard" target="_blank" rel="noopener">code &amp; data</a></span>
-      <div class="stack">Vanilla JS &middot; 12 products &times; 10 items, frozen CSV &middot; build_tool.py</div>
-    </div>
-
   </div>
   <p class="intro" id="i-board" style="margin-top:14px">Also live, in beta and outside the set above because it runs on a moving feed rather than a frozen dataset: the <a href="https://nmairesearch.github.io/ai-news-board/">AI News Board</a>, which assesses AI news coverage by the publisher's incentive in the claim and by whether quoted figures state the base they are measured against (<a href="https://github.com/NMAIResearch/ai-news-board" target="_blank" rel="noopener">code &amp; data</a>).</p>
 
@@ -222,9 +230,9 @@
 
     <div class="grp">Energy &amp; infrastructure</div>
     <div class="paper" data-kw="AI data centres | water consumption | Water Consumption Impact index | hydropower coupling | closed-loop cooling | reproducibility | electricity-water intensity factor | water footprint | Colorado River | sustainability"><div>
-      <h3>AI Data-Centre Water Tracker</h3>
+      <h3>AI Data-Centre Water Tracker <span class="tag">interactive &uarr;</span></h3>
       <p>An open, reproducible referee for data-centre water burden. It rebuilds the Water Consumption Impact index for ten sites from public data and self-checks each value against the source, then adds the two channels that framework leaves open: the hydropower coupling, and the off-site relocation of water that closed-loop cooling produces, which moves the great majority of the footprint to the grid rather than removing it (roughly 92 to 95 per cent on the modelled inputs; the direction holds across every plausible variation of them, the precise band does not). Three of the ten seed sites, across three different operators, turn out to be non-operational planning figures presented as measured. Re-basing the index on the operators' FY2025 reports, holding capacity and peaking constant, moves five of the six primary-verified sites up by 15.6 to 33.3 per cent in a single reporting year. Figures are bands and decompositions, and every row is graded by the standing of its source.</p>
-      <span class="m"><a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">10.5281/zenodo.21318960</a> &middot; <a href="https://github.com/NMAIResearch/ai-water-tracker" target="_blank" rel="noopener">code &amp; data</a></span>
+      <span class="m"><a href="https://nmairesearch.github.io/ai-water-tracker/">interactive tool</a> &middot; <a href="https://doi.org/10.5281/zenodo.21318960" target="_blank" rel="noopener">10.5281/zenodo.21318960</a> &middot; <a href="https://github.com/NMAIResearch/ai-water-tracker" target="_blank" rel="noopener">code &amp; data</a></span>
       <div class="stack">Python stdlib &middot; operator environmental reports &middot; USGS / USBR reservoir data &middot; reproduce.py</div>
     </div></div>
     <div class="paper" data-kw="AI electricity demand | data centre energy | forecast evaluation | energy forecasting | transparency | reproducibility | AI infrastructure | unit economics"><div>
