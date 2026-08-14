@@ -3,122 +3,172 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NM AI Research: independent research on technology, energy & AI</title>
-<meta name="description" content="Independent research on how the AI build-out is financed, powered and regulated. Open-access papers and interactive tools, each archived with a DOI.">
+<title>NM AI Research: independent research on technology, energy &amp; AI</title>
+<meta name="description" content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access papers and interactive tools, each archived with a DOI.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NM AI Research: independent research on technology, energy &amp; AI">
-<meta property="og:description" content="Independent research on how the AI build-out is financed, powered and regulated. Open-access papers and interactive tools, each archived with a DOI.">
+<meta property="og:description" content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access papers and interactive tools, each archived with a DOI.">
 <meta property="og:url" content="https://nmairesearch.github.io/">
 <meta property="og:image" content="https://nmairesearch.github.io/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NM AI Research">
-<meta name="twitter:description" content="Independent research on how the AI build-out is financed, powered and regulated. Open-access papers and interactive tools, each archived with a DOI.">
+<meta name="twitter:description" content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access papers and interactive tools, each archived with a DOI.">
 <style>
-  :root{
-    --navy:#1a365d; --slate:#4a5568; --body:#2d3748; --alt:#f7fafc;
-    --line:#e2e8f0; --accent:#2b6cb0; --good:#276749; --goodbg:#f0fff4;
+  :root {
+    --navy: #1a365d;
+    --navy-dark: #0f2444;
+    --slate: #4a5568;
+    --slate-light: #718096;
+    --body: #2d3748;
+    --alt: #f7fafc;
+    --line: #e2e8f0;
+    --accent: #2b6cb0;
+    --accent-hover: #1a4971;
+    --good: #276749;
+    --goodbg: #f0fff4;
   }
-  *{box-sizing:border-box}
-  body{font-family:Arial,Helvetica,sans-serif;color:var(--body);margin:0;
-    background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1000px;margin:0 auto;padding:40px 22px 64px}
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--body);
+    margin: 0;
+    background: #fff;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; color: var(--accent-hover); }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 40px 22px 64px; }
 
-  header{border-bottom:2px solid var(--navy);padding-bottom:22px;margin-bottom:8px}
-  h1{color:var(--navy);font-size:30px;margin:0 0 8px}
-  .lede{font-size:16px;color:var(--body);margin:0 0 14px;max-width:760px}
-  .links{font-size:13.5px;color:var(--slate)}
-  .links a{margin-right:16px}
+  header { border-bottom: 2px solid var(--navy); padding-bottom: 22px; margin-bottom: 8px; }
+  .header-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+  h1 { color: var(--navy); font-size: 30px; font-weight: 700; margin: 0 0 8px; }
+  .positioning { font-size: 15.5px; font-weight: 600; color: var(--navy); margin: 0 0 6px; }
+  .lede { font-size: 15px; color: var(--body); margin: 0 0 16px; max-width: 820px; line-height: 1.55; }
 
-  h2{color:var(--navy);font-size:19px;margin:38px 0 4px;display:flex;align-items:baseline;gap:10px}
-  h2 .c{font-size:12.5px;color:var(--slate);font-weight:normal}
-  .intro{color:var(--slate);font-size:14px;margin:4px 0 16px;max-width:780px}
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 16px 0 16px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px 15px; background: #fff; }
+  .stat b { display: block; color: var(--navy); font-size: 20px; font-weight: 700; line-height: 1.15; margin-bottom: 2px; }
+  .stat span { font-size: 12.5px; color: var(--slate); }
 
-  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:13px}
-  .tool{border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:8px;
-    padding:13px 15px;background:#fff;display:flex;flex-direction:column}
-  .tool h3{color:var(--navy);font-size:14.5px;margin:0 0 5px;line-height:1.25}
-  .tool p{font-size:12.5px;color:var(--body);margin:0 0 10px;flex:1;line-height:1.45}
-  .tool .open{display:inline-block;font-weight:bold;font-size:14px;margin-bottom:8px}
-  .tool .meta,.feat .meta{font-size:11.5px;color:var(--slate)}
-  .tool .open{font-size:13px}
-  .tool .stack{font-size:10.5px}
-  .tool .meta a,.feat .meta a{color:var(--slate);text-decoration:underline}
+  .links { font-size: 13.5px; color: var(--slate); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 10px; }
+  .links a { font-weight: 500; }
+  .cvchip {
+    display: inline-block; font-size: 12.5px; font-weight: 600; color: var(--navy);
+    background: var(--alt); border: 1px solid var(--line);
+    border-radius: 6px; padding: 2px 10px;
+  }
+  .methods { font-size: 12.5px; color: var(--slate); margin: 12px 0 0; max-width: 860px; line-height: 1.5; }
+  .methods b { color: var(--navy); text-transform: uppercase; letter-spacing: .06em; font-size: 11px; margin-right: 4px; }
+  .methods code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11.5px;
+    background: var(--alt); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; color: var(--body);
+  }
 
-  .papers{margin-top:6px}
-  .paper{padding:14px 4px;border-bottom:1px solid var(--line)}
-  .grp{color:var(--navy);font-size:14px;font-weight:bold;margin:26px 0 4px;padding-top:12px;border-top:2px solid var(--navy)}
-  .grp:first-of-type{margin-top:10px}
-  .paper h3{font-size:15px;margin:0 0 4px;color:var(--navy);font-weight:bold;line-height:1.35}
-  .paper p{font-size:13.5px;color:var(--body);margin:0 0 6px}
-  .paper .m{font-size:12px;color:var(--slate)}
-  .tag{display:inline-block;font-size:11px;font-weight:bold;color:var(--good);
-    background:var(--goodbg);border-radius:4px;padding:1px 7px;margin-left:8px;vertical-align:middle}
-  .stack{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;
-    color:var(--slate);margin-top:6px;letter-spacing:.1px}
-  .tool .stack{margin-top:8px}
+  h2 { color: var(--navy); font-size: 19px; font-weight: 700; margin: 38px 0 4px; display: flex; align-items: baseline; gap: 10px; }
+  h2 .c { font-size: 12.5px; color: var(--slate); font-weight: normal; }
+  .intro { color: var(--slate); font-size: 14px; margin: 4px 0 16px; max-width: 820px; }
 
-  footer{margin-top:42px;border-top:1px solid var(--line);padding-top:16px;
-    font-size:12.5px;color:var(--slate)}
+  .featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 4px 0 16px; }
+  .feat { border: 1px solid var(--line); border-radius: 8px; padding: 15px 17px; background: #fff; display: flex; flex-direction: column; }
+  .feat .big { color: var(--navy); font-size: 20px; font-weight: bold; line-height: 1.1; }
+  .feat .lab { font-size: 12px; color: var(--slate); margin: 3px 0 12px; min-height: 30px; }
+  .feat h3 { color: var(--navy); font-size: 15px; font-weight: 700; margin: 0 0 6px; }
+  .feat p { font-size: 13px; color: var(--body); margin: 0 0 12px; flex: 1; line-height: 1.45; }
+  .feat a.open { font-weight: bold; font-size: 13.5px; }
+  .feat .meta { font-size: 11.5px; color: var(--slate); margin-top: 4px; }
 
-  .find{display:flex;gap:10px;align-items:center;margin:18px 0 0;flex-wrap:wrap}
-  .find input{flex:1;min-width:220px;font:inherit;font-size:14px;padding:9px 12px;
-    border:1px solid var(--line);border-radius:7px;color:var(--body);background:#fff}
-  .find input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
-  .find button{font:inherit;font-size:13px;padding:8px 13px;border:1px solid var(--line);
-    border-radius:7px;background:#fff;color:var(--slate);cursor:pointer}
-  .find button:hover{border-color:var(--accent);color:var(--accent)}
-  .found{font-size:12.5px;color:var(--slate);margin:8px 0 0;min-height:18px}
-  .found b{color:var(--navy)}
-  .hidden{display:none !important}
+  /* Category Filter Pills & Search */
+  .control-panel { margin: 24px 0 8px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .pill {
+    font-family: inherit; font-size: 12px; font-weight: 600; padding: 5px 11px;
+    border-radius: 6px; border: 1px solid var(--line); background: var(--alt);
+    color: var(--slate); cursor: pointer; transition: all 0.1s ease;
+  }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.active { background: var(--navy); border-color: var(--navy); color: #fff; }
 
-  /* --- 2026 refresh: positioning, stat tiles, featured, methods --- */
-  .positioning{font-size:15px;font-weight:600;color:var(--navy);margin:12px 0 2px;max-width:760px}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 4px}
-  .stat{border:1px solid var(--line);border-radius:8px;padding:12px 15px;background:#fff}
-  .stat b{display:block;color:var(--navy);font-size:18px;line-height:1.15}
-  .stat span{font-size:12.5px;color:var(--slate)}
-  .cvchip{display:inline-block;font-size:13px;color:var(--slate);border:1px dashed #cbd5e0;
-    border-radius:7px;padding:3px 10px;margin-right:16px}
-  .methods{font-size:12.5px;color:var(--slate);margin:12px 0 0;max-width:840px}
-  .methods b{color:var(--navy);text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-right:4px}
-  .methods code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;
-    background:var(--alt);border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--body)}
-  .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:4px 0 6px}
-  .feat{border:1px solid var(--line);border-radius:8px;padding:15px 17px;
-    background:#fff;display:flex;flex-direction:column}
-  .feat .big{color:var(--navy);font-size:19px;font-weight:bold;line-height:1.1}
-  .feat .lab{font-size:12px;color:var(--slate);margin:3px 0 12px;min-height:30px}
-  .feat h3{color:var(--navy);font-size:15px;margin:0 0 6px}
-  .feat p{font-size:13px;color:var(--body);margin:0 0 12px;flex:1}
-  .feat a.open{font-weight:bold;font-size:13.5px}
-  .lede,.intro,.paper p{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
-  .grp{text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+  .find { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .find input {
+    flex: 1; min-width: 220px; font: inherit; font-size: 14px; padding: 9px 12px;
+    border: 1px solid var(--line); border-radius: 7px; color: var(--body); background: #fff;
+  }
+  .find input:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
+  .find button {
+    font: inherit; font-size: 13px; padding: 8px 14px; border: 1px solid var(--line);
+    border-radius: 7px; background: #fff; color: var(--slate); cursor: pointer;
+  }
+  .find button:hover { border-color: var(--accent); color: var(--accent); }
+  .found { font-size: 12.5px; color: var(--slate); margin: 8px 0 0; min-height: 18px; }
+  .found b { color: var(--navy); }
+
+  .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(214px, 1fr)); gap: 13px; }
+  .tool {
+    border: 1px solid var(--line); border-left: 3px solid var(--navy); border-radius: 8px;
+    padding: 13px 15px; background: #fff; display: flex; flex-direction: column;
+  }
+  .tool h3 { color: var(--navy); font-size: 14.5px; font-weight: 700; margin: 0 0 5px; line-height: 1.25; }
+  .tool p { font-size: 12.5px; color: var(--body); margin: 0 0 10px; flex: 1; line-height: 1.45; }
+  .tool .open { display: inline-block; font-weight: bold; font-size: 13px; margin-bottom: 8px; }
+  .tool .meta { font-size: 11.5px; color: var(--slate); margin-bottom: 4px; }
+  .tool .meta a { color: var(--slate); text-decoration: underline; }
+  .tool .meta a:hover { color: var(--accent); }
+
+  .papers { margin-top: 6px; }
+  .grp {
+    color: var(--navy); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: .06em;
+    margin: 26px 0 4px; padding-top: 12px; border-top: 2px solid var(--navy);
+  }
+  .grp:first-of-type { margin-top: 10px; }
+  .paper { padding: 14px 4px; border-bottom: 1px solid var(--line); }
+  .paper h3 { font-size: 15px; margin: 0 0 4px; color: var(--navy); font-weight: bold; line-height: 1.35; }
+  .paper p { font-size: 13.5px; color: var(--body); margin: 0 0 6px; line-height: 1.5; }
+  .paper .m { font-size: 12px; color: var(--slate); }
+  .paper .m a { color: var(--slate); text-decoration: underline; }
+  .paper .m a:hover { color: var(--accent); }
+
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: bold; color: var(--good);
+    background: var(--goodbg); border-radius: 4px; padding: 1px 7px; margin-left: 8px; vertical-align: middle;
+  }
+  .stack {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px;
+    color: var(--slate); margin-top: 6px; letter-spacing: .1px;
+  }
+  .tool .stack { margin-top: 8px; }
+
+  footer { margin-top: 42px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 12.5px; color: var(--slate); }
+  .hidden { display: none !important; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <h1>NM AI Research</h1>
-    <p class="positioning">Independent researcher on AI governance and the economics of the AI build-out.</p>
-    <p class="lede">Papers and interactive tools on how the AI build-out is financed, powered and regulated. Each study is built from the primary record and archived with a DOI.</p>
+    <div class="header-top">
+      <h1>NM AI Research</h1>
+      <span class="cvchip">10+ Yrs QA &amp; Operations · BA (2024)</span>
+    </div>
+    <p class="positioning">Independent researcher and analyst working on AI assurance, model evaluation, and the operational systems behind AI deployment.</p>
+    <p class="lede">Empirical papers and interactive tools on AI governance, model confidence, and the infrastructure economics of compute. Each study is built from the primary record, backed by runnable Python verification scripts, and archived with a permanent DOI on Zenodo under CC BY 4.0.</p>
+    
     <div class="stats">
       <div class="stat"><b>20</b><span>open-access studies</span></div>
       <div class="stat"><b>22</b><span>Zenodo DOIs, CC BY 4.0</span></div>
       <div class="stat"><b>8</b><span>interactive tools</span></div>
       <div class="stat"><b>Reproducible</b><span>claims, with code and data</span></div>
     </div>
+    
     <p class="links">
-      <span class="cvchip" title="CV is being updated">CV / one-pager (updating)</span>
       <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">ORCID 0009-0003-4213-7769</a>
-      <a href="https://github.com/NMAIResearch" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo</a>
+      <a href="https://github.com/NMAIResearch" target="_blank" rel="noopener">GitHub Profile</a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo Archive</a>
       <a href="https://huggingface.co/NMAIResearch" target="_blank" rel="noopener">Hugging Face</a>
+      <a href="https://nmairesearch.github.io/Noel_Milton_CV_Short.pdf" target="_blank" rel="noopener">CV / One-Pager (PDF)</a>
       <a href="mailto:NMAIResearch@proton.me">Email</a>
     </p>
-    <p class="methods"><b>Methods and tools</b> SEC EDGAR / XBRL &middot; PJM and FERC queue data &middot; model evaluation &middot; motive-tiering &middot; <code>Python</code> stdlib, reproducible <code>build.py</code> pipelines</p>
+    <p class="methods"><b>Methods and tools:</b> SEC EDGAR / XBRL &middot; PJM and FERC queue data &middot; model evaluation &middot; motive-tiering &middot; <code>Python</code> stdlib, reproducible <code>build.py</code> pipelines &middot; zero-dependency web tools</p>
   </header>
 
   <h2 id="h-featured" style="margin-top:26px">Selected results <span class="c">three that show the method</span></h2>
@@ -127,31 +177,43 @@
       <div class="big">0%</div>
       <div class="lab">of silent extraction errors caught by the free uncertainty signal</div>
       <h3>The Model Is a Dependency</h3>
-      <p>Do open weights let you audit a model, or only say what you ran? Tested on numeric extraction from real SEC filings against each filer's own XBRL tags.</p>
+      <p>Do open weights let you audit a model, or only say what you ran? Tested on numeric extraction from real SEC filings against each filer's own XBRL tags across 594 pinned local model runs.</p>
       <a class="open" href="https://nmairesearch.github.io/model-dependency/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21543579" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21543579</a> &middot; <a href="https://github.com/NMAIResearch/model-dependency" target="_blank" rel="noopener">code &amp; data</a></span>
     </div>
     <div class="feat">
       <div class="big">458,461</div>
       <div class="lab">documents cut from FineWeb-Edu by a floating-point rounding tie</div>
       <h3>What Admits a Document to FineWeb-Edu</h3>
-      <p>Three operational details of a published data-quality filter, measured across 84 million documents and reproducible from a seeded sample.</p>
+      <p>Three operational details of a published data-quality filter, measured across 84 million documents and reproducible from a seeded sample: integer rounding boundaries, 510-token context blind spots, and bfloat16 tie cuts.</p>
       <a class="open" href="https://nmairesearch.github.io/fineweb-edu-threshold/">Open the tool &rarr;</a>
-      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740081" target="_blank" rel="noopener">DOI</a></span>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.21740081" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21740081</a> &middot; <a href="https://huggingface.co/datasets/NMAIResearch/fineweb-edu-threshold" target="_blank" rel="noopener">dataset</a></span>
     </div>
     <div class="feat">
       <div class="big">495</div>
       <div class="lab">S&amp;P 500 issuers: what the CEO took against what they delivered</div>
       <h3>CEO Pay-vs-Delivery Scorecard</h3>
-      <p>Granted and realised pay rank separately, beside the board's own payout against target.</p>
+      <p>Granted and realised pay rank separately, beside the board's own payout against target from SEC EDGAR filings.</p>
       <a class="open" href="https://nmairesearch.github.io/ceo-pay-scorecard/">Open the tool &rarr;</a>
+      <span class="meta">paper <a href="https://doi.org/10.5281/zenodo.20680108" target="_blank" rel="noopener">DOI: 10.5281/zenodo.20680108</a> &middot; <a href="https://github.com/NMAIResearch/ceo-pay-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
     </div>
   </div>
 
-  <div class="find">
-    <input id="q" type="search" placeholder="Search the work: XBRL, PJM queue, water, executive pay, export controls&hellip;" autocomplete="off" aria-label="Search papers and tools">
-    <button id="clr" type="button">Clear</button>
+  <div class="control-panel">
+    <div class="pills" id="pills">
+      <button class="pill active" data-filter="all">All works</button>
+      <button class="pill" data-filter="tools">Interactive tools (8)</button>
+      <button class="pill" data-filter="governance">Governance &amp; EU AI Act</button>
+      <button class="pill" data-filter="auditing">Model &amp; data audits</button>
+      <button class="pill" data-filter="energy">Energy &amp; infrastructure</button>
+      <button class="pill" data-filter="markets">Finance &amp; markets</button>
+    </div>
+    <div class="find">
+      <input id="q" type="search" placeholder="Search the work: XBRL, PJM queue, water, executive pay, export controls, Article 50&hellip;" autocomplete="off" aria-label="Search papers and tools">
+      <button id="clr" type="button">Clear</button>
+    </div>
+    <p class="found" id="found"></p>
   </div>
-  <p class="found" id="found"></p>
 
   <h2 id="h-tools">Interactive tools <span class="c">the data behind the papers</span></h2>
   <p class="intro" id="i-tools">Self-contained, dependency-free front-ends over the frozen, citable datasets. Each is reproducible; the ones built on a frozen dataset are archived with their own DOI.</p>
@@ -290,8 +352,8 @@
       <h3>The AI Industry: a PESTLE scan</h3>
       <p>A structured scan of the political, economic, social, technological, legal and environmental pressures on the AI industry.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20680575" target="_blank" rel="noopener">10.5281/zenodo.20680575</a></span>
-    
-      <div class="stack">Python stdlib &middot; primary policy, regulatory and industry sources, each vintage-labelled &middot; scripts in the DOI bundle</div></div></div>
+      <div class="stack">Python stdlib &middot; primary policy, regulatory and industry sources, each vintage-labelled &middot; scripts in the DOI bundle</div>
+    </div></div>
 
     <div class="grp">Consumers &amp; reliance</div>
     <div class="paper" data-kw="AI economics | consumer incidence | AI infrastructure | data centres | electricity prices | ratepayer costs | high-bandwidth memory | data centre tax abatements | data centre water use | unit economics"><div>
@@ -316,14 +378,14 @@
       <h3>Who Does Your Shopping Agent Work For?</h3>
       <p>An analysis of agent-mediated commerce: where the hype stands against what is delivered, why the &ldquo;neutral agent&rdquo; is a false assumption, who controls the resulting chokepoint, and which defences are actually enforceable.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20790896" target="_blank" rel="noopener">10.5281/zenodo.20790896</a></span>
-    
-      <div class="stack">Evidence review &middot; documented, modelled and feared harms kept separate &middot; attack-surface table &middot; no code, this one is an argument</div></div></div>
+      <div class="stack">Evidence review &middot; documented, modelled and feared harms kept separate &middot; attack-surface table &middot; no code, this one is an argument</div>
+    </div></div>
     <div class="paper" data-kw="consumer protection | behavioural economics | dark patterns | drip pricing | shrinkflation | choice overload | surveillance pricing | loss aversion | consumer decision-making | media literacy"><div>
       <h3>Designed, Not Accidental</h3>
       <p>An evidence review of how physical and online retail environments are engineered to increase spending, why individual vigilance is an inadequate defence, and what works in its place.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20788844" target="_blank" rel="noopener">10.5281/zenodo.20788844</a></span>
-    
-      <div class="stack">Evidence review &middot; deceptive-pattern literature and enforcement records &middot; no code, this one is an argument</div></div></div>
+      <div class="stack">Evidence review &middot; deceptive-pattern literature and enforcement records &middot; no code, this one is an argument</div>
+    </div></div>
     <div class="paper" data-kw="AI literacy | Anthropic Economic Index | O*NET | automation | augmentation | future of work | occupational AI exposure | reproducible research"><div>
       <h3>AI-Literacy Load by Occupation</h3>
       <p>A reproducible map of where AI-fluency becomes part of the job: occupation-level AI-usage penetration crossed with the augment/automate mix, from the open Anthropic Economic Index.</p>
@@ -346,9 +408,9 @@
     </div></div>
     <div class="paper" data-kw="AI automation | recursive self-improvement | frontier safety frameworks | responsible scaling policy | preparedness framework | claims audit | disclosure quality | reproducibility | AI research and development | motive-neutral analysis"><div>
       <h3>The AI Research-Automation Scorecard</h3>
-      <p>A motive-neutral referee for the &ldquo;AI writes most of our code&rdquo; claims. It grades eight vendor and adopter statements on four evidentiary tests: whether a denominator is stated, whether the figure is audited, whether it is reproducible, and whether a second source confirms it. It keeps a separate dated register of the labs' own research-loop red-lines, reported rather than scored.</p>
-      <span class="m"><a href="https://doi.org/10.5281/zenodo.21325372" target="_blank" rel="noopener">10.5281/zenodo.21325372</a></span>
-      <div class="stack">Python stdlib &middot; vendor and adopter primary statements &middot; claims.csv &middot; triggers.csv &middot; scripts in the DOI bundle</div>
+      <p>A motive-neutral referee for the &ldquo;AI writes most of our code&rdquo; claims. It grades twelve vendor and adopter statements on four evidentiary tests: whether a denominator is stated, whether the figure is externally audited, whether an outsider could reproduce it, and whether a named party with no stake has checked that specific figure. One of the twelve defines a rigorous denominator, none is audited, none is reproducible, and two carry an independent check. Every claim is traced to a primary document held and hash-verified, and read from source four of the figures prove narrower than the versions in circulation. A separate dated register keeps the labs' own research-loop red-lines and their stated arrival dates, reported rather than scored.</p>
+      <span class="m"><a href="https://doi.org/10.5281/zenodo.21325372" target="_blank" rel="noopener">10.5281/zenodo.21325372</a> &middot; <a href="https://github.com/NMAIResearch/ai-research-automation-scorecard" target="_blank" rel="noopener">code &amp; data</a></span>
+      <div class="stack">Python stdlib &middot; eighteen hash-verified primary sources &middot; claims_v0.1.csv &middot; triggers_v0.1.csv &middot; source_register.csv &middot; reproduce_v0.1.py</div>
     </div></div>
     <div class="paper" data-kw="EU AI Act | Article 50 | AI transparency | AI disclosure | watermarking | content provenance | C2PA | SynthID | machine-readable marking | detection | Code of Practice | AI governance | AI assurance | consumer AI | reproducibility"><div>
       <h3>Public Evidence under Article 50 <span class="tag">interactive &uarr;</span></h3>
@@ -360,31 +422,55 @@
       <h3>Anomalous Constant Domains and Anomalous Void Transmission</h3>
       <p>A published negative result in cosmology, kept on the record because reporting what did not work is part of the discipline.</p>
       <span class="m"><a href="https://doi.org/10.5281/zenodo.20374960" target="_blank" rel="noopener">10.5281/zenodo.20374960</a></span>
-    
-      <div class="stack">Python stdlib &middot; published cosmological constraints &middot; negative result, set aside &middot; scripts in the DOI bundle</div></div></div>
+      <div class="stack">Python stdlib &middot; published cosmological constraints &middot; negative result, set aside &middot; scripts in the DOI bundle</div>
+    </div></div>
 
   </div>
 
   <footer style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-    <div><p style="font-size:12px;font-style:italic;color:#4a5568;margin:0 0 8px">AI disclosure: the research is the author's; this text was drafted with AI assistance and reviewed by the author. The model, and the conflict it creates, are named in the Conflict of interest section of each study.</p>All work open-access under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · ORCID <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">0009-0003-4213-7769</a> · independent research, not investment advice.</div>
+    <div><p style="font-size:12px;font-style:italic;color:#4a5568;margin:0 0 8px">AI disclosure: the research is the author's; this text was drafted with AI assistance and reviewed by the author. The model, and the conflict it creates, are named in the Conflict of interest section of each study.</p>All work open-access under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; ORCID <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">0009-0003-4213-7769</a> &middot; independent research, not investment advice.</div>
     <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener" title="Scan for ORCID record" style="flex:none"><img src="orcid-qr.svg" alt="ORCID QR code" width="96" height="96" style="display:block"></a>
   </footer>
 
 </div>
 
 <script>
-// Client-side search over the page itself. No network call: every entry's title, summary,
-// stack line and DOI are already in this document, and each one's Zenodo keywords were baked
-// into data-kw by enrich_keywords.py. Re-run that script after publishing a new work.
+// Client-side search and category filtering over the page itself.
 (function(){
   const q = document.getElementById("q");
+  const clr = document.getElementById("clr");
   const found = document.getElementById("found");
-  const entries = [...document.querySelectorAll(".tool, .paper")].map(el => ({
-    el,
-    kind: el.classList.contains("tool") ? "tool" : "paper",
-    // Keywords are weighted by being present, not by count; this is a filter, not a ranker.
-    hay: (el.textContent + " " + (el.dataset.kw || "")).toLowerCase().replace(/\s+/g, " ")
-  }));
+  const pills = document.querySelectorAll(".pill");
+  let activeFilter = "all";
+
+  const entries = [...document.querySelectorAll(".tool, .paper")].map(el => {
+    const isTool = el.classList.contains("tool");
+    const text = (el.textContent + " " + (el.dataset.kw || "")).toLowerCase().replace(/\s+/g, " ");
+    
+    const cats = ["all"];
+    if (isTool) cats.push("tools");
+
+    if (text.includes("article 50") || text.includes("eu ai act") || text.includes("governance") || text.includes("regulation") || text.includes("reliance") || text.includes("shopping agent") || text.includes("literacy")) {
+      cats.push("governance");
+    }
+    if (text.includes("fineweb") || text.includes("entropy") || text.includes("uncertainty") || text.includes("audit") || text.includes("dependency") || text.includes("automation-scorecard") || text.includes("anomalous")) {
+      cats.push("auditing");
+    }
+    if (text.includes("water") || text.includes("power") || text.includes("energy") || text.includes("pjm") || text.includes("grid") || text.includes("bot traffic") || text.includes("data centre")) {
+      cats.push("energy");
+    }
+    if (text.includes("ceo pay") || text.includes("cost watch") || text.includes("valuation") || text.includes("barbell") || text.includes("pestle") || text.includes("consumer incidence") || text.includes("pricing") || text.includes("retail")) {
+      cats.push("markets");
+    }
+
+    return {
+      el,
+      kind: isTool ? "tool" : "paper",
+      cats,
+      hay: text
+    };
+  });
+
   const groups = [...document.querySelectorAll(".grp")];
   const sections = [
     {h: "h-tools", i: "i-tools", note: "i-board", box: document.querySelector(".tools"), kind: "tool"},
@@ -393,39 +479,65 @@
   const show = (el, on) => el && el.classList.toggle("hidden", !on);
 
   function run(){
-    // Every space-separated term must appear somewhere in the entry (AND, not OR).
     const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
     let hits = 0;
+
     for (const e of entries){
-      const ok = terms.every(t => e.hay.includes(t));
+      const matchCat = activeFilter === "all" || e.cats.includes(activeFilter);
+      const matchSearch = terms.length === 0 || terms.every(t => e.hay.includes(t));
+      const ok = matchCat && matchSearch;
       show(e.el, ok);
       if (ok) hits++;
     }
-    // A group heading survives only if something under it did.
+
     for (const g of groups){
       let live = false;
-      for (let n = g.nextElementSibling; n && !n.classList.contains("grp"); n = n.nextElementSibling)
+      for (let n = g.nextElementSibling; n && !n.classList.contains("grp"); n = n.nextElementSibling) {
         if (n.classList.contains("paper") && !n.classList.contains("hidden")) { live = true; break; }
+      }
       show(g, live);
     }
+
     for (const s of sections){
       const live = entries.some(e => e.kind === s.kind && !e.el.classList.contains("hidden"));
       show(document.getElementById(s.h), live);
       show(document.getElementById(s.i), live);
-      show(document.getElementById(s.note), live);   // the board note rides with its section
+      show(document.getElementById(s.note), live);
       show(s.box, live);
     }
-    if (!terms.length){ found.innerHTML = ""; return; }
+
+    if (!terms.length && activeFilter === "all"){
+      found.innerHTML = "";
+      return;
+    }
+
+    const searchTxt = terms.length ? ` matching &ldquo;${q.value.trim()}&rdquo;` : "";
+    const filterTxt = activeFilter === "all" ? "" : ` in category filter`;
     found.innerHTML = hits
-      ? `<b>${hits}</b> of ${entries.length} entries match &ldquo;${q.value.trim()}&rdquo;.`
-      : `Nothing matches &ldquo;${q.value.trim()}&rdquo;. Everything here is also on
+      ? `<b>${hits}</b> of ${entries.length} entries shown${searchTxt}${filterTxt}.`
+      : `Nothing matches${searchTxt}. All studies are also indexed on
          <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo</a>,
          which searches the full text of each record.`;
   }
 
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      pills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      activeFilter = pill.getAttribute("data-filter") || "all";
+      run();
+    });
+  });
+
   q.addEventListener("input", run);
-  document.getElementById("clr").addEventListener("click", () => { q.value = ""; run(); q.focus(); });
-  // Deep link: index.html?q=xbrl
+  clr.addEventListener("click", () => {
+    q.value = "";
+    activeFilter = "all";
+    pills.forEach(p => p.classList.toggle("active", p.getAttribute("data-filter") === "all"));
+    run();
+    q.focus();
+  });
+
   const pre = new URLSearchParams(location.search).get("q");
   if (pre){ q.value = pre; run(); }
 })();
