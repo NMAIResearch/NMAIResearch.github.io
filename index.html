@@ -1,28 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NM AI Research · Independent Research on Technology, Energy &amp; AI</title>
   <meta name="description" content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access papers and interactive tools, each archived with a DOI.">
   <style>
+    /* CSS Variables for Dark (Oxford Midnight) and Light (Warm Oxford Paper) */
     :root {
-      --bg: #09090b;
-      --bg-subtle: #0f1015;
-      --border: #22242b;
-      --border-bright: #32353e;
-      --text: #f4f4f5;
-      --text-muted: #8b8f9a;
-      --text-dim: #525660;
-      --accent: #38bdf8;
-      --accent-hover: #7dd3fc;
-      --tag-audit: #60a5fa;
-      --tag-infra: #34d399;
-      --tag-gov: #a78bfa;
-      --tag-market: #f59e0b;
-      --tag-tool: #ec4899;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-subtle: #f1f5f9;
+      --bg-hover: #e2e8f0;
+      --border: #cbd5e1;
+      --border-bright: #94a3b8;
+      --text: #1e293b;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+      --heading: #1a365d;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-audit-bg: #eff6ff;
+      --tag-audit-fg: #1e40af;
+      --tag-audit-bd: #bfdbfe;
+      --tag-infra-bg: #f0fdf4;
+      --tag-infra-fg: #166534;
+      --tag-infra-bd: #bbf7d0;
+      --tag-gov-bg: #faf5ff;
+      --tag-gov-fg: #6b21a8;
+      --tag-gov-bd: #e9d5ff;
+      --tag-market-bg: #fffbeb;
+      --tag-market-fg: #92400e;
+      --tag-market-bd: #fde68a;
+      --tag-tool-bg: #fdf2f8;
+      --tag-tool-fg: #9d174d;
+      --tag-tool-bd: #fbcfe8;
+      --rail-stat: #1a365d;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0b0f19;
+      --bg-subtle: #111827;
+      --bg-hover: #162032;
+      --border: #1e293b;
+      --border-bright: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --heading: #ffffff;
+      --accent: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --tag-audit-bg: rgba(96, 165, 250, 0.15);
+      --tag-audit-fg: #93c5fd;
+      --tag-audit-bd: rgba(96, 165, 250, 0.35);
+      --tag-infra-bg: rgba(52, 211, 153, 0.15);
+      --tag-infra-fg: #6ee7b7;
+      --tag-infra-bd: rgba(52, 211, 153, 0.35);
+      --tag-gov-bg: rgba(167, 139, 250, 0.15);
+      --tag-gov-fg: #c4b5fd;
+      --tag-gov-bd: rgba(167, 139, 250, 0.35);
+      --tag-market-bg: rgba(245, 158, 11, 0.15);
+      --tag-market-fg: #fcd34d;
+      --tag-market-bd: rgba(245, 158, 11, 0.35);
+      --tag-tool-bg: rgba(236, 72, 153, 0.15);
+      --tag-tool-fg: #f472b6;
+      --tag-tool-bd: rgba(236, 72, 153, 0.35);
+      --rail-stat: #38bdf8;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,6 +79,7 @@
       font-family: var(--sans);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      transition: background 0.15s, color 0.15s;
     }
 
     a { color: var(--accent); text-decoration: none; }
@@ -47,14 +95,28 @@
       font-family: var(--mono);
       font-size: 0.75rem;
       color: var(--text-muted);
-      background: var(--bg);
+      background: var(--bg-subtle);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .top-bar .brand { font-weight: 700; color: #fff; letter-spacing: 0.05em; }
-    .top-bar .status-live { display: inline-flex; align-items: center; gap: 0.4rem; color: #4ade80; }
-    .top-bar .status-live::before { content: ""; width: 6px; height: 6px; background: #4ade80; border-radius: 50%; }
+    .top-bar .brand { font-weight: 700; color: var(--heading); letter-spacing: 0.05em; }
+    .top-bar .actions { display: flex; align-items: center; gap: 1rem; }
+
+    .theme-toggle-btn {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      border: 1px solid var(--border-bright);
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
 
     /* Main Grid */
     .swiss-grid {
@@ -79,8 +141,8 @@
 
     .rail-header h1 {
       font-size: 1.15rem;
-      font-weight: 600;
-      color: #fff;
+      font-weight: 700;
+      color: var(--heading);
       margin-bottom: 0.4rem;
       letter-spacing: -0.01em;
     }
@@ -105,8 +167,8 @@
     }
     .stat-item .stat-num {
       font-size: 1.85rem;
-      font-weight: 600;
-      color: #fff;
+      font-weight: 700;
+      color: var(--rail-stat);
       font-family: var(--sans);
       letter-spacing: -0.02em;
     }
@@ -136,12 +198,13 @@
       font-size: 0.78rem;
       transition: color 0.15s;
     }
-    .rail-nav a:hover { color: var(--accent); }
+    .rail-nav a:hover { color: var(--accent); font-weight: 500; }
 
     /* Right Stream Pane */
     .stream-pane {
       padding: 0;
       overflow-y: auto;
+      background: var(--bg);
     }
 
     /* Controls: Search & Category Pills */
@@ -170,7 +233,7 @@
       padding: 0.5rem 0.85rem;
       font-family: var(--mono);
       font-size: 0.8rem;
-      color: #fff;
+      color: var(--text);
       outline: none;
       transition: border-color 0.15s;
     }
@@ -187,7 +250,7 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    .search-clear:hover { color: #fff; border-color: var(--border-bright); }
+    .search-clear:hover { color: var(--text); border-color: var(--border-bright); }
 
     .pills-row {
       display: flex;
@@ -205,11 +268,11 @@
       cursor: pointer;
       transition: all 0.15s;
     }
-    .pill-btn:hover { border-color: var(--text-dim); color: #fff; }
+    .pill-btn:hover { border-color: var(--border-bright); color: var(--text); }
     .pill-btn.active {
-      background: #1e293b;
-      border-color: var(--accent);
-      color: #fff;
+      background: var(--heading);
+      border-color: var(--heading);
+      color: var(--bg);
     }
 
     .search-summary {
@@ -220,14 +283,14 @@
 
     /* Section Category Header */
     .section-label {
-      padding: 1rem 3rem;
+      padding: 0.85rem 3rem;
       background: var(--bg-subtle);
       border-bottom: 1px solid var(--border);
       font-family: var(--mono);
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      color: var(--text-dim);
+      color: var(--heading);
       text-transform: uppercase;
     }
 
@@ -237,7 +300,7 @@
       border-bottom: 1px solid var(--border);
       transition: background 0.15s;
     }
-    .entry-row:hover { background: #0d0e12; }
+    .entry-row:hover { background: var(--bg-hover); }
     .entry-row.hidden { display: none; }
 
     .entry-top {
@@ -248,7 +311,7 @@
       font-family: var(--mono);
       font-size: 0.7rem;
       color: var(--text-muted);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .tag-badge {
@@ -257,29 +320,30 @@
       border-radius: 2px;
       text-transform: uppercase;
       font-family: var(--mono);
+      font-weight: 600;
     }
-    .tag-audit { background: rgba(96, 165, 250, 0.12); color: #93c5fd; border: 1px solid rgba(96, 165, 250, 0.3); }
-    .tag-infra { background: rgba(52, 211, 153, 0.12); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.3); }
-    .tag-gov   { background: rgba(167, 139, 250, 0.12); color: #c4b5fd; border: 1px solid rgba(167, 139, 250, 0.3); }
-    .tag-market{ background: rgba(245, 158, 11, 0.12); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.3); }
-    .tag-tool  { background: rgba(236, 72, 153, 0.12); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
+    .tag-audit { background: var(--tag-audit-bg); color: var(--tag-audit-fg); border: 1px solid var(--tag-audit-bd); }
+    .tag-infra { background: var(--tag-infra-bg); color: var(--tag-infra-fg); border: 1px solid var(--tag-infra-bd); }
+    .tag-gov   { background: var(--tag-gov-bg); color: var(--tag-gov-fg); border: 1px solid var(--tag-gov-bd); }
+    .tag-market{ background: var(--tag-market-bg); color: var(--tag-market-fg); border: 1px solid var(--tag-market-bd); }
+    .tag-tool  { background: var(--tag-tool-bg); color: var(--tag-tool-fg); border: 1px solid var(--tag-tool-bd); }
 
     .entry-row h2 {
       font-size: 1.3rem;
-      font-weight: 600;
-      color: #fff;
+      font-weight: 700;
+      color: var(--heading);
       letter-spacing: -0.01em;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.55rem;
     }
-    .entry-row h2 a { color: #fff; text-decoration: none; }
+    .entry-row h2 a { color: var(--heading); text-decoration: none; }
     .entry-row h2 a:hover { color: var(--accent); }
 
     .entry-row p {
-      font-size: 0.88rem;
-      color: #d4d4d8;
+      font-size: 0.9rem;
+      color: var(--text);
       max-width: 820px;
       line-height: 1.6;
-      margin-bottom: 1.15rem;
+      margin-bottom: 1rem;
     }
 
     .entry-bottom {
@@ -290,12 +354,12 @@
       gap: 0.75rem;
       font-family: var(--mono);
       font-size: 0.72rem;
-      padding-top: 0.85rem;
+      padding-top: 0.75rem;
       border-top: 1px dashed var(--border);
     }
     .stack-line { color: var(--text-dim); }
     .action-group { display: flex; gap: 0.85rem; }
-    .action-group a { font-size: 0.75rem; }
+    .action-group a { font-size: 0.75rem; font-weight: 600; }
 
     /* Footer */
     .hub-footer {
@@ -333,7 +397,12 @@
   <header class="top-bar">
     <div class="brand">NM AI RESEARCH · MONASTIC HUB</div>
     <div>ACTIVE CORPUS: 16 RESEARCH WORKS + 9 INTERACTIVE TOOLS</div>
-    <div class="status-live">100% REPRODUCIBLE · CC BY 4.0</div>
+    <div class="actions">
+      <button id="themeToggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
+        <span id="themeIcon">◑</span>
+        <span id="themeLabel">THEME: LIGHT</span>
+      </button>
+    </div>
   </header>
 
   <div class="swiss-grid">
@@ -927,8 +996,39 @@
   </footer>
 
   <script>
-    // Client-side search and category filtering over the Swiss Monastic stream
+    // Client-side search, category filtering, and Light/Dark toggle
     (function(){
+      const html = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      const themeLabel = document.getElementById("themeLabel");
+      const themeIcon = document.getElementById("themeIcon");
+
+      function applyTheme(theme) {
+        html.setAttribute("data-theme", theme);
+        localStorage.setItem("nmai-theme", theme);
+        if (theme === "dark") {
+          themeLabel.textContent = "THEME: DARK";
+          themeIcon.textContent = "◐";
+        } else {
+          themeLabel.textContent = "THEME: LIGHT";
+          themeIcon.textContent = "◑";
+        }
+      }
+
+      // Default to Light (Oxford Navy) unless explicitly set in localStorage
+      const savedTheme = localStorage.getItem("nmai-theme");
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        applyTheme("light");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const current = html.getAttribute("data-theme");
+        applyTheme(current === "dark" ? "light" : "dark");
+      });
+
+      // Filter & Search Engine
       const q = document.getElementById("q");
       const clr = document.getElementById("clr");
       const found = document.getElementById("found");
