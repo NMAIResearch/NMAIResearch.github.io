@@ -405,14 +405,158 @@
       .section-label { padding: 0.75rem 1.5rem; }
       .hub-footer { padding: 1.5rem; }
     }
+
+    /* Public evidence ledger */
+    .top-bar {
+      min-height: 62px;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+      gap: 1rem;
+      padding: 0.65rem 1.4rem;
+      background: color-mix(in srgb, var(--bg) 94%, transparent);
+      backdrop-filter: blur(14px);
+    }
+    .brand-block { min-width: 0; }
+    .top-bar .brand { font-family: var(--sans); font-size: 0.92rem; letter-spacing: -0.01em; }
+    .brand-subtitle,
+    .top-summary {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      color: var(--text-muted);
+      letter-spacing: 0.025em;
+    }
+    .top-summary { text-align: center; text-transform: uppercase; }
+    .top-bar .actions { justify-content: flex-end; }
+
+    .swiss-grid {
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: calc(100vh - 62px);
+    }
+    .telemetry-rail {
+      top: 62px;
+      height: calc(100vh - 62px);
+      padding: 1.8rem 1.4rem;
+      gap: 1.4rem;
+      background: var(--bg-subtle);
+    }
+    .rail-header::before {
+      content: "OPEN RESEARCH";
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+    }
+    .rail-header h1 { font-size: 1.22rem; line-height: 1.16; }
+    .rail-header p { font-size: 0.75rem; line-height: 1.55; }
+    .stat-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+    .stat-item {
+      min-width: 0;
+      padding: 0.7rem 0.65rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item .stat-label { font-size: 0.55rem; line-height: 1.25; }
+    .stat-item .stat-num { margin-top: 0.2rem; font-family: var(--mono); font-size: 1.05rem; }
+    .stat-item .stat-desc { margin-top: 0.2rem; font-size: 0.6rem; line-height: 1.35; }
+    .rail-nav { margin-top: 0; padding-top: 1rem; gap: 0.35rem; }
+    .rail-nav a { font-size: 0.7rem; }
+
+    .control-header {
+      top: 62px;
+      padding: 0.8rem clamp(1.4rem, 4vw, 3.6rem);
+      gap: 0.65rem;
+      background: color-mix(in srgb, var(--bg) 96%, transparent);
+      backdrop-filter: blur(12px);
+    }
+    .search-input,
+    .search-clear,
+    .pill-btn,
+    .theme-toggle-btn { border-radius: 2px; }
+    .search-input { padding: 0.48rem 0.7rem; font-size: 0.72rem; }
+    .pill-btn { padding: 0.24rem 0.52rem; font-size: 0.62rem; }
+
+    .section-label {
+      margin: 1.8rem clamp(1.4rem, 4vw, 3.6rem) 0;
+      padding: 0 0 0.55rem;
+      background: transparent;
+      border-bottom: 2px solid var(--heading);
+      color: var(--heading);
+      font-size: 0.68rem;
+    }
+    .entry-row {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(300px, 1.2fr);
+      grid-template-rows: auto 1fr;
+      gap: 0.35rem 2rem;
+      margin: 0 clamp(1.4rem, 4vw, 3.6rem);
+      padding: 1.2rem 0;
+      background: transparent;
+    }
+    .entry-row:hover {
+      background: linear-gradient(90deg, transparent, var(--bg-subtle), transparent);
+    }
+    .entry-top { grid-column: 1; grid-row: 1; margin: 0; font-size: 0.62rem; }
+    .entry-row h2 { grid-column: 1; grid-row: 2; margin: 0; font-size: 1.02rem; line-height: 1.28; }
+    .entry-row p {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0;
+      max-width: 760px;
+      color: var(--text-muted);
+      font-size: 0.79rem;
+      line-height: 1.55;
+    }
+    .entry-bottom {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: end;
+      padding-top: 0.55rem;
+      font-size: 0.64rem;
+    }
+    .action-group { gap: 0.65rem; }
+    .action-group a { font-size: 0.67rem; }
+    .tag-badge { border-radius: 2px; font-size: 0.57rem; }
+
+    @media (max-width: 1020px) {
+      .top-bar { grid-template-columns: 1fr auto; }
+      .top-summary { display: none; }
+      .swiss-grid { grid-template-columns: 240px minmax(0, 1fr); }
+      .entry-row { grid-template-columns: 1fr; gap: 0.65rem; }
+      .entry-top,
+      .entry-row h2,
+      .entry-row p,
+      .entry-bottom { grid-column: 1; grid-row: auto; }
+    }
+    @media (max-width: 760px) {
+      .top-bar { position: static; grid-template-columns: 1fr auto; }
+      .swiss-grid { display: block; }
+      .telemetry-rail { position: static; height: auto; }
+      .control-header { top: 0; }
+      .stat-group { grid-template-columns: repeat(4, 1fr); }
+      .stat-item .stat-desc { display: none; }
+      .rail-nav { display: grid; grid-template-columns: 1fr 1fr; }
+      .entry-row { padding: 1rem 0; }
+    }
   </style>
 </head>
 <body>
 
   <!-- Top Utility Bar -->
   <header class="top-bar">
-    <div class="brand">NM AI RESEARCH</div>
-    <div>20 DEPOSITED WORKS, DOI-VERSIONED &middot; 9 INTERACTIVE TOOLS &middot; BUILT ON A GATED PUBLISH PIPELINE</div>
+    <div class="brand-block">
+      <div class="brand">NM AI Research</div>
+      <div class="brand-subtitle">Public evidence index</div>
+    </div>
+    <div class="top-summary">20 deposited works &middot; 9 interactive tools &middot; DOI-versioned</div>
     <div class="actions">
       <button id="themeToggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
         <span id="themeIcon">◑</span>
@@ -426,8 +570,8 @@
     <!-- Left Sticky Telemetry Rail -->
     <aside class="telemetry-rail">
       <div class="rail-header">
-        <h1>Evidentiary Portfolio</h1>
-        <p>Motive-neutral referee instruments, empirical registries, and structural legal monitors for frontier AI.</p>
+        <h1>Research you can inspect</h1>
+        <p>Independent audits, empirical registers and live tools. Each entry leads to the method, evidence or versioned record behind it.</p>
       </div>
 
       <div class="stat-group">
