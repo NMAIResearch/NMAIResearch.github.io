@@ -382,6 +382,14 @@
       font-size: 0.78rem;
       color: var(--text-muted);
     }
+    .hub-footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.1rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      justify-content: flex-end;
+    }
     .hub-footer .ai-disclaimer {
       font-style: italic;
       color: var(--text-dim);
@@ -403,8 +411,8 @@
 
   <!-- Top Utility Bar -->
   <header class="top-bar">
-    <div class="brand">NM AI RESEARCH · MONASTIC HUB</div>
-    <div>16 DEPOSITED WORKS, DOI-VERSIONED &middot; 9 INTERACTIVE TOOLS &middot; BUILT ON A GATED PUBLISH PIPELINE</div>
+    <div class="brand">NM AI RESEARCH</div>
+    <div>20 DEPOSITED WORKS, DOI-VERSIONED &middot; 9 INTERACTIVE TOOLS &middot; BUILT ON A GATED PUBLISH PIPELINE</div>
     <div class="actions">
       <button id="themeToggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
         <span id="themeIcon">◑</span>
@@ -424,27 +432,27 @@
 
       <div class="stat-group">
         <div class="stat-item">
-          <div class="stat-label">Blocking Gates In The Publish Path</div>
-          <div class="stat-num">6</div>
-          <div class="stat-desc">No advisory checks &middot; every override is named and logged</div>
+          <div class="stat-label">Deposited Works, DOI-Versioned</div>
+          <div class="stat-num">20</div>
+          <div class="stat-desc">Each with frozen data and a script that recomputes the finding</div>
         </div>
 
         <div class="stat-item">
-          <div class="stat-label">Process Trials, Independently Run</div>
-          <div class="stat-num">8</div>
-          <div class="stat-desc">Runner and maintainer roles split &middot; 7 pass, 1 caught by the gate &middot; unpublished</div>
+          <div class="stat-label">Sovereign Jurisdiction Packs</div>
+          <div class="stat-num">29 / 24</div>
+          <div class="stat-desc">29 opened, 24 deposit-eligible &middot; one schema, hash-verified custody</div>
         </div>
 
         <div class="stat-item">
-          <div class="stat-label">Sovereign AI Regulations</div>
-          <div class="stat-num">36</div>
-          <div class="stat-desc">Jurisdictions under one schema, hash-verified custody</div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-label">Corporate Governance Spine</div>
+          <div class="stat-label">S&amp;P 500 Issuers Scored</div>
           <div class="stat-num">494</div>
-          <div class="stat-desc">S&amp;P 500 CEO pay vs performance filings</div>
+          <div class="stat-desc">CEO pay against delivery, from Pay-vs-Performance filings</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-label">Documents Audited In One Filter</div>
+          <div class="stat-num">84M</div>
+          <div class="stat-desc">FineWeb-Edu, across 94 Common Crawl snapshots</div>
         </div>
       </div>
 
@@ -593,13 +601,13 @@
       </article>
 
       <!-- Tool 8: Entropy Error Detector -->
-      <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="does entropy catch the errors model dependency token entropy xbrl false alarm budget">
+      <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="open weight error detection audit model dependency token entropy uncertainty xbrl false alarm budget does entropy catch the errors">
         <div class="entry-top">
           <span>TOOL 07 · DOI 10.5281/zenodo.21543579</span>
           <span class="tag-badge tag-audit">MODEL DIAGNOSTIC</span>
         </div>
-        <h2><a href="https://nmairesearch.github.io/model-dependency/" target="_blank" rel="noopener">Does Entropy Catch the Errors?</a></h2>
-        <p>The uncertainty signal an open-weight deployment gets for free, tested as an error detector on numeric extraction from SEC filings. The false-alarm budget is adjustable, and the tool reports what it catches, what it misses, and how many correct answers must be re-read to find one real error. It stays at zero on every model accurate enough to deploy.</p>
+        <h2><a href="https://nmairesearch.github.io/model-dependency/" target="_blank" rel="noopener">Open-Weight Error-Detection Audit</a></h2>
+        <p>Whether the uncertainty signal an open-weight deployment gets for free works as an error detector on numeric extraction from SEC filings. The false-alarm budget is adjustable, and the tool reports what it catches, what it misses, and how many correct answers must be re-read to find one real error. It stays at zero on every model accurate enough to deploy.</p>
         <footer class="entry-bottom">
           <span class="stack-line">Python stdlib · 594 pinned local model calls · filer XBRL ground truth · build.py</span>
           <div class="action-group">
@@ -998,8 +1006,13 @@
       <div class="ai-disclaimer">AI disclosure: The research is the author's; text drafted with AI assistance and reviewed by the author. Model conflicts are declared in the respective deposit metadata.</div>
       <div>All work open-access under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Independent research, not financial or investment advice.</div>
     </div>
-    <div>
+    <div class="footer-links">
       <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">ORCID: 0009-0003-4213-7769</a>
+      <a href="https://github.com/NMAIResearch" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo Archive</a>
+      <a href="https://huggingface.co/NMAIResearch" target="_blank" rel="noopener">Hugging Face</a>
+      <a href="https://nmairesearch.github.io/Noel_Milton_CV_Short.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      <a href="mailto:NMAIResearch@proton.me">NMAIResearch@proton.me</a>
     </div>
   </footer>
 
