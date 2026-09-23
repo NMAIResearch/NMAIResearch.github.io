@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NM AI Research · Independent Research on Technology, Energy &amp; AI</title>
-  <meta name="description" content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access papers and interactive tools, each archived with a DOI.">
+  <meta name="description" content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access research, tools and source code, with project-specific version records.">
   <script>
   (function(){
     try {
@@ -465,7 +465,7 @@
       border-bottom: 1px solid var(--border);
     }
     .stat-item .stat-label { font-size: 0.55rem; line-height: 1.25; }
-    .stat-item .stat-num { margin-top: 0.2rem; font-family: var(--mono); font-size: 1.05rem; }
+    .stat-item .stat-num { margin-top: 0.2rem; font-family: var(--mono); font-size: 1.05rem; overflow-wrap: anywhere; }
     .stat-item .stat-desc { margin-top: 0.2rem; font-size: 0.6rem; line-height: 1.35; }
     .rail-nav { margin-top: 0; padding-top: 1rem; gap: 0.35rem; }
     .rail-nav a { font-size: 0.7rem; }
@@ -556,7 +556,7 @@
       <div class="brand">NM AI Research</div>
       <div class="brand-subtitle">Public evidence index</div>
     </div>
-    <div class="top-summary">20 deposited works &middot; 9 interactive tools &middot; DOI-versioned</div>
+    <div class="top-summary">Research records &middot; Tools and source code &middot; Versioned evidence</div>
     <div class="actions">
       <button id="themeToggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
         <span id="themeIcon">◑</span>
@@ -576,21 +576,21 @@
 
       <div class="stat-group">
         <div class="stat-item">
-          <div class="stat-label">Deposited Works, DOI-Versioned</div>
-          <div class="stat-num">20</div>
-          <div class="stat-desc">Each with frozen data and a script that recomputes the finding</div>
+          <div class="stat-label">Research Records</div>
+          <div class="stat-num">Versioned</div>
+          <div class="stat-desc">Versioned records; reproduction coverage and unresolved checks are stated per project</div>
         </div>
 
         <div class="stat-item">
-          <div class="stat-label">Sovereign Jurisdiction Packs</div>
-          <div class="stat-num">29 / 24</div>
-          <div class="stat-desc">29 opened, 24 deposit-eligible &middot; one schema, hash-verified custody</div>
+          <div class="stat-label">Jurisdiction Evidence</div>
+          <div class="stat-num">Source-linked</div>
+          <div class="stat-desc">Versioned local packs; custody checks do not establish legal correctness or complete coverage</div>
         </div>
 
         <div class="stat-item">
-          <div class="stat-label">S&amp;P 500 Issuers Scored</div>
-          <div class="stat-num">494</div>
-          <div class="stat-desc">CEO pay against delivery, from Pay-vs-Performance filings</div>
+          <div class="stat-label">Compensation Evidence</div>
+          <div class="stat-num">SEC filings</div>
+          <div class="stat-desc">Dated issuer universe; CAP, cash received and board targets are distinct measures</div>
         </div>
 
         <div class="stat-item">
@@ -643,12 +643,12 @@
       <article class="entry-row" data-kind="tool" data-cats="tools gov audit" data-kw="article 50 transparency explorer eu ai act watermarking synthid c2pa machine readable marking">
         <div class="entry-top">
           <span>TOOL 01 · DOI 10.5281/zenodo.21819102</span>
-          <span class="tag-badge tag-gov">STATUTORY EXPLORER</span>
+          <span class="tag-badge tag-gov">PUBLIC-EVIDENCE EXPLORER</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/article50-explorer/" target="_blank" rel="noopener">Article 50 Transparency Explorer</a></h2>
-        <p>What twelve consumer AI products publicly evidenced against the EU AI Act's Article 50 transparency clauses, four days after the duty applied. Each cell carries the artefact, access date and capture state behind it, and the one interpretive rule can be reapplied to see which cells move. Not a compliance assessment.</p>
+        <p>The corrected v1.1 paper preserves a historical public-evidence snapshot of twelve consumer AI products. It identifies unresolved cells, capture-state limits and the difference between a bounded negative search and an established absence. The linked explorer retains the historical scores. This is not a current compliance assessment or a completed repeat survey.</p>
         <footer class="entry-bottom">
-          <span class="stack-line">Vanilla JS · 12 products × 10 items, frozen CSV · build_tool.py</span>
+          <span class="stack-line">Vanilla JS · historical scored set · frozen CSV with declared exceptions · build_tool.py</span>
           <div class="action-group">
             <a href="https://nmairesearch.github.io/article50-explorer/" target="_blank" rel="noopener">[open live tool &rarr;]</a>
             <a href="https://doi.org/10.5281/zenodo.21819102" target="_blank" rel="noopener">[zenodo deposit]</a>
@@ -735,7 +735,7 @@
           <span class="tag-badge tag-market">GOVERNANCE AUDIT</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/ceo-pay-scorecard/" target="_blank" rel="noopener">CEO Pay-vs-Delivery Scorecard</a></h2>
-        <p>What the S&amp;P 500's highest-paid CEOs took versus what they delivered, across 494 issuers in a dated universe. Granted and realised pay rank separately, and the board's own payout against target sits beside peer-relative return.</p>
+        <p>A dated comparison of SEC Summary Compensation Table totals and Compensation Actually Paid. CAP is a fair-value remeasurement, not cash received. Board-target cases have separate coverage and are shown alongside peer-relative returns; the comparison does not establish that a CEO caused a return.</p>
         <footer class="entry-bottom">
           <span class="stack-line">Python stdlib · SEC EDGAR (Pay-vs-Performance) · CSV · build.py</span>
           <div class="action-group">
@@ -753,9 +753,9 @@
           <span class="tag-badge tag-audit">MODEL DIAGNOSTIC</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/model-dependency/" target="_blank" rel="noopener">Open-Weight Error-Detection Audit</a></h2>
-        <p>Whether the uncertainty signal an open-weight deployment gets for free works as an error detector on numeric extraction from SEC filings. The false-alarm budget is adjustable, and the tool reports what it catches, what it misses, and how many correct answers must be re-read to find one real error. It stays at zero on every model accurate enough to deploy.</p>
+        <p>The corrected v1.1 release distinguishes model-run provenance from answer checking in financial data extraction. Selected calculations and tables are reconstructed from stored outputs, with a corrected source label and explicit historical input limits. It reports open-weight experiments only; no new model runs or deployment validation are claimed.</p>
         <footer class="entry-bottom">
-          <span class="stack-line">Python stdlib · 594 pinned local model calls · filer XBRL ground truth · build.py</span>
+          <span class="stack-line">Python stdlib · stored outputs · declared source-label correction and historical limits · build.py</span>
           <div class="action-group">
             <a href="https://nmairesearch.github.io/model-dependency/" target="_blank" rel="noopener">[open live tool &rarr;]</a>
             <a href="https://doi.org/10.5281/zenodo.21543579" target="_blank" rel="noopener">[zenodo deposit]</a>
@@ -771,7 +771,7 @@
           <span class="tag-badge tag-audit">DATASET DIAGNOSTIC</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/fineweb-edu-threshold/" target="_blank" rel="noopener">FineWeb-Edu Threshold Explorer</a></h2>
-        <p>The filter behind a widely used training corpus keeps documents scoring 3 or more, and that 3 is a rounded integer. The raw cut is adjustable across the 233 scores the classifier can represent, the rounding rule can be switched to move 458,461 documents across the boundary, and the rounding identity is shown in the page.</p>
+        <p>The filter behind a widely used training corpus keeps documents scoring 3 or more, and that 3 is a rounded integer. The raw cut is adjustable across the 233 score values observed in this sample, the rounding rule can be switched to move 458,461 documents across the boundary, and the rounding identity is shown in the page. The explorer uses corrected content-only token counts. Its historical fixed-score panel remains unavailable pending recalculation; the historical PDF and dataset are unchanged.</p>
         <footer class="entry-bottom">
           <span class="stack-line">Vanilla JS · 84,005,795 scored documents on a 233-point grid · CSV · build_tool.py</span>
           <div class="action-group">
@@ -789,8 +789,9 @@
           <span>TOOL 09</span>
           <span class="tag-badge tag-tool">LIVE BOARD</span>
         </div>
-        <h2><a href="https://nmairesearch.github.io/ai-news-board/" target="_blank" rel="noopener">The AI News Board</a></h2>
-        <p>A live, source-tiered front end for AI industry coverage. It separates reports by source class, shows claim-relative evidence and denominator checks, and links relevant portfolio research without treating the link as verification. Daily machine labels remain visibly unreviewed until checked by a person; publication fails closed on invalid data or a failed verification step.</p>
+        <h2><a href="https://nmairesearch.github.io/ai-news-board/" target="_blank" rel="noopener">The AI News Board and Sovereign Watch</a></h2>
+        <p>A live, source-tiered front end for AI industry coverage. It separates reports by source class, shows claim-relative evidence and denominator checks, and links relevant portfolio research without treating the link as verification. Daily machine labels remain visibly unreviewed until checked by a person. Failed or deferred assessments remain visible, and incomplete coverage is reported. The publication path stops on invalid data or a failed verification step; this does not establish comprehensive coverage or classification accuracy.</p>
+        <p><a href="sovereign-watch-case-study.html">Read the operations case study: incomplete coverage, recovery and explicit review boundaries.</a></p>
         <footer class="entry-bottom">
           <span class="stack-line">Vanilla JS · RSS/Atom feeds · source and evidence classification</span>
           <div class="action-group">
@@ -822,7 +823,7 @@
       <!-- Tool 11: PLAG IN -->
       <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="plag in private local ai gateway libllama loopback inference receipts linux source alpha">
         <div class="entry-top">
-          <span>OPEN SOURCE · v0.1.0a1</span>
+          <span>OPEN SOURCE · SOURCE ALPHA</span>
           <span class="tag-badge tag-tool">LOCAL INFRASTRUCTURE</span>
         </div>
         <h2><a href="https://github.com/NMAIResearch/plag-in" target="_blank" rel="noopener">PLAG IN, Private Local AI Gateway</a></h2>
@@ -831,7 +832,7 @@
           <span class="stack-line">Python 3.14+ · embedded libllama adapter · authenticated loopback transport · Apache-2.0</span>
           <div class="action-group">
             <a href="https://github.com/NMAIResearch/plag-in" target="_blank" rel="noopener">[source &amp; documentation &rarr;]</a>
-            <a href="https://github.com/NMAIResearch/plag-in/releases/tag/v0.1.0a1" target="_blank" rel="noopener">[v0.1.0a1 prerelease]</a>
+            <a href="https://github.com/NMAIResearch/plag-in/releases/tag/v0.1.0a1" target="_blank" rel="noopener">[earlier v0.1.0a1 prerelease]</a>
           </div>
         </footer>
       </article>
@@ -1016,7 +1017,7 @@
           <span class="tag-badge tag-market">CAPEX INFRASTRUCTURE</span>
         </div>
         <h2>The AI Constraint Relay</h2>
-        <p>How the compute build-out displaces physical and financial limits: an empirical audit of moving bottlenecks across power, labour, packaging, gas turbines, and capital expenditure incidence.</p>
+        <p>A historical assessment of power, labour, packaging, gas turbines and financing constraints. The observations do not establish that one constraint caused the next. An unpublished successor examines named commitments, delivery stages and access obligations; review of that successor has not replaced this deposited edition.</p>
         <footer class="entry-bottom">
           <span class="stack-line">Python stdlib · FERC dockets · SEC filings · reproduce.py</span>
           <div class="action-group">
@@ -1045,16 +1046,16 @@
 
       <article class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai industry pestle scan political economic social technological legal environmental">
         <div class="entry-top">
-          <span>DOI 10.5281/zenodo.20680575</span>
-          <span>PUBLISHED 21 JUL 2026</span>
+          <span>DOI 10.5281/zenodo.22015796</span>
+          <span>PUBLISHED 19 AUG 2026</span>
           <span class="tag-badge tag-market">INDUSTRY SCAN</span>
         </div>
-        <h2>The AI Industry: a PESTLE scan (v1)</h2>
-        <p>A structured scan of the political, economic, social, technological, legal and environmental pressures on the AI industry, with each factor vintage-labelled and grounded in primary policy and regulatory sources.</p>
+        <h2>The AI Industry: Architecture, Chokepoints, and Deflation (v2.1)</h2>
+        <p>A dated assessment of infrastructure constraints and investment claims. Version 2.1 adds an offline reproduction bundle to the v2 analysis. The deposit identifies unresolved sources and calculations included only in the bundle; the reproduction result is not verification of every source claim.</p>
         <footer class="entry-bottom">
           <span class="stack-line">Python stdlib · Primary regulatory and trade filings</span>
           <div class="action-group">
-            <a href="https://doi.org/10.5281/zenodo.20680575" target="_blank" rel="noopener">[zenodo deposit]</a>
+            <a href="https://doi.org/10.5281/zenodo.22015796" target="_blank" rel="noopener">[zenodo deposit]</a>
           </div>
         </footer>
       </article>
@@ -1066,8 +1067,8 @@
   <!-- Hub Footer -->
   <footer class="hub-footer">
     <div>
-      <div class="ai-disclaimer">AI disclosure: The research is the author's; text drafted with AI assistance and reviewed by the author. Model conflicts are declared in the respective deposit metadata.</div>
-      <div>All work open-access under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Independent research, not financial or investment advice.</div>
+      <div class="ai-disclaimer">AI disclosure: The author sets the research questions and substantive decisions. AI models have assisted research, coding and drafting. OpenAI GPT-6 assisted these summary corrections. Project-specific records state model contributions and conflicts. The author approved publication of these corrections.</div>
+      <div>Licences are stated in each repository or deposit; code and third-party inputs may carry different terms · Independent research, not financial or investment advice.</div>
     </div>
     <div class="footer-links">
       <a href="https://orcid.org/0009-0003-4213-7769" target="_blank" rel="noopener">ORCID: 0009-0003-4213-7769</a>
