@@ -1,0 +1,251 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Sovereign Watch: automated monitoring workflow",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "assessment",
+        "label": "Source to candidate",
+        "focus": [
+          "intake",
+          "capture",
+          "model",
+          "checks",
+          "store",
+          "board"
+        ],
+        "note": "Sources become stored alerts with traceable evidence for inspection."
+      },
+      {
+        "id": "unfinished",
+        "label": "Recovery and exceptions",
+        "focus": [
+          "capture",
+          "model",
+          "checks",
+          "capture-pending",
+          "manual",
+          "assessment-pending"
+        ],
+        "note": "Capture and assessment failures remain eligible for retry; over-limit documents require manual handling."
+      }
+    ],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "frontend": {
+          "label": "Published output"
+        },
+        "backend": {
+          "label": "Model assessment"
+        },
+        "database": {
+          "label": "Stored evidence"
+        },
+        "security": {
+          "label": "Machine checks"
+        },
+        "messagebus": {
+          "label": "Recovery / exceptions"
+        },
+        "external": {
+          "label": "Source intake"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "automatic",
+      "label": "Automated processing"
+    },
+    {
+      "id": "outstanding",
+      "label": "Recovery / exceptions",
+      "variant": "exception"
+    }
+  ],
+  "mainPath": [
+    "intake",
+    "capture",
+    "model",
+    "checks",
+    "store",
+    "board"
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "lane": "automatic",
+      "col": 0,
+      "type": "external",
+      "label": "Feed intake",
+      "sublabel": "source status + queue",
+      "width": 148
+    },
+    {
+      "id": "capture",
+      "lane": "automatic",
+      "col": 1,
+      "type": "database",
+      "label": "Capture source",
+      "sublabel": "text + content hashes",
+      "width": 148
+    },
+    {
+      "id": "model",
+      "lane": "automatic",
+      "col": 2,
+      "type": "backend",
+      "label": "Model assessment",
+      "sublabel": "bounded local request",
+      "width": 148
+    },
+    {
+      "id": "checks",
+      "lane": "automatic",
+      "col": 3,
+      "type": "security",
+      "label": "Machine checks",
+      "sublabel": "schema + quoted text",
+      "width": 148
+    },
+    {
+      "id": "store",
+      "lane": "automatic",
+      "col": 4,
+      "type": "database",
+      "label": "Save alert",
+      "sublabel": "then processing state",
+      "width": 148
+    },
+    {
+      "id": "board",
+      "lane": "automatic",
+      "col": 5,
+      "type": "frontend",
+      "label": "Board / bulletin",
+      "sublabel": "labelled candidates",
+      "width": 148
+    },
+    {
+      "id": "capture-pending",
+      "lane": "outstanding",
+      "col": 0,
+      "type": "messagebus",
+      "label": "Capture pending",
+      "sublabel": "source failed or empty",
+      "tag": "eligible for retry",
+      "width": 148
+    },
+    {
+      "id": "manual",
+      "lane": "outstanding",
+      "col": 2,
+      "type": "messagebus",
+      "label": "Manual assessment",
+      "sublabel": "document over limit",
+      "tag": "queued",
+      "width": 148
+    },
+    {
+      "id": "assessment-pending",
+      "lane": "outstanding",
+      "col": 4,
+      "type": "messagebus",
+      "label": "Unassessed",
+      "sublabel": "request / check failed",
+      "tag": "retained for retry",
+      "width": 148
+    }
+  ],
+  "edges": [
+    {
+      "id": "queue-capture",
+      "from": "intake",
+      "to": "capture"
+    },
+    {
+      "id": "captured-input",
+      "from": "capture",
+      "to": "model"
+    },
+    {
+      "id": "check-response",
+      "from": "model",
+      "to": "checks"
+    },
+    {
+      "id": "save-valid",
+      "from": "checks",
+      "to": "store",
+      "label": "passes"
+    },
+    {
+      "id": "show-candidate",
+      "from": "store",
+      "to": "board"
+    },
+    {
+      "id": "capture-failed",
+      "from": "capture",
+      "to": "capture-pending",
+      "label": "failed",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "capture-over-limit",
+      "from": "capture",
+      "to": "manual",
+      "label": "over limit",
+      "role": "branch",
+      "variant": "security"
+    },
+    {
+      "id": "request-failed",
+      "from": "model",
+      "to": "assessment-pending",
+      "label": "failed / timeout",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "validation-failed",
+      "from": "checks",
+      "to": "assessment-pending",
+      "label": "fails checks",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "save-unassessed",
+      "from": "assessment-pending",
+      "to": "store",
+      "label": "save unassessed",
+      "role": "branch",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Evidence for review",
+      "items": [
+        "Source text and hashes preserve provenance; machine checks test structure and quotation presence.",
+        "Outputs remain unreviewed until a person assesses them; machine checks do not establish legal correctness."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Recovery and coverage",
+      "items": [
+        "Failed captures and assessments remain visible for retry. Over-limit documents are flagged for manual handling.",
+        "Failed, pending and deferred work can leave coverage incomplete. This diagram describes stored code, not live status."
+      ]
+    }
+  ]
+}
