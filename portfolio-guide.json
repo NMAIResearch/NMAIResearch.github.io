@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "purpose": "Illustrate the author-stated research architecture underlying the portfolio, with selected public project examples",
+  "title": "Research architecture behind the portfolio",
+  "introduction": "The portfolio follows a common research structure: define the question, bound the work, check its contribution, examine evidence, analyse, challenge and publish. Different studies use different methods and tools. The map shows the structure; the examples below connect it to the work.",
+  "diagram": "portfolio-research-architecture.html",
+  "operations": [
+    {
+      "id": "question",
+      "title": "1. Question",
+      "summary": "Turn an interest or announcement into a question the available evidence can address.",
+      "examples": [
+        {
+          "project": "Power demand",
+          "text": "Distinguish announced AI power demand from the capacity that can be delivered.",
+          "url": "index.html#work-power",
+          "label": "See the power-demand study",
+          "limit": ""
+        },
+        {
+          "project": "SW",
+          "text": "Ask how a monitoring service should expose incomplete work and preserve recovery opportunities.",
+          "url": "sovereign-watch-case-study.html",
+          "label": "Read the operations case study",
+          "limit": ""
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": "2. Scope and method",
+      "summary": "Define the unit, population, period and comparison before interpreting the result. Select a method suited to the question.",
+      "examples": [
+        {
+          "project": "Forecast scorecard",
+          "text": "Compare electricity-demand forecasts within compatible units, scopes and horizons.",
+          "url": "index.html#work-forecast",
+          "label": "See the forecast scorecard",
+          "limit": ""
+        },
+        {
+          "project": "Article 50",
+          "text": "Keep the historical public-evidence snapshot distinct from a current compliance assessment.",
+          "url": "index.html#work-article50",
+          "label": "See the Article 50 study",
+          "limit": ""
+        }
+      ]
+    },
+    {
+      "id": "novelty",
+      "title": "3. Novelty and usefulness",
+      "summary": "Check prior work and the practical purpose of the output. Proceed with a defensible contribution, replication or synthesis; otherwise narrow, reframe or park the question.",
+      "examples": [
+        {
+          "project": "FineWeb-Edu",
+          "text": "A question at the mechanism level: how score rounding and a threshold affect which documents enter a training corpus.",
+          "url": "index.html#work-fineweb",
+          "label": "See the FineWeb-Edu audit",
+          "limit": "The published output illustrates the question; this link is not a completed novelty-search record."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "4. Source evidence",
+      "summary": "Collect relevant records, preserve provenance, check reporting periods and retain missing or conflicting evidence.",
+      "examples": [
+        {
+          "project": "AI Infrastructure",
+          "text": "A source catalogue connects inspected locations and source limits to the paper's commitments, delivery stages and access obligations.",
+          "url": "https://github.com/NMAIResearch/ai-constraint-relay/blob/6a557031b8a97181d6e19586574979342bbde3aa/v7.1/SOURCE_CATALOGUE.json",
+          "label": "Inspect the source catalogue",
+          "limit": ""
+        },
+        {
+          "project": "SW",
+          "text": "Source capture retains document text and content hashes, while failed and deferred assessments remain visible.",
+          "url": "sovereign-watch-workflow-v4.html",
+          "label": "Explore source capture and recovery",
+          "limit": ""
+        }
+      ]
+    },
+    {
+      "id": "analysis",
+      "title": "5. Analysis",
+      "summary": "Apply the selected comparison or calculation. Keep assumptions and quantities inspectable, and test sensitivity where the study supports it.",
+      "examples": [
+        {
+          "project": "AI Infrastructure",
+          "text": "The reproducer recalculates named balances and regenerates selected numerical content from frozen inputs.",
+          "url": "https://github.com/NMAIResearch/ai-constraint-relay/blob/6a557031b8a97181d6e19586574979342bbde3aa/v7.1/README.md#reproduce",
+          "label": "Inspect the reproduction command",
+          "limit": ""
+        },
+        {
+          "project": "FineWeb-Edu",
+          "text": "The explorer exposes the score threshold and rounding rule so their effects can be inspected.",
+          "url": "index.html#work-fineweb",
+          "label": "Open the study entry",
+          "limit": ""
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "title": "6. Challenge and revision",
+      "summary": "Seek counter-evidence, test alternative explanations, examine source support and revise claims that exceed the evidence.",
+      "examples": [
+        {
+          "project": "AI Infrastructure",
+          "text": "The release guide separates source and interpretation limits, recorded checks, model review and the author's publication decision.",
+          "url": "https://github.com/NMAIResearch/ai-constraint-relay/blob/6a557031b8a97181d6e19586574979342bbde3aa/v7.1/README.md#verification-and-limits",
+          "label": "Read the verification and review boundary",
+          "limit": ""
+        },
+        {
+          "project": "Model Dependency",
+          "text": "The corrected release distinguishes model-run provenance from answer checking and states what can be reconstructed from stored outputs.",
+          "url": "index.html#work-model",
+          "label": "See the corrected model audit",
+          "limit": ""
+        }
+      ]
+    },
+    {
+      "id": "publish",
+      "title": "7. Publication and maintenance",
+      "summary": "Release a version with its method, evidence limits and useful reproduction materials. Preserve earlier editions and make corrections inspectable.",
+      "examples": [
+        {
+          "project": "AI Infrastructure",
+          "text": "The versioned bundle includes the paper, structured inputs, source lookup, reproduction commands and a reuse example.",
+          "url": "https://zenodo.org/records/22913848",
+          "label": "Open the versioned release",
+          "limit": ""
+        },
+        {
+          "project": "Divergence Registry",
+          "text": "Decision registers provide a separate method for recording choices and comparing research runs.",
+          "url": "https://github.com/NMAIResearch/divergence-registry/blob/ad2ca5f07db62dfebaa84f890cd48b6457a959bd/README.md",
+          "label": "Inspect the decision-record component",
+          "limit": "The component does not establish that every historical project ran the full Lifecycle engine."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI Infrastructure"
+    },
+    {
+      "name": "Article 50"
+    },
+    {
+      "name": "Divergence Registry"
+    },
+    {
+      "name": "FineWeb-Edu"
+    },
+    {
+      "name": "Forecast scorecard"
+    },
+    {
+      "name": "Model Dependency"
+    },
+    {
+      "name": "Power demand"
+    },
+    {
+      "name": "SW"
+    }
+  ],
+  "verification": "The shared approach is the author's description, supported by the method documents. The links illustrate particular stages; they do not certify that every historical project recorded every gate or used the same software. This map does not revalidate the findings. Reproduction and review limits remain those stated by each project. No workflow-effectiveness or time-saving baseline was run.",
+  "disclosure": "The author sets research direction, substantive decisions and release approval. AI models and scripts assist research, coding, drafting and checks. OpenAI GPT-6 assisted this map; OpenAI is also a subject of the wider portfolio. Each project records its own contributions and conflicts. Archify supplies the diagram renderer under the MIT licence."
+}

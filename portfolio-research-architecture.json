@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Research architecture behind the portfolio",
+    "locale": "en",
+    "animation": "none",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "hidden"
+    },
+    "views": [
+      {
+        "id": "design",
+        "label": "Question and scope",
+        "focus": [
+          "question",
+          "scope",
+          "novelty",
+          "park"
+        ],
+        "note": "Bound the question, check existing work and decide whether the proposed output is worth pursuing."
+      },
+      {
+        "id": "evidence",
+        "label": "Evidence and analysis",
+        "focus": [
+          "evidence",
+          "analysis",
+          "challenge"
+        ],
+        "note": "Trace the evidence, apply the selected method and examine counter-evidence."
+      },
+      {
+        "id": "release",
+        "label": "Review and release",
+        "focus": [
+          "challenge",
+          "publish"
+        ],
+        "note": "Revise claims, retain limitations, publish a version and revisit when warranted."
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "design",
+      "label": "Question and design"
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence and analysis"
+    },
+    {
+      "id": "analysis-lane",
+      "label": "Analysis"
+    },
+    {
+      "id": "release",
+      "label": "Challenge and release"
+    }
+  ],
+  "mainPath": [
+    "question",
+    "scope",
+    "novelty",
+    "evidence",
+    "analysis",
+    "challenge",
+    "publish"
+  ],
+  "nodes": [
+    {
+      "id": "question",
+      "lane": "design",
+      "col": 0,
+      "type": "external",
+      "label": "Question",
+      "sublabel": "What is being asked?",
+      "width": 178
+    },
+    {
+      "id": "scope",
+      "lane": "design",
+      "col": 1,
+      "type": "backend",
+      "label": "Scope & method",
+      "sublabel": "Unit, period, boundary",
+      "width": 178
+    },
+    {
+      "id": "novelty",
+      "lane": "design",
+      "col": 2,
+      "type": "security",
+      "label": "Novelty & usefulness",
+      "sublabel": "Prior work and purpose",
+      "width": 178
+    },
+    {
+      "id": "evidence",
+      "lane": "evidence",
+      "col": 2,
+      "type": "database",
+      "label": "Source evidence",
+      "sublabel": "Capture, date, qualify",
+      "width": 178
+    },
+    {
+      "id": "analysis",
+      "lane": "analysis-lane",
+      "col": 2,
+      "type": "backend",
+      "label": "Analysis",
+      "sublabel": "Compare, calculate, test",
+      "width": 178
+    },
+    {
+      "id": "challenge",
+      "lane": "release",
+      "col": 2,
+      "type": "security",
+      "label": "Challenge & revise",
+      "sublabel": "Counter-evidence, review",
+      "width": 178
+    },
+    {
+      "id": "publish",
+      "lane": "release",
+      "col": 3,
+      "type": "frontend",
+      "label": "Publish & maintain",
+      "sublabel": "Version, disclose, revisit",
+      "width": 178
+    },
+    {
+      "id": "park",
+      "lane": "design",
+      "col": 3,
+      "type": "messagebus",
+      "label": "Reframe or park",
+      "sublabel": "Already answered or infeasible",
+      "width": 178
+    }
+  ],
+  "edges": [
+    {
+      "id": "question-scope",
+      "from": "question",
+      "to": "scope",
+      "label": "define"
+    },
+    {
+      "id": "scope-novelty",
+      "from": "scope",
+      "to": "novelty",
+      "label": "assess"
+    },
+    {
+      "id": "novelty-evidence",
+      "from": "novelty",
+      "to": "evidence",
+      "label": "proceed"
+    },
+    {
+      "id": "evidence-analysis",
+      "from": "evidence",
+      "to": "analysis",
+      "label": "inspect"
+    },
+    {
+      "id": "analysis-challenge",
+      "from": "analysis",
+      "to": "challenge",
+      "label": "test claims"
+    },
+    {
+      "id": "challenge-publish",
+      "from": "challenge",
+      "to": "publish",
+      "label": "release decision"
+    },
+    {
+      "id": "novelty-park",
+      "from": "novelty",
+      "to": "park",
+      "label": "not justified",
+      "role": "branch",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "One research structure, different studies",
+      "items": [
+        "The stages describe the author's shared research approach. The accompanying guide links stages to concrete portfolio examples."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Tools support the method",
+      "items": [
+        "Code, models and reviewers assist particular steps. This map is not a claim that every project ran the same automated lifecycle."
+      ]
+    }
+  ]
+}
