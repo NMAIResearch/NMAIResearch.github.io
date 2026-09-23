@@ -546,6 +546,21 @@
       .rail-nav { display: grid; grid-template-columns: 1fr 1fr; }
       .entry-row { padding: 1rem 0; }
     }
+
+    /* Direct access to the application evidence and portfolio reading guide. */
+    .evidence-nav { display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; padding: 1rem clamp(1.4rem, 4vw, 3.6rem); border-bottom: 1px solid var(--border); background: var(--bg); }
+    .evidence-nav a { font-size: .9rem; font-weight: 600; text-decoration: underline; text-underline-offset: .22em; }
+    .featured-entry { display: block; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+    .featured-entry h2 { margin: .65rem 0; font-size: 1.4rem; }
+    .featured-entry p + p { margin-top: .85rem; }
+    .featured-entry .entry-bottom { margin-top: .8rem; }
+    .featured-entry .action-group { flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .swiss-grid { display: flex; flex-direction: column; }
+      .stream-pane { order: 0; min-width: 0; }
+      .telemetry-rail { order: 1; }
+      .evidence-nav { gap: .7rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -564,6 +579,12 @@
       </button>
     </div>
   </header>
+
+  <nav class="evidence-nav" aria-label="Featured evidence">
+    <a href="sovereign-watch-case-study.html">SW case study</a>
+    <a href="sovereign-watch-workflow-v4.html">SW workflow diagram</a>
+    <a href="portfolio-map.html">Portfolio map</a>
+  </nav>
 
   <div class="swiss-grid">
 
@@ -626,8 +647,8 @@
           <button id="clr" class="search-clear">Clear</button>
         </div>
         <div class="pills-row">
-          <button class="pill-btn active" data-filter="all">ALL (23)</button>
-          <button class="pill-btn" data-filter="tools">TOOLS &amp; METHODS (10)</button>
+          <button class="pill-btn active" data-filter="all">ALL (24)</button>
+          <button class="pill-btn" data-filter="tools">TOOLS &amp; METHODS (11)</button>
           <button class="pill-btn" data-filter="audit">EVIDENTIARY AUDITS</button>
           <button class="pill-btn" data-filter="infra">PHYSICAL INFRASTRUCTURE</button>
           <button class="pill-btn" data-filter="gov">GOVERNANCE &amp; RELIANCE</button>
@@ -637,12 +658,31 @@
       </div>
 
       <!-- SECTION: INTERACTIVE TOOLS -->
-      <div class="section-label" data-sec="tools">Tools, Open Methods &amp; Web Explorers (10)</div>
+      <div class="section-label" data-sec="tools">Tools, Open Methods &amp; Web Explorers (11)</div>
+
+      <!-- SW application evidence -->
+      <article id="work-sw" class="entry-row featured-entry" data-kind="tool" data-cats="tools gov audit" data-kw="sw sovereign watch operations case study automated monitoring ai news board source tier research context live feed RSS">
+        <div class="entry-top">
+          <span>TOOL 01</span>
+          <span class="tag-badge tag-tool">LIVE BOARD</span>
+        </div>
+        <h2><a href="https://nmairesearch.github.io/ai-news-board/" target="_blank" rel="noopener">The AI News Board and Sovereign Watch</a></h2>
+        <p>A live, source-tiered front end for AI industry coverage. It separates reports by source class, shows claim-relative evidence and denominator checks, and links relevant portfolio research without treating the link as verification. Daily machine labels remain visibly unreviewed until checked by a person. Failed or deferred assessments remain visible, and incomplete coverage is reported. The publication path stops on invalid data or a failed verification step; this does not establish comprehensive coverage or classification accuracy.</p>
+        <p><a href="sovereign-watch-case-study.html">Read the operations case study: incomplete coverage, recovery and explicit review boundaries.</a></p>
+        <footer class="entry-bottom">
+          <span class="stack-line">Vanilla JS · RSS/Atom feeds · source and evidence classification</span>
+          <div class="action-group">
+            <a href="sovereign-watch-workflow-v4.html">[workflow diagram &rarr;]</a>
+            <a href="https://nmairesearch.github.io/ai-news-board/" target="_blank" rel="noopener">[open live tool &rarr;]</a>
+            <a href="https://github.com/NMAIResearch/ai-news-board" target="_blank" rel="noopener">[code &amp; data]</a>
+          </div>
+        </footer>
+      </article>
 
       <!-- Tool 2: Article 50 -->
-      <article class="entry-row" data-kind="tool" data-cats="tools gov audit" data-kw="article 50 transparency explorer eu ai act watermarking synthid c2pa machine readable marking">
+      <article id="work-article50" class="entry-row" data-kind="tool" data-cats="tools gov audit" data-kw="article 50 transparency explorer eu ai act watermarking synthid c2pa machine readable marking">
         <div class="entry-top">
-          <span>TOOL 01 · DOI 10.5281/zenodo.21819102</span>
+          <span>TOOL 02 · DOI 10.5281/zenodo.21819102</span>
           <span class="tag-badge tag-gov">PUBLIC-EVIDENCE EXPLORER</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/article50-explorer/" target="_blank" rel="noopener">Article 50 Transparency Explorer</a></h2>
@@ -657,9 +697,9 @@
       </article>
 
       <!-- Tool 3: Power Demand -->
-      <article class="entry-row" data-kind="tool" data-cats="tools infra" data-kw="announced vs deliverable ai power demand interconnection queue pjm ercot deflation calculator">
+      <article id="work-power" class="entry-row" data-kind="tool" data-cats="tools infra" data-kw="announced vs deliverable ai power demand interconnection queue pjm ercot deflation calculator">
         <div class="entry-top">
-          <span>TOOL 02 · DOI 10.5281/zenodo.20559430</span>
+          <span>TOOL 03 · DOI 10.5281/zenodo.20559430</span>
           <span class="tag-badge tag-infra">DEFLATION CALCULATOR</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/announced-vs-deliverable-power/" target="_blank" rel="noopener">Announced vs. Deliverable AI Power Demand</a></h2>
@@ -675,9 +715,9 @@
       </article>
 
       <!-- Tool 4: Water Explorer -->
-      <article class="entry-row" data-kind="tool" data-cats="tools infra" data-kw="ai data centre water evidence explorer cooling evaporative off-site relocation ledger">
+      <article id="work-water" class="entry-row" data-kind="tool" data-cats="tools infra" data-kw="ai data centre water evidence explorer cooling evaporative off-site relocation ledger">
         <div class="entry-top">
-          <span>TOOL 03 · DOI 10.5281/zenodo.21318960</span>
+          <span>TOOL 04 · DOI 10.5281/zenodo.21318960</span>
           <span class="tag-badge tag-infra">WATER EXPLORER</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/ai-water-tracker/" target="_blank" rel="noopener">AI Data-Centre Water Evidence Explorer</a></h2>
@@ -693,9 +733,9 @@
       </article>
 
       <!-- Tool 5: Cost Watch -->
-      <article class="entry-row" data-kind="tool" data-cats="tools markets" data-kw="ai cost watch unit economics token pricing capex guidance down revision issue 6">
+      <article id="work-cost" class="entry-row" data-kind="tool" data-cats="tools markets" data-kw="ai cost watch unit economics token pricing capex guidance down revision issue 6">
         <div class="entry-top">
-          <span>TOOL 04 · ISSUE 6 · DOI 10.5281/zenodo.20541643</span>
+          <span>TOOL 05 · ISSUE 6 · DOI 10.5281/zenodo.20541643</span>
           <span class="tag-badge tag-market">UNIT ECONOMICS</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/cost-watch/" target="_blank" rel="noopener">AI Cost Watch</a></h2>
@@ -711,9 +751,9 @@
       </article>
 
       <!-- Tool 6: Forecast Scorecard -->
-      <article class="entry-row" data-kind="tool" data-cats="tools infra" data-kw="ai energy demand forecast scorecard electricity demand dispersion transparency funnel">
+      <article id="work-forecast" class="entry-row" data-kind="tool" data-cats="tools infra" data-kw="ai energy demand forecast scorecard electricity demand dispersion transparency funnel">
         <div class="entry-top">
-          <span>TOOL 05 · DOI 10.5281/zenodo.20572928</span>
+          <span>TOOL 06 · DOI 10.5281/zenodo.20572928</span>
           <span class="tag-badge tag-infra">FORECAST MATRIX</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/forecast-scorecard/" target="_blank" rel="noopener">AI Energy-Demand Forecast Scorecard</a></h2>
@@ -729,9 +769,9 @@
       </article>
 
       <!-- Tool 7: CEO Pay Scorecard -->
-      <article class="entry-row" data-kind="tool" data-cats="tools markets" data-kw="ceo pay vs delivery scorecard s&amp;p 500 sec edgar pay versus performance compensation actually paid">
+      <article id="work-pay" class="entry-row" data-kind="tool" data-cats="tools markets" data-kw="ceo pay vs delivery scorecard s&amp;p 500 sec edgar pay versus performance compensation actually paid">
         <div class="entry-top">
-          <span>TOOL 06 · DOI 10.5281/zenodo.20680108</span>
+          <span>TOOL 07 · DOI 10.5281/zenodo.20680108</span>
           <span class="tag-badge tag-market">GOVERNANCE AUDIT</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/ceo-pay-scorecard/" target="_blank" rel="noopener">CEO Pay-vs-Delivery Scorecard</a></h2>
@@ -747,9 +787,9 @@
       </article>
 
       <!-- Tool 8: Entropy Error Detector -->
-      <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="open weight error detection audit model dependency token entropy uncertainty xbrl false alarm budget does entropy catch the errors">
+      <article id="work-model" class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="open weight error detection audit model dependency token entropy uncertainty xbrl false alarm budget does entropy catch the errors">
         <div class="entry-top">
-          <span>TOOL 07 · DOI 10.5281/zenodo.21543579</span>
+          <span>TOOL 08 · DOI 10.5281/zenodo.21543579</span>
           <span class="tag-badge tag-audit">MODEL DIAGNOSTIC</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/model-dependency/" target="_blank" rel="noopener">Open-Weight Error-Detection Audit</a></h2>
@@ -765,9 +805,9 @@
       </article>
 
       <!-- Tool 9: FineWeb-Edu Threshold -->
-      <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="fineweb edu threshold explorer 84m documents bfloat16 rounding classifier boundary">
+      <article id="work-fineweb" class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="fineweb edu threshold explorer 84m documents bfloat16 rounding classifier boundary">
         <div class="entry-top">
-          <span>TOOL 08 · DOI 10.5281/zenodo.21740081</span>
+          <span>TOOL 09 · DOI 10.5281/zenodo.21740081</span>
           <span class="tag-badge tag-audit">DATASET DIAGNOSTIC</span>
         </div>
         <h2><a href="https://nmairesearch.github.io/fineweb-edu-threshold/" target="_blank" rel="noopener">FineWeb-Edu Threshold Explorer</a></h2>
@@ -784,25 +824,10 @@
 
       <!-- SECTION: EVIDENTIARY AUDITS & METHODS -->
       <!-- Tool 9: News Board -->
-      <article class="entry-row" data-kind="tool" data-cats="tools gov audit" data-kw="ai news board source tier research context live feed RSS">
-        <div class="entry-top">
-          <span>TOOL 09</span>
-          <span class="tag-badge tag-tool">LIVE BOARD</span>
-        </div>
-        <h2><a href="https://nmairesearch.github.io/ai-news-board/" target="_blank" rel="noopener">The AI News Board and Sovereign Watch</a></h2>
-        <p>A live, source-tiered front end for AI industry coverage. It separates reports by source class, shows claim-relative evidence and denominator checks, and links relevant portfolio research without treating the link as verification. Daily machine labels remain visibly unreviewed until checked by a person. Failed or deferred assessments remain visible, and incomplete coverage is reported. The publication path stops on invalid data or a failed verification step; this does not establish comprehensive coverage or classification accuracy.</p>
-        <p><a href="sovereign-watch-case-study.html">Read the operations case study: incomplete coverage, recovery and explicit review boundaries.</a></p>
-        <footer class="entry-bottom">
-          <span class="stack-line">Vanilla JS · RSS/Atom feeds · source and evidence classification</span>
-          <div class="action-group">
-            <a href="https://nmairesearch.github.io/ai-news-board/" target="_blank" rel="noopener">[open live tool &rarr;]</a>
-            <a href="https://github.com/NMAIResearch/ai-news-board" target="_blank" rel="noopener">[code &amp; data]</a>
-          </div>
-        </footer>
-      </article>
+
 
       <!-- Tool 10: Divergence Registry -->
-      <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="divergence registry research protocol independent runs source custody deterministic gates claim materiality zenodo hugging face">
+      <article id="work-divergence" class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="divergence registry research protocol independent runs source custody deterministic gates claim materiality zenodo hugging face">
         <div class="entry-top">
           <span>OPEN METHOD · v0.2-rc2</span>
           <span class="tag-badge tag-audit">RESEARCH PROTOCOL</span>
@@ -821,7 +846,7 @@
       </article>
 
       <!-- Tool 11: PLAG IN -->
-      <article class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="plag in private local ai gateway libllama loopback inference receipts linux source alpha">
+      <article id="work-plag" class="entry-row" data-kind="tool" data-cats="tools audit" data-kw="plag in private local ai gateway libllama loopback inference receipts linux source alpha">
         <div class="entry-top">
           <span>OPEN SOURCE · SOURCE ALPHA</span>
           <span class="tag-badge tag-tool">LOCAL INFRASTRUCTURE</span>
@@ -837,9 +862,9 @@
         </footer>
       </article>
 
-      <div class="section-label" data-sec="audit">Audits, Diagnostics &amp; Methods (3)</div>
+      <div class="section-label" data-sec="audit">Audits, Diagnostics &amp; Methods (2)</div>
 
-      <article class="entry-row" data-kind="paper" data-cats="audit" data-kw="ai automation claims scorecard recursive self-improvement safety frameworks rsp claude openai google meta">
+      <article id="work-automation" class="entry-row" data-kind="paper" data-cats="audit" data-kw="ai automation claims scorecard recursive self-improvement safety frameworks rsp claude openai google meta">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.21325372</span>
           <span>PUBLISHED 18 AUG 2026</span>
@@ -856,7 +881,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="audit" data-kw="anomalous constant domains void transmission negative result cosmology">
+      <article id="work-cosmology" class="entry-row" data-kind="paper" data-cats="audit" data-kw="anomalous constant domains void transmission negative result cosmology">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20374960</span>
           <span>PUBLISHED 2026</span>
@@ -875,7 +900,7 @@
       <!-- SECTION: PHYSICAL INFRASTRUCTURE -->
       <div class="section-label" data-sec="infra">Physical Infrastructure &amp; Power (2)</div>
 
-      <article class="entry-row" data-kind="paper" data-cats="infra" data-kw="britain data centre grid queue ofgem neso demand connections green belt london plan">
+      <article id="work-queue" class="entry-row" data-kind="paper" data-cats="infra" data-kw="britain data centre grid queue ofgem neso demand connections green belt london plan">
         <div class="entry-top">
           <span>POLICY ARTICLE</span>
           <span>AUGUST 2026</span>
@@ -891,7 +916,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="infra" data-kw="bot web traffic energy cloudflare radar iea lbnl order of magnitude">
+      <article id="work-bot-energy" class="entry-row" data-kind="paper" data-cats="infra" data-kw="bot web traffic energy cloudflare radar iea lbnl order of magnitude">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20512703</span>
           <span>PUBLISHED 08 JUL 2026</span>
@@ -911,7 +936,7 @@
       <!-- SECTION: GOVERNANCE & RELIANCE -->
       <div class="section-label" data-sec="gov">Governance, Reliance &amp; Consumer Protection (6)</div>
 
-      <article class="entry-row" data-kind="paper" data-cats="gov" data-kw="ai reliance dependency reversibility vendor lock-in export controls omb gao">
+      <article id="work-reliance" class="entry-row" data-kind="paper" data-cats="gov" data-kw="ai reliance dependency reversibility vendor lock-in export controls omb gao">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20763480</span>
           <span>PUBLISHED 18 JUL 2026</span>
@@ -927,7 +952,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="gov" data-kw="consumer reliance architecture pricing tiers lock in churn companion models">
+      <article id="work-consumer-reliance" class="entry-row" data-kind="paper" data-cats="gov" data-kw="consumer reliance architecture pricing tiers lock in churn companion models">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20807278</span>
           <span>PUBLISHED 19 JUL 2026</span>
@@ -943,7 +968,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="gov" data-kw="consumer incidence ai buildout household electricity device prices tax abatements">
+      <article id="work-incidence" class="entry-row" data-kind="paper" data-cats="gov" data-kw="consumer incidence ai buildout household electricity device prices tax abatements">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20941003</span>
           <span>PUBLISHED 26 JUN 2026</span>
@@ -959,7 +984,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="gov" data-kw="shopping agents agentic commerce deceptive patterns principal agent prompt injection">
+      <article id="work-shopping" class="entry-row" data-kind="paper" data-cats="gov" data-kw="shopping agents agentic commerce deceptive patterns principal agent prompt injection">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20790896</span>
           <span>PUBLISHED 20 JUL 2026</span>
@@ -975,7 +1000,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="gov" data-kw="designed not accidental deceptive patterns choice architecture surveillance pricing">
+      <article id="work-patterns" class="entry-row" data-kind="paper" data-cats="gov" data-kw="designed not accidental deceptive patterns choice architecture surveillance pricing">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20788844</span>
           <span>PUBLISHED 19 JUL 2026</span>
@@ -991,7 +1016,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="gov" data-kw="ai literacy load occupation anthropic economic index onet automation augmentation">
+      <article id="work-literacy" class="entry-row" data-kind="paper" data-cats="gov" data-kw="ai literacy load occupation anthropic economic index onet automation augmentation">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20778968</span>
           <span>PUBLISHED 04 JUL 2026</span>
@@ -1010,7 +1035,7 @@
       <!-- SECTION: FINANCE & MARKETS -->
       <div class="section-label" data-sec="markets">Finance, Markets &amp; Valuation (3)</div>
 
-      <article class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai infrastructure commitments delivery access finance evidence reproduction constraint relay">
+      <article id="work-infrastructure" class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai infrastructure commitments delivery access finance evidence reproduction constraint relay">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20586863</span>
           <span>UPDATED 23 SEP 2026 · v7.1</span>
@@ -1027,7 +1052,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai private to public ledger ipo marks reality venture valuations sec s-1">
+      <article id="work-private-public" class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai private to public ledger ipo marks reality venture valuations sec s-1">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.20672581</span>
           <span>PUBLISHED 14 JUL 2026</span>
@@ -1044,7 +1069,7 @@
         </footer>
       </article>
 
-      <article class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai industry pestle scan political economic social technological legal environmental">
+      <article id="work-pestle" class="entry-row" data-kind="paper" data-cats="markets" data-kw="ai industry pestle scan political economic social technological legal environmental">
         <div class="entry-top">
           <span>DOI 10.5281/zenodo.22015796</span>
           <span>PUBLISHED 19 AUG 2026</span>
@@ -1160,7 +1185,8 @@
           return;
         }
 
-        const searchLabel = terms.length ? ` matching &ldquo;${q.value.trim()}&rdquo;` : "";
+        const safeQuery = q.value.trim().replace(/[&<>"']/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"})[c]);
+        const searchLabel = terms.length ? ` matching &ldquo;${safeQuery}&rdquo;` : "";
         const catLabel = activeFilter === "all" ? "" : ` in category &ldquo;${activeFilter}&rdquo;`;
         found.innerHTML = hits
           ? `<b>${hits}</b> of ${rows.length} records shown${searchLabel}${catLabel}.`
