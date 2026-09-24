@@ -68,7 +68,7 @@ h2{{font-size:1.35rem;line-height:1.3;margin:0 0 12px}}h3{{font-size:1rem;line-h
 footer{{margin-top:46px;border-top:1px solid var(--line);padding-top:24px;font-size:.85rem;color:var(--muted)}}
 :focus-visible{{outline:3px solid var(--link);outline-offset:4px}}@media(max-width:720px){{.projects,.operations{{grid-template-columns:1fr}}iframe{{height:620px}}}}
 </style></head><body><main>
-<nav aria-label="Portfolio navigation">{link('index.html','NM AI Research')}{link('sovereign-watch-case-study.html','SW case study')}{link('sovereign-watch-workflow-v4.html','SW workflow')}</nav>
+<nav aria-label="Main navigation"><a href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html" aria-current="page">Portfolio map</a></nav>
 <h1>{escape(data['title'])}</h1><p class="intro">{escape(data['introduction'])}</p>
 
 <div class="map"><p>{link(data['diagram'],'Open the full research map')}</p><iframe src="{escape(data['diagram'],quote=True)}" title="Research architecture: question, scope, novelty, evidence, analysis, challenge and publication" loading="lazy"></iframe></div>
