@@ -36,6 +36,12 @@ def main():
     receipt = json.loads(result.stdout)
     if not receipt.get('ok') or not output.is_file():
         raise RuntimeError('Renderer did not confirm delivery.')
+    css = (root / 'house-diagram-palette.css').read_text(encoding='utf-8')
+    rendered = output.read_text(encoding='utf-8')
+    if rendered.count('</head>') != 1:
+        raise RuntimeError('Expected one HTML head for the house palette')
+    output.write_text(rendered.replace('</head>',
+        '<style id="nmai-house-palette">\n' + css + '</style>\n</head>'), encoding='utf-8')
     expected = root / 'sovereign-watch-workflow-v4.html'
     match = hashlib.sha256(output.read_bytes()).digest() == hashlib.sha256(expected.read_bytes()).digest()
     print(json.dumps({'purpose':'Check rebuilt diagram bytes, not SW operation or alert correctness',

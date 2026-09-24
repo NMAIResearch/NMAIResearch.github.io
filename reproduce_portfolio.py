@@ -53,12 +53,14 @@ def render_guide(data):
 <meta name="description" content="Shared research architecture with linked examples from the NM AI Research portfolio.">
 <title>{escape(data['title'])} | NM AI Research</title>
 <style>
-:root{{color-scheme:light dark;--bg:#f5f6f8;--fg:#172b42;--muted:#526174;--line:#c9d2dc;--panel:#fff;--link:#075da8}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#101923;--fg:#e4eaf1;--muted:#b4c2d1;--line:#384958;--panel:#172330;--link:#96c9ff}}}}
+:root{{color-scheme:light;--bg:#fff;--fg:#2d3748;--heading:#1a365d;--muted:#4a5568;--line:#e2e8f0;--panel:#fff;--link:#2b6cb0}}
+@media(prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--bg:#0f141d;--fg:#e8edf4;--heading:#e2e8f0;--muted:#a0aec0;--line:#2a3444;--panel:#161d2b;--link:#63b3ed;color-scheme:dark}}}}
+html[data-theme="dark"]{{--bg:#0f141d;--fg:#e8edf4;--heading:#e2e8f0;--muted:#a0aec0;--line:#2a3444;--panel:#161d2b;--link:#63b3ed;color-scheme:dark}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,sans-serif}}
 main{{max-width:1180px;margin:auto;padding:28px clamp(20px,4vw,48px)}}a{{color:var(--link);text-underline-offset:.2em}}
 nav{{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:.9rem}}h1{{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:36px 0 18px}}
 h2{{font-size:1.35rem;line-height:1.3;margin:0 0 12px}}h3{{font-size:1rem;line-height:1.4;margin:0 0 8px}}p{{margin:0 0 14px}}
+h1,h2,h3{{color:var(--heading)}}#themeToggle{{font:inherit;font-size:.85rem;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--fg);padding:4px 10px;cursor:pointer;margin-left:auto}}
 .intro{{max-width:820px}}.eyebrow{{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}}
 .projects{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:28px 0 34px}}
 .projects article{{border-top:2px solid var(--fg);padding-top:16px}}.projects p{{font-size:.92rem}}
@@ -67,8 +69,8 @@ h2{{font-size:1.35rem;line-height:1.3;margin:0 0 12px}}h3{{font-size:1rem;line-h
 .summary{{color:var(--muted)}}.example{{margin-top:22px}}.limit{{font-size:.86rem;color:var(--muted)}}
 footer{{margin-top:46px;border-top:1px solid var(--line);padding-top:24px;font-size:.85rem;color:var(--muted)}}
 :focus-visible{{outline:3px solid var(--link);outline-offset:4px}}@media(max-width:720px){{.projects,.operations{{grid-template-columns:1fr}}iframe{{height:620px}}}}
-</style></head><body><main>
-<nav aria-label="Main navigation"><a href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html" aria-current="page">Portfolio map</a></nav>
+</style><script src="portfolio-theme.js"></script></head><body><main>
+<nav aria-label="Main navigation"><a href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html" aria-current="page">Portfolio map</a><button id="themeToggle" type="button" hidden>Change theme</button></nav>
 <h1>{escape(data['title'])}</h1><p class="intro">{escape(data['introduction'])}</p>
 
 <div class="map"><p>{link(data['diagram'],'Open the full research map')}</p><iframe src="{escape(data['diagram'],quote=True)}" title="Research architecture: question, scope, novelty, evidence, analysis, challenge and publication" loading="lazy"></iframe></div>
@@ -107,6 +109,7 @@ def main():
                 raise ValueError('Archify renderer not found')
             dest.mkdir()
             (dest / 'portfolio-map.html').write_bytes(guide)
+            (dest / 'portfolio-theme.js').write_bytes((ROOT / 'portfolio-theme.js').read_bytes())
             if renderer:
                 output = dest / 'portfolio-research-architecture.html'
                 result = subprocess.run(['node',str(renderer),'deliver','workflow',
@@ -118,6 +121,12 @@ def main():
                 receipt = json.loads(result.stdout)
                 if not receipt.get('ok') or not output.is_file():
                     raise RuntimeError('Renderer did not confirm delivery')
+                css = (ROOT / 'house-diagram-palette.css').read_text(encoding='utf-8')
+                rendered = output.read_text(encoding='utf-8')
+                if rendered.count('</head>') != 1:
+                    raise RuntimeError('Expected one HTML head for the house palette')
+                output.write_text(rendered.replace('</head>',
+                    '<style id="nmai-house-palette">\n' + css + '</style>\n</head>'), encoding='utf-8')
                 report['diagram'] = {'sha256':sha(output.read_bytes()),
                     'matches':output.read_bytes() == (ROOT / 'portfolio-research-architecture.html').read_bytes()}
         print(json.dumps(report,indent=2))
