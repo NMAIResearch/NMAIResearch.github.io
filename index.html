@@ -1,118 +1,38 @@
 <!DOCTYPE html>
 
-<html data-theme="light" lang="en-GB">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>NM AI Research · Independent Research on Technology, Energy &amp; AI</title>
 <meta content="Independent research on AI governance, model evaluation, and infrastructure economics. Open-access research, tools and source code, with project-specific version records." name="description"/>
-<script>
-  (function(){
-    try {
-      var t = localStorage.getItem('nmai-theme');
-      if (t) { document.documentElement.setAttribute('data-theme', t); }
-    } catch(e){}
-  })();
-  </script>
-<style>
-    :root { color-scheme: light; --bg:#faf9f6; --surface:#f0f1ef; --text:#222b35; --muted:#52616f; --line:#d6dddF; --accent:#145b83; --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-    html[data-theme="dark"] { color-scheme:dark; --bg:#11171d; --surface:#1b242d; --text:#e8edf0; --muted:#b3c0ca; --line:#354450; --accent:#85cce7; }
-    * { box-sizing:border-box; }
-    html { scroll-padding-top:1rem; }
-    body { margin:0; background:var(--bg); color:var(--text); font:17px/1.7 var(--sans); }
-    a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:.2em; }
-    a:hover { text-decoration-thickness:2px; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
-    button,input,select { font:inherit; color:var(--text); }
-    button,select { cursor:pointer; }
-    button { background:var(--bg); border:1px solid var(--line); border-radius:5px; padding:.45rem .8rem; }
-    .top-bar { max-width:1120px; margin:auto; padding:1.25rem 2rem; display:flex; gap:1rem; align-items:center; justify-content:space-between; }
-    .brand { font-weight:700; font-size:1.08rem; letter-spacing:-.02em; }
-    .brand-subtitle { color:var(--muted); font-size:.85rem; }
-    .theme-toggle-btn { font-size:.8rem; white-space:nowrap; min-height:42px; }
-    .evidence-nav { max-width:1056px; margin:auto; padding:.6rem 0 1.05rem; display:flex; flex-wrap:wrap; gap:.65rem 2rem; border-bottom:1px solid var(--line); }
-    .evidence-nav a { font-size:.95rem; }
-    .skip-link { position:absolute; top:-100px; left:1rem; background:var(--bg); padding:.5rem; z-index:10; }
-    .skip-link:focus { top:1rem; }
-    .swiss-grid { max-width:1120px; padding:0 2rem; margin:auto; }
-    .rail-header { max-width:760px; margin:2.4rem 0 1.8rem; }
-    .rail-header h1 { font-size:clamp(1.8rem,4vw,2.35rem); letter-spacing:-.035em; line-height:1.2; margin:0 0 .8rem; }
-    .rail-header p { margin:0; color:var(--muted); font-size:1.05rem; }
-    .control-header { padding:1rem 0 1.5rem; border-bottom:1px solid var(--line); }
-    .search-row { display:flex; flex-wrap:wrap; gap:.65rem; align-items:center; }
-    .search-input { min-width:0; flex:1 1 290px; padding:.6rem .8rem; border:1px solid var(--line); border-radius:5px; background:var(--bg); }
-    .search-input::placeholder { color:var(--muted); opacity:1; }
-    .subject-control { display:flex; align-items:center; gap:.5rem; font-size:.9rem; }
-    .subject-control select { min-height:46px; max-width:100%; padding:.5rem 2rem .5rem .65rem; border:1px solid var(--line); border-radius:5px; background:var(--bg); }
-    .search-clear { min-height:46px; font-size:.9rem; }
-    .search-summary { margin-top:.65rem; font-size:.9rem; color:var(--muted); }
-    .search-summary:empty { display:none; }
-    .section-label { margin:2.2rem 0 0; font-size:.85rem; letter-spacing:.04em; color:var(--muted); }
-    .entry-row { padding:1.8rem 0 2rem; border-bottom:1px solid var(--line); max-width:100%; }
-    .entry-row.hidden { display:none; }
-    .entry-top { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; font-size:.78rem; color:var(--muted); margin:0 0 .6rem; }
-    .tag-badge { border:1px solid var(--line); border-radius:3px; padding:.1rem .4rem; font-size:.72rem; letter-spacing:.025em; }
-    .entry-row h2 { font-size:1.32rem; line-height:1.35; letter-spacing:-.018em; margin:0 0 .75rem; max-width:850px; }
-    .entry-row h2 a { color:var(--text); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:.18em; }
-    .entry-row h2 a:hover { color:var(--accent); text-decoration-color:var(--accent); }
-    .entry-row p { max-width:78ch; margin:0 0 1rem; font-size:1rem; line-height:1.75; }
-    .featured-entry { padding-top:2rem; }
-    .featured-entry h2 { font-size:1.5rem; }
-    .entry-bottom { display:flex; flex-direction:column; align-items:flex-start; gap:.7rem; margin-top:1.1rem; }
-    .stack-line { color:var(--muted); font-size:.8rem; max-width:85ch; }
-    .action-group { display:flex; flex-wrap:wrap; gap:.45rem 1.35rem; font-size:.9rem; }
-    .action-group a { padding:.15rem 0; }
-    .evidence-notes { margin:2.5rem 0; padding:1.5rem; background:var(--surface); border-radius:5px; }
-    .evidence-notes h2 { font-size:1.1rem; margin:0 0 1.2rem; }
-    .stat-group { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem 2rem; }
-    .stat-label { font-size:.78rem; color:var(--muted); }
-    .stat-num { font-size:1rem; font-weight:650; margin:.2rem 0; }
-    .stat-desc { font-size:.85rem; line-height:1.6; color:var(--muted); }
-    .hub-footer { max-width:1056px; margin:0 auto; padding:1.3rem 0 2.5rem; border-top:1px solid var(--line); font-size:.85rem; color:var(--muted); display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; }
-    .footer-links { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1.2rem; }
-    .ai-disclaimer { margin:0 0 .4rem; }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    @media(max-width:700px) { body { font-size:16px; } .top-bar { padding:1rem 1.2rem; } .evidence-nav { margin:0 1.2rem; gap:.6rem 1.3rem; } .swiss-grid { padding:0 1.2rem; } .rail-header { margin:1.7rem 0 1.2rem; } .subject-control { flex:1; } .subject-control select { width:100%; min-width:0; } .search-input { flex-basis:100%; } .entry-row { padding:1.5rem 0; } .entry-row h2 { font-size:1.25rem; } .entry-row p { line-height:1.7; } .stat-group { grid-template-columns:1fr; gap:1rem; } .hub-footer { margin:0 1.2rem; } .evidence-notes { padding:1.1rem; } }
-    @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto; } }
-</style>
-</head>
+
+
+<link href="portfolio.css" rel="stylesheet"/><script src="portfolio-theme.js"></script></head>
 <body><a class="skip-link" href="#work">Skip to research</a>
 <!-- Top Utility Bar -->
-<header class="top-bar">
-<div class="brand-block">
-<div class="brand">NM AI Research</div>
-<div class="brand-subtitle">Public evidence index</div>
-</div>
+<header class="site-header"><div><a class="brand" href="index.html">NM AI Research</a>
+<div class="brand-subtitle">Public evidence index</div></div>
+<nav aria-label="Main navigation" class="site-nav"><a aria-current="page" href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html">Portfolio map</a></nav>
+<button class="theme-toggle-btn" hidden="" id="themeToggle" type="button">Theme</button></header>
 
-<div class="actions">
-<button class="theme-toggle-btn" id="themeToggle" title="Toggle Light/Dark Theme">
-<span id="themeIcon">◑</span>
-<span id="themeLabel">THEME: LIGHT</span>
-</button>
-</div>
-</header>
-<nav aria-label="Main navigation" class="evidence-nav"><a aria-current="page" href="#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html">Portfolio map</a></nav>
 <div class="swiss-grid">
 <!-- Left Sticky Telemetry Rail -->
-
 <!-- Right Editorial Stream -->
-<main class="stream-pane" id="work"><div class="rail-header">
+<main class="stream-pane" id="work"><div class="rail-header"><p class="eyebrow">Independent research · Open evidence</p>
 <h1>Research you can inspect</h1>
 <p>Independent audits, empirical registers and live tools. Each entry leads to the method, evidence or versioned record behind it.</p>
 </div>
 <!-- Control Header: Search and Filter Pills -->
-<div class="control-header">
+<div class="control-header" hidden="">
 <div class="search-row">
 <input aria-label="Search research, tools and topics" class="search-input" id="q" placeholder="Search research, tools and topics" type="text"/>
 <label class="subject-control" for="subject">Subject <select id="subject"><option value="all">All (24)</option><option value="tools">Tools &amp; Methods (11)</option><option value="audit">Evidentiary Audits</option><option value="infra">Physical Infrastructure</option><option value="gov">Governance &amp; Reliance</option><option value="markets">Finance &amp; Markets</option></select></label><button class="search-clear" id="clr">Clear</button>
 </div>
-
 <div aria-live="polite" class="search-summary" id="found" role="status"></div>
 </div>
 <!-- SECTION: INTERACTIVE TOOLS -->
-<div class="section-label" data-sec="tools">Tools, Open Methods &amp; Web Explorers (11)</div>
-<!-- SW application evidence -->
-<article class="entry-row featured-entry" data-cats="tools gov audit" data-kind="tool" data-kw="sw sovereign watch operations case study automated monitoring ai news board source tier research context live feed RSS" id="work-sw">
+<div class="project-grid"><div class="section-label" data-sec="tools">Tools, Open Methods &amp; Web Explorers (11)</div><article class="entry-row featured-entry" data-cats="tools gov audit" data-kind="tool" data-kw="sw sovereign watch operations case study automated monitoring ai news board source tier research context live feed RSS" id="work-sw">
 <div class="entry-top">
 <span>TOOL 01</span>
 <span class="tag-badge tag-tool">LIVE BOARD</span>
@@ -128,9 +48,7 @@
 <a href="https://github.com/NMAIResearch/ai-news-board" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 2: Article 50 -->
-<article class="entry-row" data-cats="tools gov audit" data-kind="tool" data-kw="article 50 transparency explorer eu ai act watermarking synthid c2pa machine readable marking" id="work-article50">
+</article><article class="entry-row" data-cats="tools gov audit" data-kind="tool" data-kw="article 50 transparency explorer eu ai act watermarking synthid c2pa machine readable marking" id="work-article50">
 <div class="entry-top">
 <span>TOOL 02 · DOI 10.5281/zenodo.21819102</span>
 <span class="tag-badge tag-gov">PUBLIC-EVIDENCE EXPLORER</span>
@@ -144,9 +62,7 @@
 <a href="https://doi.org/10.5281/zenodo.21819102" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<!-- Tool 3: Power Demand -->
-<article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="announced vs deliverable ai power demand interconnection queue pjm ercot deflation calculator" id="work-power">
+</article><article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="announced vs deliverable ai power demand interconnection queue pjm ercot deflation calculator" id="work-power">
 <div class="entry-top">
 <span>TOOL 03 · DOI 10.5281/zenodo.20559430</span>
 <span class="tag-badge tag-infra">DEFLATION CALCULATOR</span>
@@ -161,9 +77,7 @@
 <a href="https://github.com/NMAIResearch/announced-vs-deliverable-power" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 4: Water Explorer -->
-<article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="ai data centre water evidence explorer cooling evaporative off-site relocation ledger" id="work-water">
+</article><article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="ai data centre water evidence explorer cooling evaporative off-site relocation ledger" id="work-water">
 <div class="entry-top">
 <span>TOOL 04 · DOI 10.5281/zenodo.21318960</span>
 <span class="tag-badge tag-infra">WATER EXPLORER</span>
@@ -178,9 +92,7 @@
 <a href="https://github.com/NMAIResearch/ai-water-tracker" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 5: Cost Watch -->
-<article class="entry-row" data-cats="tools markets" data-kind="tool" data-kw="ai cost watch unit economics token pricing capex guidance down revision issue 6" id="work-cost">
+</article><article class="entry-row" data-cats="tools markets" data-kind="tool" data-kw="ai cost watch unit economics token pricing capex guidance down revision issue 6" id="work-cost">
 <div class="entry-top">
 <span>TOOL 05 · ISSUE 6 · DOI 10.5281/zenodo.20541643</span>
 <span class="tag-badge tag-market">UNIT ECONOMICS</span>
@@ -195,9 +107,7 @@
 <a href="https://github.com/NMAIResearch/cost-watch" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 6: Forecast Scorecard -->
-<article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="ai energy demand forecast scorecard electricity demand dispersion transparency funnel" id="work-forecast">
+</article><article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="ai energy demand forecast scorecard electricity demand dispersion transparency funnel" id="work-forecast">
 <div class="entry-top">
 <span>TOOL 06 · DOI 10.5281/zenodo.20572928</span>
 <span class="tag-badge tag-infra">FORECAST MATRIX</span>
@@ -212,9 +122,7 @@
 <a href="https://github.com/NMAIResearch/forecast-scorecard" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 7: CEO Pay Scorecard -->
-<article class="entry-row" data-cats="tools markets" data-kind="tool" data-kw="ceo pay vs delivery scorecard s&amp;p 500 sec edgar pay versus performance compensation actually paid" id="work-pay">
+</article><article class="entry-row" data-cats="tools markets" data-kind="tool" data-kw="ceo pay vs delivery scorecard s&amp;p 500 sec edgar pay versus performance compensation actually paid" id="work-pay">
 <div class="entry-top">
 <span>TOOL 07 · DOI 10.5281/zenodo.20680108</span>
 <span class="tag-badge tag-market">GOVERNANCE AUDIT</span>
@@ -229,9 +137,7 @@
 <a href="https://github.com/NMAIResearch/ceo-pay-scorecard" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 8: Entropy Error Detector -->
-<article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="open weight error detection audit model dependency token entropy uncertainty xbrl false alarm budget does entropy catch the errors" id="work-model">
+</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="open weight error detection audit model dependency token entropy uncertainty xbrl false alarm budget does entropy catch the errors" id="work-model">
 <div class="entry-top">
 <span>TOOL 08 · DOI 10.5281/zenodo.21543579</span>
 <span class="tag-badge tag-audit">MODEL DIAGNOSTIC</span>
@@ -246,9 +152,7 @@
 <a href="https://github.com/NMAIResearch/model-dependency" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- Tool 9: FineWeb-Edu Threshold -->
-<article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="fineweb edu threshold explorer 84m documents bfloat16 rounding classifier boundary" id="work-fineweb">
+</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="fineweb edu threshold explorer 84m documents bfloat16 rounding classifier boundary" id="work-fineweb">
 <div class="entry-top">
 <span>TOOL 09 · DOI 10.5281/zenodo.21740081</span>
 <span class="tag-badge tag-audit">DATASET DIAGNOSTIC</span>
@@ -263,11 +167,7 @@
 <a href="https://github.com/NMAIResearch/fineweb-edu-threshold" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- SECTION: EVIDENTIARY AUDITS & METHODS -->
-<!-- Tool 9: News Board -->
-<!-- Tool 10: Divergence Registry -->
-<article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="divergence registry research protocol independent runs source custody deterministic gates claim materiality zenodo hugging face" id="work-divergence">
+</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="divergence registry research protocol independent runs source custody deterministic gates claim materiality zenodo hugging face" id="work-divergence">
 <div class="entry-top">
 <span>OPEN METHOD · v0.2-rc2</span>
 <span class="tag-badge tag-audit">RESEARCH PROTOCOL</span>
@@ -283,9 +183,7 @@
 <a href="https://huggingface.co/datasets/NMAIResearch/divergence-registry" rel="noopener" target="_blank">Hugging Face</a>
 </div>
 </footer>
-</article>
-<!-- Tool 11: PLAG IN -->
-<article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="plag in private local ai gateway libllama loopback inference receipts linux source alpha" id="work-plag">
+</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="plag in private local ai gateway libllama loopback inference receipts linux source alpha" id="work-plag">
 <div class="entry-top">
 <span>OPEN SOURCE · SOURCE ALPHA</span>
 <span class="tag-badge tag-tool">LOCAL INFRASTRUCTURE</span>
@@ -299,9 +197,7 @@
 <a href="https://github.com/NMAIResearch/plag-in/releases/tag/v0.1.0a1" rel="noopener" target="_blank">earlier v0.1.0a1 prerelease</a>
 </div>
 </footer>
-</article>
-<div class="section-label" data-sec="audit">Audits, Diagnostics &amp; Methods (2)</div>
-<article class="entry-row" data-cats="audit" data-kind="paper" data-kw="ai automation claims scorecard recursive self-improvement safety frameworks rsp claude openai google meta" id="work-automation">
+</article><div class="section-label" data-sec="audit">Audits, Diagnostics &amp; Methods (2)</div><article class="entry-row" data-cats="audit" data-kind="paper" data-kw="ai automation claims scorecard recursive self-improvement safety frameworks rsp claude openai google meta" id="work-automation">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.21325372</span>
 <span>PUBLISHED 18 AUG 2026</span>
@@ -316,8 +212,7 @@
 <a href="https://github.com/NMAIResearch/ai-research-automation-claims-scorecard" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="audit" data-kind="paper" data-kw="anomalous constant domains void transmission negative result cosmology" id="work-cosmology">
+</article><article class="entry-row" data-cats="audit" data-kind="paper" data-kw="anomalous constant domains void transmission negative result cosmology" id="work-cosmology">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20374960</span>
 <span>PUBLISHED 2026</span>
@@ -331,10 +226,7 @@
 <a href="https://doi.org/10.5281/zenodo.20374960" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<!-- SECTION: PHYSICAL INFRASTRUCTURE -->
-<div class="section-label" data-sec="infra">Physical Infrastructure &amp; Power (2)</div>
-<article class="entry-row" data-cats="infra" data-kind="paper" data-kw="britain data centre grid queue ofgem neso demand connections green belt london plan" id="work-queue">
+</article><div class="section-label" data-sec="infra">Physical Infrastructure &amp; Power (2)</div><article class="entry-row" data-cats="infra" data-kind="paper" data-kw="britain data centre grid queue ofgem neso demand connections green belt london plan" id="work-queue">
 <div class="entry-top">
 <span>POLICY ARTICLE</span>
 <span>AUGUST 2026</span>
@@ -348,8 +240,7 @@
 <a href="uk-datacentre-queue.html">Read article</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="infra" data-kind="paper" data-kw="bot web traffic energy cloudflare radar iea lbnl order of magnitude" id="work-bot-energy">
+</article><article class="entry-row" data-cats="infra" data-kind="paper" data-kw="bot web traffic energy cloudflare radar iea lbnl order of magnitude" id="work-bot-energy">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20512703</span>
 <span>PUBLISHED 08 JUL 2026</span>
@@ -364,10 +255,7 @@
 <a href="https://github.com/NMAIResearch/bot-energy-bound" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<!-- SECTION: GOVERNANCE & RELIANCE -->
-<div class="section-label" data-sec="gov">Governance, Reliance &amp; Consumer Protection (6)</div>
-<article class="entry-row" data-cats="gov" data-kind="paper" data-kw="ai reliance dependency reversibility vendor lock-in export controls omb gao" id="work-reliance">
+</article><div class="section-label" data-sec="gov">Governance, Reliance &amp; Consumer Protection (6)</div><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="ai reliance dependency reversibility vendor lock-in export controls omb gao" id="work-reliance">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20763480</span>
 <span>PUBLISHED 18 JUL 2026</span>
@@ -381,8 +269,7 @@
 <a href="https://doi.org/10.5281/zenodo.20763480" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="gov" data-kind="paper" data-kw="consumer reliance architecture pricing tiers lock in churn companion models" id="work-consumer-reliance">
+</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="consumer reliance architecture pricing tiers lock in churn companion models" id="work-consumer-reliance">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20807278</span>
 <span>PUBLISHED 19 JUL 2026</span>
@@ -396,8 +283,7 @@
 <a href="https://doi.org/10.5281/zenodo.20807278" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="gov" data-kind="paper" data-kw="consumer incidence ai buildout household electricity device prices tax abatements" id="work-incidence">
+</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="consumer incidence ai buildout household electricity device prices tax abatements" id="work-incidence">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20941003</span>
 <span>PUBLISHED 26 JUN 2026</span>
@@ -411,8 +297,7 @@
 <a href="https://doi.org/10.5281/zenodo.20941003" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="gov" data-kind="paper" data-kw="shopping agents agentic commerce deceptive patterns principal agent prompt injection" id="work-shopping">
+</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="shopping agents agentic commerce deceptive patterns principal agent prompt injection" id="work-shopping">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20790896</span>
 <span>PUBLISHED 20 JUL 2026</span>
@@ -426,8 +311,7 @@
 <a href="https://doi.org/10.5281/zenodo.20790896" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="gov" data-kind="paper" data-kw="designed not accidental deceptive patterns choice architecture surveillance pricing" id="work-patterns">
+</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="designed not accidental deceptive patterns choice architecture surveillance pricing" id="work-patterns">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20788844</span>
 <span>PUBLISHED 19 JUL 2026</span>
@@ -441,8 +325,7 @@
 <a href="https://doi.org/10.5281/zenodo.20788844" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="gov" data-kind="paper" data-kw="ai literacy load occupation anthropic economic index onet automation augmentation" id="work-literacy">
+</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="ai literacy load occupation anthropic economic index onet automation augmentation" id="work-literacy">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20778968</span>
 <span>PUBLISHED 04 JUL 2026</span>
@@ -456,10 +339,7 @@
 <a href="https://doi.org/10.5281/zenodo.20778968" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
-<!-- SECTION: FINANCE & MARKETS -->
-<div class="section-label" data-sec="markets">Finance, Markets &amp; Valuation (3)</div>
-<article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai infrastructure commitments delivery access finance evidence reproduction constraint relay" id="work-infrastructure">
+</article><div class="section-label" data-sec="markets">Finance, Markets &amp; Valuation (3)</div><article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai infrastructure commitments delivery access finance evidence reproduction constraint relay" id="work-infrastructure">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20586863</span>
 <span>UPDATED 23 SEP 2026 · v7.1</span>
@@ -474,8 +354,7 @@
 <a href="https://github.com/NMAIResearch/ai-constraint-relay/tree/main/v7.1" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai private to public ledger ipo marks reality venture valuations sec s-1" id="work-private-public">
+</article><article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai private to public ledger ipo marks reality venture valuations sec s-1" id="work-private-public">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.20672581</span>
 <span>PUBLISHED 14 JUL 2026</span>
@@ -490,8 +369,7 @@
 <a href="https://github.com/NMAIResearch/ai-private-to-public-ledger" rel="noopener" target="_blank">Code &amp; data</a>
 </div>
 </footer>
-</article>
-<article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai industry pestle scan political economic social technological legal environmental" id="work-pestle">
+</article><article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai industry pestle scan political economic social technological legal environmental" id="work-pestle">
 <div class="entry-top">
 <span>DOI 10.5281/zenodo.22015796</span>
 <span>PUBLISHED 19 AUG 2026</span>
@@ -505,7 +383,51 @@
 <a href="https://doi.org/10.5281/zenodo.22015796" rel="noopener" target="_blank">Paper / record</a>
 </div>
 </footer>
-</article>
+</article></div>
+<!-- SW application evidence -->
+
+<!-- Tool 2: Article 50 -->
+
+<!-- Tool 3: Power Demand -->
+
+<!-- Tool 4: Water Explorer -->
+
+<!-- Tool 5: Cost Watch -->
+
+<!-- Tool 6: Forecast Scorecard -->
+
+<!-- Tool 7: CEO Pay Scorecard -->
+
+<!-- Tool 8: Entropy Error Detector -->
+
+<!-- Tool 9: FineWeb-Edu Threshold -->
+
+<!-- SECTION: EVIDENTIARY AUDITS & METHODS -->
+<!-- Tool 9: News Board -->
+<!-- Tool 10: Divergence Registry -->
+
+<!-- Tool 11: PLAG IN -->
+
+
+
+
+<!-- SECTION: PHYSICAL INFRASTRUCTURE -->
+
+
+
+<!-- SECTION: GOVERNANCE & RELIANCE -->
+
+
+
+
+
+
+
+<!-- SECTION: FINANCE & MARKETS -->
+
+
+
+
 <section aria-labelledby="evidence-notes-heading" class="evidence-notes"><h2 id="evidence-notes-heading">About the evidence</h2><div class="stat-group">
 <div class="stat-item">
 <div class="stat-label">Research Records</div>
@@ -544,39 +466,8 @@
 <a href="mailto:NMAIResearch@proton.me">NMAIResearch@proton.me</a>
 </div>
 </footer>
-<script>
-    // Client-side search, category filtering, and Light/Dark toggle
-    (function(){
-      const html = document.documentElement;
-      const themeToggle = document.getElementById("themeToggle");
-      const themeLabel = document.getElementById("themeLabel");
-      const themeIcon = document.getElementById("themeIcon");
-
-      function applyTheme(theme) {
-        html.setAttribute("data-theme", theme);
-        localStorage.setItem("nmai-theme", theme);
-        if (theme === "dark") {
-          themeLabel.textContent = "THEME: DARK";
-          themeIcon.textContent = "◐";
-        } else {
-          themeLabel.textContent = "THEME: LIGHT";
-          themeIcon.textContent = "◑";
-        }
-      }
-
-      // Default to Light (Oxford Navy) unless explicitly set in localStorage
-      const savedTheme = localStorage.getItem("nmai-theme");
-      if (savedTheme) {
-        applyTheme(savedTheme);
-      } else {
-        applyTheme("light");
-      }
-
-      themeToggle.addEventListener("click", () => {
-        const current = html.getAttribute("data-theme");
-        applyTheme(current === "dark" ? "light" : "dark");
-      });
-
+<script>(function(){
+ document.querySelector(".control-header").hidden = false;
       // Filter & Search Engine
       const q = document.getElementById("q");
       const clr = document.getElementById("clr");
