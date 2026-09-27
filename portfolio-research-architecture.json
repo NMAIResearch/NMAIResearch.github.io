@@ -12,196 +12,273 @@
     "views": [
       {
         "id": "design",
-        "label": "Question and scope",
+        "label": "Questions and selection",
         "focus": [
-          "question",
-          "scope",
-          "novelty",
-          "park"
+          "queue",
+          "select",
+          "archive"
         ],
-        "note": "Bound the question, check existing work and decide whether the proposed output is worth pursuing."
+        "note": "Select a question, define its scope and retain decisions not to proceed."
       },
       {
-        "id": "evidence",
-        "label": "Evidence and analysis",
+        "id": "research",
+        "label": "Evidence and release",
         "focus": [
-          "evidence",
-          "analysis",
-          "challenge"
+          "research",
+          "publish",
+          "align"
         ],
-        "note": "Trace the evidence, apply the selected method and examine counter-evidence."
+        "note": "Repeat research and challenge, release a version and align its records."
       },
       {
-        "id": "release",
-        "label": "Review and release",
+        "id": "continue",
+        "label": "The continuing loop",
         "focus": [
-          "challenge",
-          "publish"
+          "monitor",
+          "revise",
+          "queue",
+          "research"
         ],
-        "note": "Revise claims, retain limitations, publish a version and revisit when warranted."
+        "note": "Monitoring can lead to revision in the project or a new queued question."
       }
     ]
   },
   "lanes": [
     {
       "id": "design",
-      "label": "Question and design"
+      "label": "Question and selection"
     },
     {
-      "id": "evidence",
-      "label": "Evidence and analysis"
+      "id": "work",
+      "label": "Research and release"
     },
     {
-      "id": "analysis-lane",
-      "label": "Analysis"
+      "id": "records",
+      "label": "Records and monitoring"
     },
     {
-      "id": "release",
-      "label": "Challenge and release"
+      "id": "continuation",
+      "label": "Continuation"
     }
   ],
   "mainPath": [
-    "question",
-    "scope",
-    "novelty",
-    "evidence",
-    "analysis",
-    "challenge",
-    "publish"
+    "queue",
+    "select",
+    "research",
+    "publish",
+    "align",
+    "monitor",
+    "revise"
   ],
   "nodes": [
     {
-      "id": "question",
+      "id": "queue",
       "lane": "design",
       "col": 0,
       "type": "external",
-      "label": "Question",
-      "sublabel": "What is being asked?",
-      "width": 178
+      "label": "Question queue",
+      "sublabel": "Candidate questions, dated",
+      "width": 186
     },
     {
-      "id": "scope",
+      "id": "select",
       "lane": "design",
       "col": 1,
-      "type": "backend",
-      "label": "Scope & method",
-      "sublabel": "Unit, period, boundary",
-      "width": 178
-    },
-    {
-      "id": "novelty",
-      "lane": "design",
-      "col": 2,
       "type": "security",
-      "label": "Novelty & usefulness",
-      "sublabel": "Prior work and purpose",
-      "width": 178
+      "label": "Selection & scope",
+      "sublabel": "Prior work, method, purpose",
+      "width": 186
     },
     {
-      "id": "evidence",
-      "lane": "evidence",
-      "col": 2,
+      "id": "research",
+      "lane": "work",
+      "col": 1,
       "type": "database",
-      "label": "Source evidence",
-      "sublabel": "Capture, date, qualify",
-      "width": 178
-    },
-    {
-      "id": "analysis",
-      "lane": "analysis-lane",
-      "col": 2,
-      "type": "backend",
-      "label": "Analysis",
-      "sublabel": "Compare, calculate, test",
-      "width": 178
-    },
-    {
-      "id": "challenge",
-      "lane": "release",
-      "col": 2,
-      "type": "security",
-      "label": "Challenge & revise",
-      "sublabel": "Counter-evidence, review",
-      "width": 178
+      "label": "Research & challenge",
+      "sublabel": "Evidence, analysis, review",
+      "width": 186
     },
     {
       "id": "publish",
-      "lane": "release",
-      "col": 3,
+      "lane": "work",
+      "col": 2,
       "type": "frontend",
-      "label": "Publish & maintain",
-      "sublabel": "Version, disclose, revisit",
-      "width": 178
+      "label": "Publish a version",
+      "sublabel": "Method, limits, materials",
+      "width": 186
     },
     {
-      "id": "park",
+      "id": "align",
+      "lane": "records",
+      "col": 2,
+      "type": "backend",
+      "label": "Align records",
+      "sublabel": "Repo, deposit, project record",
+      "width": 186
+    },
+    {
+      "id": "monitor",
+      "lane": "records",
+      "col": 3,
+      "type": "database",
+      "label": "Monitor & reuse",
+      "sublabel": "Dated checks, reuse",
+      "width": 186
+    },
+    {
+      "id": "revise",
+      "lane": "continuation",
+      "col": 3,
+      "type": "backend",
+      "label": "Continue or revise",
+      "sublabel": "Within project or new entry",
+      "width": 186
+    },
+    {
+      "id": "archive",
       "lane": "design",
       "col": 3,
       "type": "messagebus",
-      "label": "Reframe or park",
-      "sublabel": "Already answered or infeasible",
-      "width": 178
+      "label": "Archive branches",
+      "sublabel": "Pause, stop, reframe, merge",
+      "width": 186
     }
   ],
   "edges": [
     {
-      "id": "question-scope",
-      "from": "question",
-      "to": "scope",
-      "label": "define"
+      "id": "queue-select",
+      "from": "queue",
+      "to": "select",
+      "label": "select",
+      "fromSide": "right",
+      "toSide": "top"
     },
     {
-      "id": "scope-novelty",
-      "from": "scope",
-      "to": "novelty",
-      "label": "assess"
+      "id": "select-research",
+      "from": "select",
+      "to": "research",
+      "label": "proceed",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "drop",
+      "labelAt": [
+        403.8,
+        188
+      ]
     },
     {
-      "id": "novelty-evidence",
-      "from": "novelty",
-      "to": "evidence",
-      "label": "proceed"
-    },
-    {
-      "id": "evidence-analysis",
-      "from": "evidence",
-      "to": "analysis",
-      "label": "inspect"
-    },
-    {
-      "id": "analysis-challenge",
-      "from": "analysis",
-      "to": "challenge",
-      "label": "test claims"
-    },
-    {
-      "id": "challenge-publish",
-      "from": "challenge",
+      "id": "research-publish",
+      "from": "research",
       "to": "publish",
-      "label": "release decision"
+      "label": "release decision",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelDy": 45
     },
     {
-      "id": "novelty-park",
-      "from": "novelty",
-      "to": "park",
-      "label": "not justified",
+      "id": "publish-align",
+      "from": "publish",
+      "to": "align",
+      "label": "record"
+    },
+    {
+      "id": "align-monitor",
+      "from": "align",
+      "to": "monitor",
+      "label": "watch"
+    },
+    {
+      "id": "monitor-revise",
+      "from": "monitor",
+      "to": "revise",
+      "label": "new evidence"
+    },
+    {
+      "id": "research-select",
+      "from": "research",
+      "to": "select",
+      "label": "rescope",
+      "role": "branch",
+      "variant": "dashed",
+      "fromSide": "left",
+      "toSide": "left",
+      "route": "return-left",
+      "channelX": 264.8,
+      "labelAt": [
+        250,
+        195
+      ]
+    },
+    {
+      "id": "revise-research",
+      "from": "revise",
+      "to": "research",
+      "label": "within project",
+      "role": "branch",
+      "variant": "dashed",
+      "toSide": "bottom",
+      "fromSide": "bottom",
+      "via": [
+        [
+          882.6,
+          549
+        ],
+        [
+          246,
+          549
+        ],
+        [
+          246,
+          301
+        ],
+        [
+          373.8,
+          301
+        ]
+      ]
+    },
+    {
+      "id": "revise-queue",
+      "from": "revise",
+      "to": "queue",
+      "label": "new question",
       "role": "branch",
       "variant": "dashed"
+    },
+    {
+      "id": "select-archive",
+      "from": "select",
+      "to": "archive",
+      "label": "not pursued",
+      "role": "branch",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "research-archive",
+      "from": "research",
+      "to": "archive",
+      "label": "pause, stop, merge",
+      "role": "branch",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "left"
     }
   ],
   "cards": [
     {
       "dot": "cyan",
-      "title": "One research structure, different studies",
+      "title": "Studies span several stages",
       "items": [
-        "The stages describe the author's shared research approach. The accompanying guide links stages to concrete portfolio examples."
+        "An example illustrates one step in a study. It does not certify that every historical stage was recorded."
       ]
     },
     {
       "dot": "slate",
-      "title": "Tools support the method",
+      "title": "A published version can keep growing",
       "items": [
-        "Code, models and reviewers assist particular steps. This map is not a claim that every project ran the same automated lifecycle."
+        "New evidence can lead to revision or a new queued question. Archived work retains recorded decisions and useful materials."
       ]
     }
   ]

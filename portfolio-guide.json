@@ -2,13 +2,19 @@
   "schema_version": 1,
   "purpose": "Illustrate the author-stated research architecture underlying the portfolio, with selected public project examples",
   "title": "Research architecture behind the portfolio",
-  "introduction": "The portfolio follows a common research structure: define the question, bound the work, check its contribution, examine evidence, analyse, challenge and publish. Different studies use different methods and tools. The map shows the structure; the examples below connect it to the work.",
+  "introduction": "Research continues around a loop. Questions wait in a queue; one is selected and scoped; evidence, analysis and challenge repeat; a version is published; its repository, deposit and project records are brought into agreement; monitoring or reuse can lead to a revision or a new question. A study can span several stages. A source catalogue, calculation or release record illustrates one step within it.",
   "diagram": "portfolio-research-architecture.html",
   "operations": [
     {
-      "id": "question",
-      "title": "1. Question",
-      "summary": "Turn an interest or announcement into a question the available evidence can address.",
+      "id": "queue",
+      "title": "1. Question queue",
+      "summary": "Keep candidate questions with the date and reason they were raised. An entry is a lead, not a commitment. No public queue-entry example is linked here.",
+      "examples": []
+    },
+    {
+      "id": "select",
+      "title": "2. Selection and scope",
+      "summary": "Choose a question the available evidence can address; define its unit, population, period and comparison, and select a method suited to the question; check existing work and practical purpose. A contribution, useful replication or synthesis can justify proceeding. Otherwise narrow, reframe or archive.",
       "examples": [
         {
           "project": "Power demand",
@@ -23,14 +29,7 @@
           "url": "sovereign-watch-case-study.html",
           "label": "Read the operations case study",
           "limit": ""
-        }
-      ]
-    },
-    {
-      "id": "scope",
-      "title": "2. Scope and method",
-      "summary": "Define the unit, population, period and comparison before interpreting the result. Select a method suited to the question.",
-      "examples": [
+        },
         {
           "project": "Forecast scorecard",
           "text": "Compare electricity-demand forecasts within compatible units, scopes and horizons.",
@@ -44,14 +43,7 @@
           "url": "index.html#work-article50",
           "label": "See the Article 50 study",
           "limit": ""
-        }
-      ]
-    },
-    {
-      "id": "novelty",
-      "title": "3. Novelty and usefulness",
-      "summary": "Check prior work and the practical purpose of the output. Proceed with a defensible contribution, replication or synthesis; otherwise narrow, reframe or park the question.",
-      "examples": [
+        },
         {
           "project": "FineWeb-Edu",
           "text": "A question at the mechanism level: how score rounding and a threshold affect which documents enter a training corpus.",
@@ -62,9 +54,9 @@
       ]
     },
     {
-      "id": "evidence",
-      "title": "4. Source evidence",
-      "summary": "Collect relevant records, preserve provenance, check reporting periods and retain missing or conflicting evidence.",
+      "id": "research",
+      "title": "3. Research and challenge",
+      "summary": "Collect records, preserve provenance and check reporting periods. Retain missing and conflicting evidence. Analyse with inspectable assumptions and quantities, test sensitivity where appropriate, seek counter-evidence, test alternative explanations, examine source support and revise claims that exceed the evidence. Return to scope when the question needs changing.",
       "examples": [
         {
           "project": "AI Infrastructure",
@@ -79,14 +71,7 @@
           "url": "sovereign-watch-workflow-v4.html",
           "label": "Explore source capture and recovery",
           "limit": ""
-        }
-      ]
-    },
-    {
-      "id": "analysis",
-      "title": "5. Analysis",
-      "summary": "Apply the selected comparison or calculation. Keep assumptions and quantities inspectable, and test sensitivity where the study supports it.",
-      "examples": [
+        },
         {
           "project": "AI Infrastructure",
           "text": "The reproducer recalculates named balances and regenerates selected numerical content from frozen inputs.",
@@ -100,14 +85,7 @@
           "url": "index.html#work-fineweb",
           "label": "Open the study entry",
           "limit": ""
-        }
-      ]
-    },
-    {
-      "id": "challenge",
-      "title": "6. Challenge and revision",
-      "summary": "Seek counter-evidence, test alternative explanations, examine source support and revise claims that exceed the evidence.",
-      "examples": [
+        },
         {
           "project": "AI Infrastructure",
           "text": "The release guide separates source and interpretation limits, recorded checks, model review and the author's publication decision.",
@@ -126,8 +104,8 @@
     },
     {
       "id": "publish",
-      "title": "7. Publication and maintenance",
-      "summary": "Release a version with its method, evidence limits and useful reproduction materials. Preserve earlier editions and make corrections inspectable.",
+      "title": "4. Publish a version",
+      "summary": "After the author’s release decision, publish a version with its method, evidence limits and useful reproduction materials. Preserve earlier editions and make corrections inspectable.",
       "examples": [
         {
           "project": "AI Infrastructure",
@@ -135,13 +113,83 @@
           "url": "https://zenodo.org/records/22913848",
           "label": "Open the versioned release",
           "limit": ""
-        },
+        }
+      ]
+    },
+    {
+      "id": "align",
+      "title": "5. Align records",
+      "summary": "Check that the public repository, deposit and project-status record identify the same released version. Project-status records are distinct from registers of methodological decisions. No public alignment receipt is linked here; the component below illustrates decision recording only.",
+      "examples": [
         {
           "project": "Divergence Registry",
           "text": "Decision registers provide a separate method for recording choices and comparing research runs.",
           "url": "https://github.com/NMAIResearch/divergence-registry/blob/ad2ca5f07db62dfebaa84f890cd48b6457a959bd/README.md",
           "label": "Inspect the decision-record component",
-          "limit": "The component does not establish that every historical project ran the full Lifecycle engine."
+          "limit": "This is a decision-recording component. It is not evidence that a publication, repository and project record were aligned, or that every study ran the full Lifecycle engine."
+        }
+      ]
+    },
+    {
+      "id": "monitor",
+      "title": "6. Monitor and reuse",
+      "summary": "Revisit on stated dates or when new evidence appears; record any actual reuse and its limits. Reuse does not revalidate findings. The example below shows available reuse materials, not proof of a later run.",
+      "examples": [
+        {
+          "project": "AI Infrastructure",
+          "text": "The release includes a reuse example alongside its paper, structured inputs, source lookup and reproduction commands.",
+          "url": "https://zenodo.org/records/22913848",
+          "label": "Open the versioned release",
+          "limit": "Materials provided for reuse do not establish that a later reuse or monitoring run occurred, or revalidate the findings."
+        }
+      ]
+    },
+    {
+      "id": "revise",
+      "title": "7. Continue or revise",
+      "summary": "Continue within the active project, publish a corrected or extended version when warranted, or open a new queue entry if the question itself changes.",
+      "examples": [
+        {
+          "project": "Model Dependency",
+          "text": "The corrected release distinguishes model-run provenance from answer checking and states what can be reconstructed from stored outputs.",
+          "url": "index.html#work-model",
+          "label": "See the corrected model audit",
+          "limit": "The corrected release illustrates revision. It does not document every earlier stage in the study."
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "title": "8. Archive branches",
+      "summary": "A question or study can pause, stop, be reframed or merge into other work. Retain the recorded decision and any useful materials. An archived item has not necessarily failed novelty. Missing history stays unrecorded.",
+      "examples": [
+        {
+          "project": "Embodied Energy",
+          "text": "The retained literature-position review recommends against a standalone paper because the proposed contribution was largely covered by existing literature. It recommends retaining the work as a method example.",
+          "url": "RESEARCH_ROUTE_EXAMPLES.md#embodied-energy",
+          "label": "Read the selected decision record",
+          "limit": "This records a recommendation; the map has not repeated its literature search."
+        },
+        {
+          "project": "Critical Minerals",
+          "text": "The project record labels the standalone publication folded after its novelty check, while retaining a method demonstration.",
+          "url": "RESEARCH_ROUTE_EXAMPLES.md#critical-minerals",
+          "label": "Read the selected decision record",
+          "limit": "This records the decision, not a fresh validation of the underlying mineral-market claims."
+        },
+        {
+          "project": "DRACO-lite",
+          "text": "The retained README calls this a parked evaluation skeleton rather than an active project.",
+          "url": "RESEARCH_ROUTE_EXAMPLES.md#draco-lite",
+          "label": "Read the selected decision record",
+          "limit": "That record does not say it failed a novelty check."
+        },
+        {
+          "project": "FineWeb-Edu",
+          "text": "The handover distinguishes the superseded Dolma auditability design from the later FineWeb-Edu work.",
+          "url": "RESEARCH_ROUTE_EXAMPLES.md#dolma-and-fineweb-edu",
+          "label": "Read the selected decision record",
+          "limit": "A superseded research arm is not a failed published FineWeb-Edu study."
         }
       ]
     }
@@ -154,7 +202,16 @@
       "name": "Article 50"
     },
     {
+      "name": "Critical Minerals"
+    },
+    {
+      "name": "DRACO-lite"
+    },
+    {
       "name": "Divergence Registry"
+    },
+    {
+      "name": "Embodied Energy"
     },
     {
       "name": "FineWeb-Edu"
@@ -172,6 +229,6 @@
       "name": "SW"
     }
   ],
-  "verification": "The shared approach is the author's description, supported by the method documents. The links illustrate particular stages; they do not certify that every historical project recorded every gate or used the same software. This map does not revalidate the findings. Reproduction and review limits remain those stated by each project. No workflow-effectiveness or time-saving baseline was run.",
-  "disclosure": "The author sets research direction, substantive decisions and release approval. AI models and scripts assist research, coding, drafting and checks. OpenAI GPT-6 assisted this map; OpenAI is also a subject of the wider portfolio. Each project records its own contributions and conflicts. Archify supplies the diagram renderer under the MIT licence."
+  "verification": "The shared structure is the author’s description, supported by method documents and selected project records. Each link illustrates a step or supporting component; it does not certify that a study recorded every stage, used the same software or passed every gate. Missing history is left unrecorded. This map does not revalidate findings. Project-specific reproduction and review limits still apply. No workflow-effectiveness or time-saving baseline was run.",
+  "disclosure": "The author sets research direction, substantive decisions and release approval. AI models and scripts assist research, coding, drafting and checks. OpenAI GPT-6 implemented this map and checked the proposed wording; Claude Opus (Anthropic) proposed wording and reviewed an earlier candidate. Both providers are also subjects of the wider portfolio. Each project records its own contributions and conflicts. Archify supplies the diagram renderer under the MIT licence."
 }

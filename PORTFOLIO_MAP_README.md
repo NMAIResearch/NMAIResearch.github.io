@@ -12,6 +12,7 @@ Open [the guide](portfolio-map.html) or [the full diagram](portfolio-research-ar
 - `portfolio-map.html`: the generated guide.
 - `portfolio-research-architecture.html`: standalone Archify diagram, static by default.
 - `PORTFOLIO_MAP_SOURCES.md`: evidence trace and boundaries.
+- `RESEARCH_ROUTE_EXAMPLES.md`: selected recorded archive decisions and their limits.
 
 ## Reproduction
 
@@ -27,10 +28,10 @@ To rebuild both files, use Node and the Archify `archify/` directory from commit
 python3 -B reproduce_portfolio.py --archify /path/to/archify --output-dir ../rebuilt-portfolio-map
 ```
 
-The helper downloads nothing, disables the renderer's update check and refuses an existing output directory. It reports whether rebuilt bytes match the supplied files. Without `--archify`, only the guide is rebuilt and diagram reproduction is reported as not run. The rebuilt guide expects the existing homepage and SW links when placed on the portfolio site; this helper does not rebuild those pages.
+The helper downloads nothing, disables the renderer's update check and refuses an existing output directory. It reports whether rebuilt bytes match the supplied files. Without `--archify`, only the guide is rebuilt and diagram reproduction is reported as not run. The rebuilt guide expects the existing homepage, SW pages and RESEARCH_ROUTE_EXAMPLES.md when placed on the portfolio site; this helper does not rebuild those pages.
 
 The check compares presentation bytes. It does not test source truth, method effectiveness, historical compliance with the process or the underlying research. A matching file is not an authenticity guarantee. Python 3.14.7 and Node v26.7.0 were used for the local check; other runtime versions were not tested.
 
 ## Attribution
 
-OpenAI GPT-6 assisted the map and reproduction helper. OpenAI is a subject of the wider portfolio. The author supplies research direction and substantive decisions. Project-specific model contributions and limits remain in their own records. Archify is supplied under the accompanying MIT licence. Its structural checks do not verify the research claims.
+OpenAI GPT-6 assisted the map and reproduction helper and checked the proposed wording. Claude Opus proposed wording and reviewed an earlier candidate. OpenAI and Anthropic are subjects of the wider portfolio. The author supplies research direction and substantive decisions. Project-specific model contributions and limits remain in their own records. Archify is supplied under the accompanying MIT licence. Its structural checks do not verify the research claims.
