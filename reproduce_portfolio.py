@@ -14,14 +14,15 @@ ROOT = Path(__file__).resolve().parent
 
 
 def link(url, label):
-    """Render an escaped HTTPS or local HTML link; reject other schemes."""
+    """Render an escaped HTTPS or allowlisted local link; reject other schemes."""
     parsed = urlsplit(url)
     if parsed.scheme:
         valid = parsed.scheme == 'https' and bool(parsed.netloc)
     else:
         valid = not parsed.netloc and parsed.path in {
             'index.html', 'portfolio-research-architecture.html',
-            'sovereign-watch-case-study.html', 'sovereign-watch-workflow-v4.html'}
+            'sovereign-watch-case-study.html', 'sovereign-watch-workflow-v4.html',
+            'RESEARCH_ROUTE_EXAMPLES.md'}
     if not valid:
         raise ValueError(f'Unsupported destination: {url!r}')
     return f'<a href="{escape(url, quote=True)}">{escape(label)}</a>'
@@ -73,7 +74,7 @@ footer{{margin-top:46px;border-top:1px solid var(--line);padding-top:24px;font-s
 <nav aria-label="Main navigation"><a href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html" aria-current="page">Portfolio map</a><button id="themeToggle" type="button" hidden>Change theme</button></nav>
 <h1>{escape(data['title'])}</h1><p class="intro">{escape(data['introduction'])}</p>
 
-<div class="map"><p>{link(data['diagram'],'Open the full research map')}</p><iframe src="{escape(data['diagram'],quote=True)}" title="Research architecture: question, scope, novelty, evidence, analysis, challenge and publication" loading="lazy"></iframe></div>
+<div class="map"><p>{link(data['diagram'],'Open the full research map')}</p><iframe src="{escape(data['diagram'],quote=True)}" title="Research loop: queue, selection, research, publication, alignment, monitoring, revision and archive" loading="lazy"></iframe></div>
 <div class="operations">{''.join(sections)}</div>
 <footer><p><strong>Verification.</strong> {escape(data['verification'])}</p><p><strong>AI assistance.</strong> {escape(data['disclosure'])}</p>
 <p><a href="PORTFOLIO_MAP_README.md">Editable source and reproduction</a> · <a href="PORTFOLIO_MAP_SOURCES.md">Source trace</a> · <a href="ARCHIFY_LICENSE.txt">Archify licence</a></p></footer>
