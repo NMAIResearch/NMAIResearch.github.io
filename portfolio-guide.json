@@ -73,11 +73,11 @@
           "limit": ""
         },
         {
-          "project": "AI Infrastructure",
-          "text": "The reproducer recalculates named balances and regenerates selected numerical content from frozen inputs.",
-          "url": "https://github.com/NMAIResearch/ai-constraint-relay/blob/6a557031b8a97181d6e19586574979342bbde3aa/v7.1/README.md#reproduce",
-          "label": "Inspect the reproduction command",
-          "limit": ""
+          "project": "Forecast scorecard",
+          "text": "The reproducer recomputes the scorecard table and its transparency tiers from one CSV with the Python standard library, and regenerates the dispersion chart.",
+          "url": "https://doi.org/10.5281/zenodo.20572928",
+          "label": "Open the release and its reproducer",
+          "limit": "Reproduction recomputes the scorecard from the recorded inputs; it does not re-verify each forecast at its source."
         },
         {
           "project": "FineWeb-Edu",
@@ -87,11 +87,11 @@
           "limit": ""
         },
         {
-          "project": "AI Infrastructure",
-          "text": "The release guide separates source and interpretation limits, recorded checks, model review and the author's publication decision.",
-          "url": "https://github.com/NMAIResearch/ai-constraint-relay/blob/6a557031b8a97181d6e19586574979342bbde3aa/v7.1/README.md#verification-and-limits",
-          "label": "Read the verification and review boundary",
-          "limit": ""
+          "project": "IPO Ledger",
+          "text": "A prediction specified in advance is graded from recorded prices. The first lock-up checkpoint is reported as failed, and the release states that the earlier version specified the prediction defectively before restating it as dated checkpoints.",
+          "url": "https://doi.org/10.5281/zenodo.20672581",
+          "label": "Open the release and its grading script",
+          "limit": "Grading re-runs from the prices in the bundle; it does not re-fetch or independently verify the exchange data."
         },
         {
           "project": "Model Dependency",
@@ -113,6 +113,13 @@
           "url": "https://zenodo.org/records/22913848",
           "label": "Open the versioned release",
           "limit": ""
+        },
+        {
+          "project": "CEO Pay scorecard",
+          "text": "The versioned bundle regenerates its issuer scorecard from the included pulled data and checks the security set, using the Python standard library.",
+          "url": "https://doi.org/10.5281/zenodo.20680108",
+          "label": "Open the versioned release",
+          "limit": "A matching rebuild confirms the assembly step, not the underlying filings."
         }
       ]
     },
@@ -133,7 +140,7 @@
     {
       "id": "monitor",
       "title": "6. Monitor and reuse",
-      "summary": "Revisit on stated dates or when new evidence appears; record any actual reuse and its limits. Reuse does not revalidate findings. The example below shows available reuse materials, not proof of a later run.",
+      "summary": "Revisit on stated dates or when new evidence appears; record any actual reuse and its limits. Reuse does not revalidate findings. The AI Infrastructure example shows available reuse materials, not proof of a later run.",
       "examples": [
         {
           "project": "AI Infrastructure",
@@ -141,6 +148,13 @@
           "url": "https://zenodo.org/records/22913848",
           "label": "Open the versioned release",
           "limit": "Materials provided for reuse do not establish that a later reuse or monitoring run occurred, or revalidate the findings."
+        },
+        {
+          "project": "IPO Ledger",
+          "text": "After grading the first lock-up checkpoint, the release lists the remaining dated checkpoints through 12 June 2027, with the observation that would confirm the call at a checkpoint and the condition that would falsify it across the full ladder.",
+          "url": "https://doi.org/10.5281/zenodo.20672581",
+          "label": "Open the release and its checkpoint schedule",
+          "limit": "The schedule sets when each checkpoint falls; it does not establish that a later checkpoint has been graded."
         }
       ]
     },
@@ -202,6 +216,9 @@
       "name": "Article 50"
     },
     {
+      "name": "CEO Pay scorecard"
+    },
+    {
       "name": "Critical Minerals"
     },
     {
@@ -220,6 +237,9 @@
       "name": "Forecast scorecard"
     },
     {
+      "name": "IPO Ledger"
+    },
+    {
       "name": "Model Dependency"
     },
     {
@@ -230,5 +250,5 @@
     }
   ],
   "verification": "The shared structure is the author’s description, supported by method documents and selected project records. Each link illustrates a step or supporting component; it does not certify that a study recorded every stage, used the same software or passed every gate. Missing history is left unrecorded. This map does not revalidate findings. Project-specific reproduction and review limits still apply. No workflow-effectiveness or time-saving baseline was run.",
-  "disclosure": "The author sets research direction, substantive decisions and release approval. AI models and scripts assist research, coding, drafting and checks. OpenAI GPT-6 implemented this map and checked the proposed wording; Claude Opus (Anthropic) proposed wording and reviewed an earlier candidate. Both providers are also subjects of the wider portfolio. Each project records its own contributions and conflicts. Archify supplies the diagram renderer under the MIT licence."
+  "disclosure": "The author sets research direction, substantive decisions and release approval. AI models and scripts assist research, coding, drafting and checks. OpenAI GPT-6 implemented this map and checked the proposed wording; Claude Opus (Anthropic) proposed wording, reviewed an earlier candidate and later revised the examples and layout. Both providers are also subjects of the wider portfolio. Each project records its own contributions and conflicts. Archify supplies the diagram renderer under the MIT licence."
 }

@@ -34,4 +34,4 @@ The check compares presentation bytes. It does not test source truth, method eff
 
 ## Attribution
 
-OpenAI GPT-6 assisted the map and reproduction helper and checked the proposed wording. Claude Opus proposed wording and reviewed an earlier candidate. OpenAI and Anthropic are subjects of the wider portfolio. The author supplies research direction and substantive decisions. Project-specific model contributions and limits remain in their own records. Archify is supplied under the accompanying MIT licence. Its structural checks do not verify the research claims.
+OpenAI GPT-6 assisted the map and reproduction helper and checked the proposed wording. Claude Opus proposed wording, reviewed an earlier candidate and later revised the examples and layout. OpenAI and Anthropic are subjects of the wider portfolio. The author supplies research direction and substantive decisions. Project-specific model contributions and limits remain in their own records. Archify is supplied under the accompanying MIT licence. Its structural checks do not verify the research claims.
