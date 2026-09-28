@@ -42,9 +42,9 @@ def render_guide(data):
         for ex in item['examples']:
             if ex['project'] not in project_names:
                 raise ValueError('Unknown example project')
+            limit = f'<p class="limit">{escape(ex["limit"])}</p>' if ex['limit'] else ''
             examples.append(f'<div class="example"><h3>{escape(ex["project"])}</h3>'
-                f'<p>{escape(ex["text"])}</p><p>{link(ex["url"], ex["label"])}</p>'
-                f'<p class="limit">{escape(ex["limit"])}</p></div>')
+                f'<p>{escape(ex["text"])}</p><p>{link(ex["url"], ex["label"])}</p>{limit}</div>')
         sections.append(f'<section id="{escape(item["id"], quote=True)}"><h2>{escape(item["title"])}</h2>'
             f'<p class="summary">{escape(item["summary"])}</p>{"".join(examples)}</section>')
     # Validate the iframe destination with the same allowlist as visible links.
@@ -65,9 +65,9 @@ h1,h2,h3{{color:var(--heading)}}#themeToggle{{font:inherit;font-size:.85rem;bord
 .intro{{max-width:820px}}.eyebrow{{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}}
 .projects{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:28px 0 34px}}
 .projects article{{border-top:2px solid var(--fg);padding-top:16px}}.projects p{{font-size:.92rem}}
-.map{{margin:24px 0 40px}}iframe{{width:100%;height:750px;border:1px solid var(--line);background:var(--panel)}}
-.operations{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 42px}}section{{border-top:1px solid var(--line);padding-top:22px;scroll-margin-top:20px}}
-.summary{{color:var(--muted)}}.example{{margin-top:22px}}.limit{{font-size:.86rem;color:var(--muted)}}
+.map{{margin:24px 0 40px}}iframe{{width:100%;height:940px;border:1px solid var(--line);background:var(--panel)}}
+.operations{{display:grid;grid-template-columns:1fr;gap:34px}}section{{border-top:1px solid var(--line);padding-top:22px;scroll-margin-top:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));column-gap:36px;align-content:start}}
+section>h2,section>.summary{{grid-column:1/-1}}.summary{{color:var(--muted);max-width:820px}}.example{{margin-top:22px}}.limit{{font-size:.86rem;color:var(--muted)}}
 footer{{margin-top:46px;border-top:1px solid var(--line);padding-top:24px;font-size:.85rem;color:var(--muted)}}
 :focus-visible{{outline:3px solid var(--link);outline-offset:4px}}@media(max-width:720px){{.projects,.operations{{grid-template-columns:1fr}}iframe{{height:620px}}}}
 </style><script src="portfolio-theme.js"></script></head><body><main>
