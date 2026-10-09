@@ -6,12 +6,12 @@ The author describes question, scope, novelty checking and analysis as the archi
 
 | Stage | Public evidence | What the example supports |
 | --- | --- | --- |
-| Selection: question | [Power-demand entry](index.html#work-power), [SW case](sovereign-watch-case-study.html) | Named research and operational questions. |
-| Selection: scope and method | [Forecast entry](index.html#work-forecast), [Article 50 entry](index.html#work-article50) | Comparable units and horizons; a historical public-evidence boundary. |
-| Selection: novelty and usefulness | [FineWeb-Edu entry](index.html#work-fineweb) | A question about a specific threshold mechanism. This is not a completed novelty-search record. |
+| Selection: question | [Power-demand entry](research.html#work-power), [SW case](sovereign-watch-case-study.html) | Named research and operational questions. |
+| Selection: scope and method | [Forecast entry](research.html#work-forecast), [Article 50 entry](research.html#work-article50) | Comparable units and horizons; a historical public-evidence boundary. |
+| Selection: novelty and usefulness | [FineWeb-Edu entry](research.html#work-fineweb) | A question about a specific threshold mechanism. This is not a completed novelty-search record. |
 | Research: source evidence | [Infrastructure source catalogue](https://github.com/NMAIResearch/ai-constraint-relay/blob/6a557031b8a97181d6e19586574979342bbde3aa/v7.1/SOURCE_CATALOGUE.json), [SW source trace](SOURCE_TRACE.md) | Source identities, inspected locations and capture-state limits. |
-| Research: analysis | [Forecast scorecard release](https://doi.org/10.5281/zenodo.20572928), [FineWeb-Edu entry](index.html#work-fineweb) | Recalculation of a scorecard and chart from one CSV, and inspectable threshold effects. |
-| Research and revision | [IPO Ledger release](https://doi.org/10.5281/zenodo.20672581), [Model Dependency entry](index.html#work-model) | A prediction graded as failed with its earlier specification defect stated, and correction of claims. |
+| Research: analysis | [Forecast scorecard release](https://doi.org/10.5281/zenodo.20572928), [FineWeb-Edu entry](research.html#work-fineweb) | Recalculation of a scorecard and chart from one CSV, and inspectable threshold effects. |
+| Research and revision | [IPO Ledger release](https://doi.org/10.5281/zenodo.20672581), [Model Dependency entry](research.html#work-model) | A prediction graded as failed with its earlier specification defect stated, and correction of claims. |
 | Publication and supporting records | [Infrastructure v7.1](https://zenodo.org/records/22913848), [CEO Pay scorecard release](https://doi.org/10.5281/zenodo.20680108), [Registry documentation](https://github.com/NMAIResearch/divergence-registry/blob/ad2ca5f07db62dfebaa84f890cd48b6457a959bd/README.md) | Versioned releases and a component for recording methodological decisions. Registry is not evidence of release alignment. |
 | Monitor and reuse | [Infrastructure v7.1](https://zenodo.org/records/22913848), [IPO Ledger release](https://doi.org/10.5281/zenodo.20672581) | Reuse materials are supplied, and a schedule of dated checkpoints is published. Neither establishes a later reuse or grading run. |
 | Archive branches | [Selected route decisions](RESEARCH_ROUTE_EXAMPLES.md) | Retained decisions distinguish a prior-work stop, a folded publication, a parked skeleton and a superseded design. The private records are summarised without publishing their working trails. |

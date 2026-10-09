@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"/>
@@ -17,456 +16,169 @@
 <meta content="630" property="og:image:height"/>
 <meta content="NM AI Research: Research you can inspect" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NM AI Research","url":"https://nmairesearch.com/","description":"Independent research on AI governance, model evaluation, and infrastructure economics. Open-access research, tools and source code, with project-specific version records.","sameAs":["https://github.com/NMAIResearch","https://huggingface.co/NMAIResearch","https://orcid.org/0009-0003-4213-7769","https://bsky.app/profile/nmairesearch.bsky.social","https://www.instagram.com/nmai_research/"]}</script>
-
-
-<link href="portfolio.css" rel="stylesheet"/><script src="portfolio-theme.js"></script></head>
-<body><a class="skip-link" href="#work">Skip to research</a>
-<!-- Top Utility Bar -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NM AI Research","url":"https://nmairesearch.com/","description":"Independent research on AI governance, model evaluation, and infrastructure economics. Open-access research, tools and source code, with project-specific version records.","sameAs":["https://github.com/NMAIResearch","https://huggingface.co/NMAIResearch","https://orcid.org/0009-0003-4213-7769","https://bsky.app/profile/nmairesearch.com","https://www.instagram.com/nmai_research/"]}</script>
+<link href="portfolio.css" rel="stylesheet"/><script src="portfolio-theme.js"></script>
+<style>
+  .home{max-width:1200px;margin:auto;padding:0 28px}
+  .home section{padding:56px 0;border-top:1px solid var(--line)}
+  .home .brand-hero{border-top:0;padding:72px 0 64px;position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+  .brand-hero::before{content:"";position:absolute;left:-28px;top:76px;width:6px;height:132px;background:var(--heading);border-radius:0 3px 3px 0}
+  .brand-hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);max-width:13ch;margin:0 0 26px}
+  .brand-hero .lede{font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.65;color:var(--muted);max-width:60ch;margin:0 0 34px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:.7rem 1.25rem;border-radius:8px;font-weight:650;font-size:.98rem;text-decoration:none;border:1px solid var(--line)}
+  .btn-primary{background:var(--heading);border-color:var(--heading);color:var(--bg)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-quiet{color:var(--heading);background:var(--surface)}
+  .btn-quiet:hover{border-color:var(--accent);color:var(--accent)}
+  .follow{margin-top:26px;font-size:.88rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
+  .follow a{color:var(--muted)}
+  .follow a:hover{color:var(--accent)}
+  .hero-panel{padding:24px 28px 12px;background:var(--raised);border:1px solid var(--line);border-radius:14px}
+  .hero-panel h2{font-size:.76rem;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;margin:0 0 6px}
+  .areas{list-style:none;margin:0;padding:0}
+  .areas li+li{border-top:1px solid var(--line)}
+  .areas a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:48px;padding:10px 0;color:var(--heading);font-weight:650;font-size:1.06rem;text-decoration:none}
+  .areas a span{color:var(--accent);font-weight:400}
+  .areas a:hover{color:var(--accent)}
+  .section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+  .section-head h2{font-size:clamp(1.5rem,2.6vw,2rem);margin:0}
+  .section-head a{font-size:.92rem;font-weight:600}
+  .featured{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .card{display:flex;flex-direction:column;min-width:0;padding:26px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px}
+  .card .kind{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:650;margin:0 0 12px}
+  .card h3{font-size:1.28rem;line-height:1.3;letter-spacing:-.02em;margin:0 0 14px;color:var(--heading)}
+  .card h3 a{color:inherit;text-decoration-color:var(--line)}
+  .card h3 a:hover{color:var(--accent)}
+  .card p{font-size:.98rem;line-height:1.7;margin:0 0 18px}
+  .card .links{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.88rem}
+  .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+  .band{display:flex;flex-direction:column;min-width:0;padding:32px;background:var(--raised);border:1px solid var(--line);border-radius:14px}
+  .band h3{font-size:clamp(1.4rem,2.3vw,1.75rem);line-height:1.25;letter-spacing:-.025em;margin:0 0 14px;color:var(--heading)}
+  .band p{margin:0 0 14px;color:var(--text)}
+  .band .small{font-size:.88rem;color:var(--muted)}
+  .band-side{margin-top:auto;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+  .band-side .pair{flex-basis:100%;font-size:1.1rem;font-weight:650;color:var(--heading);margin:0}
+  .principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 36px;margin:0;padding:0;list-style:none}
+  .principles li{padding:22px 0 0;border-top:2px solid var(--heading)}
+  .principles h3{font-size:1.08rem;margin:0 0 8px;color:var(--heading);letter-spacing:-.01em}
+  .principles p{margin:0;font-size:.98rem;color:var(--muted);line-height:1.7}
+  .elsewhere{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .elsewhere a{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--heading);font-weight:650}
+  .elsewhere a span{display:block;font-weight:400;font-size:.82rem;color:var(--muted);margin-top:3px}
+  .elsewhere a:hover{border-color:var(--accent)}
+  .home + .hub-footer{margin-top:10px}
+  @media(max-width:960px){.home .brand-hero{grid-template-columns:1fr;gap:40px}.hero-panel{max-width:560px}.featured{grid-template-columns:1fr}.duo{grid-template-columns:1fr}.band{padding:28px}.elsewhere{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:620px){.home{padding:0 20px}.home .brand-hero{padding:44px 0 40px;gap:32px}.brand-hero::before{left:-20px;top:48px;height:96px;width:5px}.hero-panel{padding:20px 22px 10px}.principles{grid-template-columns:1fr}.elsewhere{grid-template-columns:1fr}.home section{padding:40px 0}.card{padding:22px}.band{padding:22px}}
+</style>
+</head>
+<body><a class="skip-link" href="#start">Skip to content</a>
 <header class="site-header"><div><a class="brand" href="index.html">NM AI Research</a>
-<div class="brand-subtitle">Public evidence index</div></div>
-<nav aria-label="Main navigation" class="site-nav"><a aria-current="page" href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html">Portfolio map</a><a href="https://nmairesearch.github.io/crossreview/">Crossreview</a></nav>
+<div class="brand-subtitle">Independent AI research</div></div>
+<nav aria-label="Main navigation" class="site-nav"><a href="research.html">Research</a><a href="https://nmairesearch.github.io/crossreview/">Crossreview</a><a href="https://nmairesearch.com/vibe-vault/">Vibe Vault</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html">Portfolio map</a></nav>
 <button class="theme-toggle-btn" hidden="" id="themeToggle" type="button">Theme</button></header>
 
-<div class="swiss-grid">
-<!-- Left Sticky Telemetry Rail -->
-<!-- Right Editorial Stream -->
-<main class="stream-pane" id="work"><div class="rail-header"><p class="eyebrow">Independent research · Open evidence</p>
-<h1>Research you can inspect</h1>
-<p>Independent audits, empirical registers and live tools. Each entry leads to the method, evidence or versioned record behind it.</p>
+<main class="home" id="start">
+<section class="brand-hero" aria-labelledby="home-title">
+<div class="hero-copy">
+<p class="eyebrow">Independent research · Open evidence</p>
+<h1 id="home-title">Research you can inspect</h1>
+<div class="cta-row">
+<a class="btn btn-primary" href="research.html">Browse all research</a>
+<a class="btn btn-quiet" href="https://nmairesearch.github.io/crossreview/">Get or give a review</a>
 </div>
-<!-- Control Header: Search and Filter Pills -->
-<div class="control-header" hidden="">
-<div class="search-row">
-<input aria-label="Search research, tools and topics" class="search-input" id="q" placeholder="Search research, tools and topics" type="text"/>
-<label class="subject-control" for="subject">Subject <select id="subject"><option value="all">All (24)</option><option value="tools">Tools &amp; Methods (11)</option><option value="audit">Evidentiary Audits</option><option value="infra">Physical Infrastructure</option><option value="gov">Governance &amp; Reliance</option><option value="markets">Finance &amp; Markets</option></select></label><button class="search-clear" id="clr">Clear</button>
+<p class="follow"><span>Follow the work:</span>
+<a href="https://github.com/NMAIResearch" rel="noopener" target="_blank">GitHub</a>
+<a href="https://huggingface.co/NMAIResearch" rel="noopener" target="_blank">Hugging Face</a>
+<a href="https://orcid.org/0009-0003-4213-7769" rel="noopener" target="_blank">ORCID</a></p>
 </div>
-<div aria-live="polite" class="search-summary" id="found" role="status"></div>
-</div>
-<!-- SECTION: INTERACTIVE TOOLS -->
-<div class="project-grid"><div class="section-label" data-sec="tools">Tools, Open Methods &amp; Web Explorers (11)</div><article class="entry-row featured-entry" data-cats="tools gov audit" data-kind="tool" data-kw="sw sovereign watch operations case study automated monitoring ai news board source tier research context live feed RSS" id="work-sw">
-<div class="entry-top">
-<span>TOOL 01</span>
-<span class="tag-badge tag-tool">LIVE BOARD</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/ai-news-board/" rel="noopener" target="_blank">The AI News Board and Sovereign Watch</a></h2>
-<p>A live, source-tiered front end for AI industry coverage. It separates reports by source class, shows claim-relative evidence and denominator checks, and links relevant portfolio research without treating the link as verification. Daily machine labels remain visibly unreviewed until checked by a person. Failed or deferred assessments remain visible, and incomplete coverage is reported. The publication path stops on invalid data or a failed verification step; this does not establish comprehensive coverage or classification accuracy.</p>
-<p><a href="sovereign-watch-case-study.html">Read the operations case study: incomplete coverage, recovery and explicit review boundaries.</a></p>
-<footer class="entry-bottom">
-<span class="stack-line">Vanilla JS · RSS/Atom feeds · source and evidence classification</span>
-<div class="action-group">
-<a href="sovereign-watch-workflow-v4.html">Workflow diagram</a>
-<a href="https://nmairesearch.github.io/ai-news-board/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://github.com/NMAIResearch/ai-news-board" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools gov audit" data-kind="tool" data-kw="article 50 transparency explorer eu ai act watermarking synthid c2pa machine readable marking" id="work-article50">
-<div class="entry-top">
-<span>TOOL 02 · DOI 10.5281/zenodo.21819102</span>
-<span class="tag-badge tag-gov">PUBLIC-EVIDENCE EXPLORER</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/article50-explorer/" rel="noopener" target="_blank">Article 50 Transparency Explorer</a></h2>
-<p>The corrected v1.1 paper preserves a historical public-evidence snapshot of twelve consumer AI products. It identifies unresolved cells, capture-state limits and the difference between a bounded negative search and an established absence. The linked explorer retains the historical scores. This is not a current compliance assessment or a completed repeat survey.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Vanilla JS · historical scored set · frozen CSV with declared exceptions · build_tool.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/article50-explorer/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.21819102" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="announced vs deliverable ai power demand interconnection queue pjm ercot deflation calculator" id="work-power">
-<div class="entry-top">
-<span>TOOL 03 · DOI 10.5281/zenodo.20559430</span>
-<span class="tag-badge tag-infra">DEFLATION CALCULATOR</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/announced-vs-deliverable-power/" rel="noopener" target="_blank">Announced vs. Deliverable AI Power Demand</a></h2>
-<p>How much announced generation and data-centre load actually get delivered. A deflation calculator runs announced generation through measured PJM-queue attrition stages, and the load side displays operator-vetted PJM and ERCOT large-load screens with a two-rail envelope (≈20% floor to ≈48–63% ceiling).</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · PJM &amp; ERCOT public records · CSV · build.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/announced-vs-deliverable-power/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.20559430" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/announced-vs-deliverable-power" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="ai data centre water evidence explorer cooling evaporative off-site relocation ledger" id="work-water">
-<div class="entry-top">
-<span>TOOL 04 · DOI 10.5281/zenodo.21318960</span>
-<span class="tag-badge tag-infra">WATER EXPLORER</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/ai-water-tracker/" rel="noopener" target="_blank">AI Data-Centre Water Evidence Explorer</a></h2>
-<p>Which water figures are measured, which are planning assumptions, and what kind of water is involved. Reporting years and metrics are selectable, every site carries its evidence status, and unknown water sources stay visible rather than inferred.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · 10-site frozen seed · CSV · build_tool.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/ai-water-tracker/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.21318960" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/ai-water-tracker" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools markets" data-kind="tool" data-kw="ai cost watch unit economics token pricing capex guidance down revision issue 6" id="work-cost">
-<div class="entry-top">
-<span>TOOL 05 · ISSUE 6 · DOI 10.5281/zenodo.20541643</span>
-<span class="tag-badge tag-market">UNIT ECONOMICS</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/cost-watch/" rel="noopener" target="_blank">AI Cost Watch</a></h2>
-<p>Whether the AI buildout's unit economics are holding. Per-edition signal and developments, or one indicator tracked across issues. The signal it watches, a hyperscaler capex-guidance down-revision, has not fired in six issues.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · AI Cost Watch series (6 issues) · JSON · build.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/cost-watch/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.20541643" rel="noopener" target="_blank">Research series</a>
-<a href="https://github.com/NMAIResearch/cost-watch" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools infra" data-kind="tool" data-kw="ai energy demand forecast scorecard electricity demand dispersion transparency funnel" id="work-forecast">
-<div class="entry-top">
-<span>TOOL 06 · DOI 10.5281/zenodo.20572928</span>
-<span class="tag-badge tag-infra">FORECAST MATRIX</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/forecast-scorecard/" rel="noopener" target="_blank">AI Energy-Demand Forecast Scorecard</a></h2>
-<p>How the field forecasts data-centre electricity demand. Dispersion is measured only within comparable slices, since units and scopes are not interchangeable, and each forecast is traced through a transparency funnel from verified to confirmable to reproducible.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · primary forecast documents · CSV · build.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/forecast-scorecard/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.20572928" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/forecast-scorecard" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools markets" data-kind="tool" data-kw="ceo pay vs delivery scorecard s&amp;p 500 sec edgar pay versus performance compensation actually paid" id="work-pay">
-<div class="entry-top">
-<span>TOOL 07 · DOI 10.5281/zenodo.20680108</span>
-<span class="tag-badge tag-market">GOVERNANCE AUDIT</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/ceo-pay-scorecard/" rel="noopener" target="_blank">CEO Pay-vs-Delivery Scorecard</a></h2>
-<p>A dated comparison of SEC Summary Compensation Table totals and Compensation Actually Paid. CAP is a fair-value remeasurement, not cash received. Board-target cases have separate coverage and are shown alongside peer-relative returns; the comparison does not establish that a CEO caused a return.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · SEC EDGAR (Pay-vs-Performance) · CSV · build.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/ceo-pay-scorecard/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.20680108" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/ceo-pay-scorecard" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="open weight error detection audit model dependency token entropy uncertainty xbrl false alarm budget does entropy catch the errors" id="work-model">
-<div class="entry-top">
-<span>TOOL 08 · DOI 10.5281/zenodo.21543579</span>
-<span class="tag-badge tag-audit">MODEL DIAGNOSTIC</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/model-dependency/" rel="noopener" target="_blank">Open-Weight Error-Detection Audit</a></h2>
-<p>The corrected v1.1 release distinguishes model-run provenance from answer checking in financial data extraction. Selected calculations and tables are reconstructed from stored outputs, with a corrected source label and explicit historical input limits. It reports open-weight experiments only; no new model runs or deployment validation are claimed.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · stored outputs · declared source-label correction and historical limits · build.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/model-dependency/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.21543579" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/model-dependency" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="fineweb edu threshold explorer 84m documents bfloat16 rounding classifier boundary" id="work-fineweb">
-<div class="entry-top">
-<span>TOOL 09 · DOI 10.5281/zenodo.21740081</span>
-<span class="tag-badge tag-audit">DATASET DIAGNOSTIC</span>
-</div>
-<h2><a href="https://nmairesearch.github.io/fineweb-edu-threshold/" rel="noopener" target="_blank">FineWeb-Edu Threshold Explorer</a></h2>
-<p>The filter behind a widely used training corpus keeps documents scoring 3 or more, and that 3 is a rounded integer. The raw cut is adjustable across the 233 score values observed in this sample, the rounding rule can be switched to move 458,461 documents across the boundary, and the rounding identity is shown in the page. The explorer uses corrected content-only token counts. Its historical fixed-score panel remains unavailable pending recalculation; the historical PDF and dataset are unchanged.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Vanilla JS · 84,005,795 scored documents on a 233-point grid · CSV · build_tool.py</span>
-<div class="action-group">
-<a href="https://nmairesearch.github.io/fineweb-edu-threshold/" rel="noopener" target="_blank">Live tool</a>
-<a href="https://doi.org/10.5281/zenodo.21740081" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/fineweb-edu-threshold" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="divergence registry research protocol independent runs source custody deterministic gates claim materiality zenodo hugging face" id="work-divergence">
-<div class="entry-top">
-<span>OPEN METHOD · v0.2-rc2</span>
-<span class="tag-badge tag-audit">RESEARCH PROTOCOL</span>
-</div>
-<h2><a href="https://github.com/NMAIResearch/divergence-registry" rel="noopener" target="_blank">Divergence Registry</a></h2>
-<p>A six-stage research protocol and deterministic gate for recording scope choices, source custody, claim types and departures across independent runs. It makes process divergence inspectable; it does not establish that a finding is correct.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · 27 required decisions · versioned manifests · fail-closed regression suite</span>
-<div class="action-group">
-<a href="https://github.com/NMAIResearch/divergence-registry" rel="noopener" target="_blank">Protocol &amp; code</a>
-<a href="https://doi.org/10.5281/zenodo.22040200" rel="noopener" target="_blank">Archived release</a>
-<a href="https://github.com/NMAIResearch/divergence-registry/releases/tag/v0.2-rc2" rel="noopener" target="_blank">v0.2-rc2 release</a>
-<a href="https://huggingface.co/datasets/NMAIResearch/divergence-registry" rel="noopener" target="_blank">Hugging Face</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="tools audit" data-kind="tool" data-kw="plag in private local ai gateway libllama loopback inference receipts linux source alpha" id="work-plag">
-<div class="entry-top">
-<span>OPEN SOURCE · SOURCE ALPHA</span>
-<span class="tag-badge tag-tool">LOCAL INFRASTRUCTURE</span>
-</div>
-<h2><a href="https://github.com/NMAIResearch/plag-in" rel="noopener" target="_blank">PLAG IN, Private Local AI Gateway</a></h2>
-<p>A Linux source alpha for small organisations that need evidence of locality and reproducible model operation. It provides exact local model identity, bounded embedded libllama serving, authenticated loopback transport and metadata-only inference receipts. The accepted result covers one synthetic L3 trial, not production readiness, repeated-run reliability, model quality or comparative performance.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python 3.14+ · embedded libllama adapter · authenticated loopback transport · Apache-2.0</span>
-<div class="action-group">
-<a href="https://github.com/NMAIResearch/plag-in" rel="noopener" target="_blank">Source &amp; documentation</a>
-<a href="https://github.com/NMAIResearch/plag-in/releases/tag/v0.1.0a1" rel="noopener" target="_blank">earlier v0.1.0a1 prerelease</a>
-</div>
-</footer>
-</article><div class="section-label" data-sec="audit">Audits, Diagnostics &amp; Methods (2)</div><article class="entry-row" data-cats="audit" data-kind="paper" data-kw="ai automation claims scorecard recursive self-improvement safety frameworks rsp claude openai google meta" id="work-automation">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.21325372</span>
-<span>PUBLISHED 18 AUG 2026</span>
-<span class="tag-badge tag-audit">EVIDENTIARY AUDIT</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.21325372" rel="noopener" target="_blank">The AI Automation Claims Scorecard</a></h2>
-<p>A motive-neutral referee for the "AI writes most of our code" claims. It grades twelve vendor and adopter statements on four evidentiary tests: whether a denominator is stated, whether the figure is externally audited, whether an outsider could reproduce it, and whether a named party with no stake has checked that specific figure. One of twelve defines a rigorous denominator, none is audited, none is reproducible, and two carry an independent check.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · eighteen hash-verified primaries · claims_v0.1.csv · reproduce_v0.1.py</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.21325372" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/ai-research-automation-claims-scorecard" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="audit" data-kind="paper" data-kw="anomalous constant domains void transmission negative result cosmology" id="work-cosmology">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20374960</span>
-<span>PUBLISHED 2026</span>
-<span class="tag-badge tag-audit">NEGATIVE RESULT</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20374960" rel="noopener" target="_blank">Anomalous Constant Domains and Anomalous Void Transmission</a></h2>
-<p>A published negative result in cosmology, kept on the record because reporting what did not work is part of the scientific discipline.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · published cosmological constraints · negative result</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20374960" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><div class="section-label" data-sec="infra">Physical Infrastructure &amp; Power (2)</div><article class="entry-row" data-cats="infra" data-kind="paper" data-kw="britain data centre grid queue ofgem neso demand connections green belt london plan" id="work-queue">
-<div class="entry-top">
-<span>POLICY ARTICLE</span>
-<span>AUGUST 2026</span>
-<span class="tag-badge tag-infra">GRID REFORM</span>
-</div>
-<h2><a href="uk-datacentre-queue.html">Announced against financed: Britain's data centre grid queue</a></h2>
-<p>The UK counterpart to the infrastructure analysis. Britain's electricity demand connection queue grew from 41 GW to 125 GW in seven months, with roughly 73 GW in data centres. Evaluates the gap between speculative announcements and binding final investment decisions.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Ofgem demand connections · draft London Plan 2026 · Planning Inspectorate casework</span>
-<div class="action-group">
-<a href="uk-datacentre-queue.html">Read article</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="infra" data-kind="paper" data-kw="bot web traffic energy cloudflare radar iea lbnl order of magnitude" id="work-bot-energy">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20512703</span>
-<span>PUBLISHED 08 JUL 2026</span>
-<span class="tag-badge tag-infra">ENERGY BOUND</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20512703" rel="noopener" target="_blank">How Much Electricity Does Bot Web Traffic Actually Use?</a></h2>
-<p>A transparent order-of-magnitude bound on the electricity used by automated web traffic. A naive multiply yields 257 TWh a year; two distinct methods bracket the figure at order 10 TWh, exposing the parametric sensitivity of traffic-to-energy models.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · Cloudflare Radar · IEA · LBNL</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20512703" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/bot-energy-bound" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><div class="section-label" data-sec="gov">Governance, Reliance &amp; Consumer Protection (6)</div><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="ai reliance dependency reversibility vendor lock-in export controls omb gao" id="work-reliance">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20763480</span>
-<span>PUBLISHED 18 JUL 2026</span>
-<span class="tag-badge tag-gov">RELIANCE TRILOGY</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20763480" rel="noopener" target="_blank">AI Reliance: how deep, and how reversible</a></h2>
-<p>A reproducible measure of systematic AI dependency across four layers (reliability, downstream attribution, penetration, reversibility), with a dated off-switch register and demand-side cohort analysis from provider telemetry and government data.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · Provider status JSON · OMB / GAO data</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20763480" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="consumer reliance architecture pricing tiers lock in churn companion models" id="work-consumer-reliance">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20807278</span>
-<span>PUBLISHED 19 JUL 2026</span>
-<span class="tag-badge tag-gov">CONSUMER RELIANCE</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20807278" rel="noopener" target="_blank">Consumer Reliance Architecture</a></h2>
-<p>How individual AI dependency is built, priced, and made hard to leave: a reproducible profile of the commercial machinery (pricing tiers, caps, metering, portability) across US, EU, Chinese and companion providers, with a revealed-elasticity test of user retention.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · Public pricing pages · Google Trends</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20807278" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="consumer incidence ai buildout household electricity device prices tax abatements" id="work-incidence">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20941003</span>
-<span>PUBLISHED 26 JUN 2026</span>
-<span class="tag-badge tag-gov">HOUSEHOLD INCIDENCE</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20941003" rel="noopener" target="_blank">The Consumer Incidence of the AI Buildout</a></h2>
-<p>A reproducible ledger of how the AI data-centre build-out reaches a single household (device prices, AI-laden subscriptions, electricity, public subsidy and retirement exposure), with each channel's AI-attributable share bounded across two archetype households.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · EIA · PJM IMM · BLS · Good Jobs First</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20941003" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="shopping agents agentic commerce deceptive patterns principal agent prompt injection" id="work-shopping">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20790896</span>
-<span>PUBLISHED 20 JUL 2026</span>
-<span class="tag-badge tag-gov">AGENTIC COMMERCE</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20790896" rel="noopener" target="_blank">Who Does Your Shopping Agent Work For?</a></h2>
-<p>An evidence review of agent-mediated retail: why the neutral agent is a structural fallacy, who controls downstream purchase funnels, and which consumer protection boundaries remain legally enforceable.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Evidence review · Attack-surface matrix · Argumentative paper</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20790896" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="designed not accidental deceptive patterns choice architecture surveillance pricing" id="work-patterns">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20788844</span>
-<span>PUBLISHED 19 JUL 2026</span>
-<span class="tag-badge tag-gov">CONSUMER PROTECTION</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20788844" rel="noopener" target="_blank">Designed, Not Accidental</a></h2>
-<p>An empirical survey of commercial choice architecture and deceptive design patterns in digital retail environments, mapping why individual consumer vigilance fails against systematic behavioural steering.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Evidence review · Enforcement casework · Argumentative paper</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20788844" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="gov" data-kind="paper" data-kw="ai literacy load occupation anthropic economic index onet automation augmentation" id="work-literacy">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20778968</span>
-<span>PUBLISHED 04 JUL 2026</span>
-<span class="tag-badge tag-gov">LABOUR ECONOMICS</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20778968" rel="noopener" target="_blank">AI-Literacy Load by Occupation</a></h2>
-<p>A reproducible map of where AI-fluency becomes part of the job: occupation-level AI-usage penetration crossed with the augment/automate mix, derived from the open Anthropic Economic Index.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · Anthropic Economic Index · O*NET data</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20778968" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article><div class="section-label" data-sec="markets">Finance, Markets &amp; Valuation (3)</div><article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai infrastructure commitments delivery access finance evidence reproduction constraint relay" id="work-infrastructure">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20586863</span>
-<span>UPDATED 23 SEP 2026 · v7.1</span>
-<span class="tag-badge tag-market">CAPEX INFRASTRUCTURE</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20586863" rel="noopener" target="_blank">AI Infrastructure: Commitments, Delivery and Access</a></h2>
-<p>A dated assessment of selected commitments, delivery stages and access obligations. The accompanying bundle recalculates named balances, rebuilds selected numerical content and tables, and lets readers inspect a quantity with its source and qualifications. These checks do not establish source truth or a causal account of the infrastructure build-out.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · frozen inputs · evidence lookup · separate calculation and integrity checks</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20586863" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/ai-constraint-relay/tree/main/v7.1" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai private to public ledger ipo marks reality venture valuations sec s-1" id="work-private-public">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.20672581</span>
-<span>PUBLISHED 14 JUL 2026</span>
-<span class="tag-badge tag-market">VALUATION BENCHMARK</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.20672581" rel="noopener" target="_blank">The AI Private-to-Public Ledger</a></h2>
-<p>A pre-registered benchmark scoring private AI venture marks against primary SEC filings, IPO pricing mechanisms, and post-listing lock-up expirations.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · SEC 424B4/S-1 filings · ipo_marks_reproduce.py</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.20672581" rel="noopener" target="_blank">Paper / record</a>
-<a href="https://github.com/NMAIResearch/ai-private-to-public-ledger" rel="noopener" target="_blank">Code &amp; data</a>
-</div>
-</footer>
-</article><article class="entry-row" data-cats="markets" data-kind="paper" data-kw="ai industry pestle scan political economic social technological legal environmental" id="work-pestle">
-<div class="entry-top">
-<span>DOI 10.5281/zenodo.22015796</span>
-<span>PUBLISHED 19 AUG 2026</span>
-<span class="tag-badge tag-market">INDUSTRY SCAN</span>
-</div>
-<h2><a href="https://doi.org/10.5281/zenodo.22015796" rel="noopener" target="_blank">The AI Industry: Architecture, Chokepoints, and Deflation (v2.1)</a></h2>
-<p>A dated assessment of infrastructure constraints and investment claims. Version 2.1 adds an offline reproduction bundle to the v2 analysis. The deposit identifies unresolved sources and calculations included only in the bundle; the reproduction result is not verification of every source claim.</p>
-<footer class="entry-bottom">
-<span class="stack-line">Python stdlib · Primary regulatory and trade filings</span>
-<div class="action-group">
-<a href="https://doi.org/10.5281/zenodo.22015796" rel="noopener" target="_blank">Paper / record</a>
-</div>
-</footer>
-</article></div>
-<!-- SW application evidence -->
+<nav class="hero-panel" aria-labelledby="subjects-title">
+<h2 id="subjects-title">Browse by subject</h2>
+<ul class="areas">
+<li><a href="research.html?subject=tools">Tools &amp; Methods<span aria-hidden="true">→</span></a></li>
+<li><a href="research.html?subject=audit">Evidentiary Audits<span aria-hidden="true">→</span></a></li>
+<li><a href="research.html?subject=infra">Physical Infrastructure<span aria-hidden="true">→</span></a></li>
+<li><a href="research.html?subject=gov">Governance &amp; Reliance<span aria-hidden="true">→</span></a></li>
+<li><a href="research.html?subject=markets">Finance &amp; Markets<span aria-hidden="true">→</span></a></li>
+</ul>
+</nav>
+</section>
 
-<!-- Tool 2: Article 50 -->
-
-<!-- Tool 3: Power Demand -->
-
-<!-- Tool 4: Water Explorer -->
-
-<!-- Tool 5: Cost Watch -->
-
-<!-- Tool 6: Forecast Scorecard -->
-
-<!-- Tool 7: CEO Pay Scorecard -->
-
-<!-- Tool 8: Entropy Error Detector -->
-
-<!-- Tool 9: FineWeb-Edu Threshold -->
-
-<!-- SECTION: EVIDENTIARY AUDITS & METHODS -->
-<!-- Tool 9: News Board -->
-<!-- Tool 10: Divergence Registry -->
-
-<!-- Tool 11: PLAG IN -->
-
-
-
-
-<!-- SECTION: PHYSICAL INFRASTRUCTURE -->
-
-
-
-<!-- SECTION: GOVERNANCE & RELIANCE -->
-
-
-
-
-
-
-
-<!-- SECTION: FINANCE & MARKETS -->
-
-
-
-
-<section aria-labelledby="evidence-notes-heading" class="evidence-notes"><h2 id="evidence-notes-heading">About the evidence</h2><div class="stat-group">
-<div class="stat-item">
-<div class="stat-label">Research Records</div>
-<div class="stat-num">Versioned</div>
-<div class="stat-desc">Versioned records; reproduction coverage and unresolved checks are stated per project</div>
+<section aria-labelledby="featured-title">
+<div class="section-head"><h2 id="featured-title">Three places to start</h2><a href="research.html">All research, tools and papers</a></div>
+<div class="featured">
+<article class="card">
+<p class="kind">Live tool</p>
+<h3><a href="https://nmairesearch.github.io/ai-news-board/" rel="noopener" target="_blank">The AI News Board and Sovereign Watch</a></h3>
+<p>A live, source-tiered front end for AI industry coverage. Daily machine labels remain visibly unreviewed until checked by a person, and incomplete coverage is reported. This does not establish comprehensive coverage or classification accuracy.</p>
+<div class="links"><a href="https://nmairesearch.github.io/ai-news-board/" rel="noopener" target="_blank">Live tool</a><a href="sovereign-watch-case-study.html">Operations case study</a></div>
+</article>
+<article class="card">
+<p class="kind">Public-evidence explorer</p>
+<h3><a href="https://nmairesearch.github.io/article50-explorer/" rel="noopener" target="_blank">Article 50 Transparency Explorer</a></h3>
+<p>A historical public-evidence snapshot of consumer AI products. It identifies unresolved cells, capture-state limits and the difference between a bounded negative search and an established absence. This is not a current compliance assessment.</p>
+<div class="links"><a href="https://nmairesearch.github.io/article50-explorer/" rel="noopener" target="_blank">Live tool</a><a href="https://doi.org/10.5281/zenodo.21819102" rel="noopener" target="_blank">Paper / record</a></div>
+</article>
+<article class="card">
+<p class="kind">Evidentiary audit</p>
+<h3><a href="https://doi.org/10.5281/zenodo.21325372" rel="noopener" target="_blank">The AI Automation Claims Scorecard</a></h3>
+<p>Vendor and adopter "AI writes most of our code" statements, graded on whether a denominator is stated, whether the figure is externally audited, whether an outsider could reproduce it, and whether a named party with no stake has checked it.</p>
+<div class="links"><a href="https://doi.org/10.5281/zenodo.21325372" rel="noopener" target="_blank">Paper / record</a><a href="https://github.com/NMAIResearch/ai-research-automation-claims-scorecard" rel="noopener" target="_blank">Code &amp; data</a></div>
+</article>
 </div>
-<div class="stat-item">
-<div class="stat-label">Jurisdiction Evidence</div>
-<div class="stat-num">Source-linked</div>
-<div class="stat-desc">Versioned local packs; custody checks do not establish legal correctness or complete coverage</div>
+</section>
+
+<section aria-labelledby="take-part-title">
+<div class="section-head"><h2 id="take-part-title">Take part</h2></div>
+<div class="duo">
+<article class="band" aria-labelledby="crossreview-title">
+<h3 id="crossreview-title">Crossreview</h3>
+<p>A public exchange of reviews for work made with AI. Bring a research protocol, an analysis, a tool, a design or another project, and say what kind of review would help. You do not need to write code.</p>
+<p class="small">A review is another person's assessment, not a guarantee of correctness or safety or a professional certification, and submitting does not guarantee a reviewer. Everything submitted is public on GitHub.</p>
+<div class="band-side">
+<p class="pair">Give a review, get a review.</p>
+<a class="btn btn-primary" href="https://nmairesearch.github.io/crossreview/">Open Crossreview</a>
+<a href="https://github.com/NMAIResearch/crossreview" rel="noopener" target="_blank">Read how it works on GitHub</a>
 </div>
-<div class="stat-item">
-<div class="stat-label">Compensation Evidence</div>
-<div class="stat-num">SEC filings</div>
-<div class="stat-desc">Dated issuer universe; CAP, cash received and board targets are distinct measures</div>
+</article>
+<article class="band" aria-labelledby="vibe-vault-title">
+<h3 id="vibe-vault-title">Vibe Vault</h3>
+<p>A community home for vibe-coded games: games people built by describing what they wanted and shaping it with an AI, prompt by prompt.</p>
+<div class="band-side">
+<p class="pair">Made a game with Claude? It lives here.</p>
+<a class="btn btn-primary" href="https://nmairesearch.com/vibe-vault/">Open Vibe Vault</a>
+<a href="https://github.com/NMAIResearch/vibe-vault" rel="noopener" target="_blank">Read how it works on GitHub</a>
 </div>
-<div class="stat-item">
-<div class="stat-label">Documents Audited In One Filter</div>
-<div class="stat-num">84M</div>
-<div class="stat-desc">FineWeb-Edu, across 94 Common Crawl snapshots</div>
+</article>
 </div>
-</div></section></main>
+</section>
+
+<section aria-labelledby="method-title">
+<div class="section-head"><h2 id="method-title">How the work is done</h2></div>
+<ul class="principles">
+<li><h3>Primary records first</h3><p>Measured figures are traced to the filing, dataset or document they come from, and modelled or estimated inputs are identified as such.</p></li>
+<li><h3>Limits beside findings</h3><p>Each record states what its evidence cannot establish, from incomplete coverage to historical snapshots that are not current assessments.</p></li>
+<li><h3>AI-assisted, and disclosed</h3><p>AI models assist research, coding and drafting. Where a check must be independent, a model from a different lab reviews the work, and project records state model contributions and conflicts.</p></li>
+<li><h3>Versioned and archived</h3><p>Papers and datasets are archived on Zenodo with DOIs, and corrections are logged against the DOI when surfaced.</p></li>
+</ul>
+</section>
+
+<section aria-labelledby="elsewhere-title">
+<div class="section-head"><h2 id="elsewhere-title">Elsewhere</h2></div>
+<div class="elsewhere">
+<a href="https://github.com/NMAIResearch" rel="noopener" target="_blank">GitHub<span>Code and data</span></a>
+<a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" rel="noopener" target="_blank">Zenodo<span>Archived papers and datasets</span></a>
+<a href="https://huggingface.co/NMAIResearch" rel="noopener" target="_blank">Hugging Face<span>Datasets</span></a>
+<a href="https://orcid.org/0009-0003-4213-7769" rel="noopener" target="_blank">ORCID<span>0009-0003-4213-7769</span></a>
+<a href="mailto:NMAIResearch@proton.me">Email<span>NMAIResearch@proton.me</span></a>
+<a href="portfolio-map.html">Portfolio map<span>How the projects connect</span></a>
 </div>
-<!-- Hub Footer -->
+</section>
+</main>
+
 <footer class="hub-footer">
 <div>
-<div class="ai-disclaimer">AI disclosure: The author sets the research questions and substantive decisions. AI models have assisted research, coding and drafting. OpenAI GPT-6 assisted these summary corrections. Project-specific records state model contributions and conflicts. The author approved publication of these corrections.</div>
+<div class="ai-disclaimer">AI disclosure: The author sets the research questions and substantive decisions. AI models have assisted research, coding and drafting. Anthropic Opus 5.5 drafted this page's layout and summaries from the project records. Project-specific records state model contributions and conflicts.</div>
 <div>Licences are stated in each repository or deposit; code and third-party inputs may carry different terms · Independent research, not financial or investment advice.</div>
 </div>
 <div class="footer-links">
@@ -474,91 +186,11 @@
 <a href="https://github.com/NMAIResearch" rel="noopener" target="_blank">GitHub</a>
 <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" rel="noopener" target="_blank">Zenodo Archive</a>
 <a href="https://huggingface.co/NMAIResearch" rel="noopener" target="_blank">Hugging Face</a>
-<a href="https://bsky.app/profile/nmairesearch.bsky.social" rel="noopener me" target="_blank">Bluesky</a>
+<a href="https://bsky.app/profile/nmairesearch.com" rel="noopener me" target="_blank">Bluesky</a>
 <a href="https://www.instagram.com/nmai_research/" rel="noopener me" target="_blank">Instagram</a>
 <span>CV awaiting upload</span>
 <a href="mailto:NMAIResearch@proton.me">NMAIResearch@proton.me</a>
 </div>
 </footer>
-<script>(function(){
- document.querySelector(".control-header").hidden = false;
-      // Filter & Search Engine
-      const q = document.getElementById("q");
-      const clr = document.getElementById("clr");
-      const found = document.getElementById("found");
-      const subject = document.getElementById("subject");
-      let activeFilter = "all";
-
-      const rows = [...document.querySelectorAll(".entry-row")].map(el => {
-        const text = (el.textContent + " " + (el.dataset.kw || "")).toLowerCase().replace(/\s+/g, " ");
-        const cats = (el.dataset.cats || "all").split(" ");
-        cats.push("all");
-        return { el, cats, hay: text };
-      });
-
-      const sectionLabels = [...document.querySelectorAll(".section-label")];
-
-      function runFilter() {
-        const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
-        let hits = 0;
-
-        rows.forEach(r => {
-          const matchCat = activeFilter === "all" || r.cats.includes(activeFilter);
-          const matchSearch = terms.length === 0 || terms.every(t => r.hay.includes(t));
-          const visible = matchCat && matchSearch;
-          r.el.classList.toggle("hidden", !visible);
-          if (visible) hits++;
-        });
-
-        // Hide section headers if no child entries are visible
-        sectionLabels.forEach(sec => {
-          let hasVisible = false;
-          let next = sec.nextElementSibling;
-          while (next && !next.classList.contains("section-label")) {
-            if (next.classList.contains("entry-row") && !next.classList.contains("hidden")) {
-              hasVisible = true;
-              break;
-            }
-            next = next.nextElementSibling;
-          }
-          sec.style.display = hasVisible ? "block" : "none";
-        });
-
-        if (!terms.length && activeFilter === "all") {
-          found.innerHTML = "";
-          return;
-        }
-
-        const safeQuery = q.value.trim().replace(/[&<>"']/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"})[c]);
-        const searchLabel = terms.length ? ` matching &ldquo;${safeQuery}&rdquo;` : "";
-        const catLabel = activeFilter === "all" ? "" : ` in category &ldquo;${activeFilter}&rdquo;`;
-        found.innerHTML = hits
-          ? `<b>${hits}</b> of ${rows.length} records shown${searchLabel}${catLabel}.`
-          : `No records match${searchLabel}${catLabel}. All papers are archived on <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22NM%20AI%20Research%22" target="_blank" rel="noopener">Zenodo</a>.`;
-      }
-
-      subject.addEventListener("change", () => {
-        activeFilter = subject.value || "all";
-        runFilter();
-      });
-
-      q.addEventListener("input", runFilter);
-      clr.addEventListener("click", () => {
-        q.value = "";
-        activeFilter = "all";
-        subject.value = "all";
-        runFilter();
-        q.focus();
-      });
-
-      // Keyboard shortcut '/' to focus search
-      window.addEventListener("keydown", e => {
-        if (e.key === "/" && document.activeElement !== q) {
-          e.preventDefault();
-          q.focus();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
