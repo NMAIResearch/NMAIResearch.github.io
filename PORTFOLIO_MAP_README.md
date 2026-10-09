@@ -2,7 +2,7 @@
 
 Purpose: explain the research structure behind the portfolio and provide editable, reproducible presentation files.
 
-Open [the guide](portfolio-map.html) or [the full diagram](portfolio-research-architecture.html). The homepage retains direct access to the SW case study and workflow. This is a map of the author-stated research approach, illustrated by linked project examples; it is not a new research result or a record that every project used the same software.
+Open [the guide](portfolio-map.html) or [the full diagram](portfolio-research-architecture.html). The homepage links the SW case study, and the research page (`research.html`) links the workflow diagram. This is a map of the author-stated research approach, illustrated by linked project examples; it is not a new research result or a record that every project used the same software.
 
 ## Files
 

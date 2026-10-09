@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""enrich_keywords.py - bake each work's Zenodo keywords into index.html as data-kw.
+"""enrich_keywords.py - bake each work's Zenodo keywords into research.html as data-kw.
 
-    python3 enrich_keywords.py           # rewrite index.html in place
+    python3 enrich_keywords.py           # rewrite research.html in place
     python3 enrich_keywords.py --dry-run # report only, change nothing
 
 WHY. The hub carries each work's title, description and DOI, so the search box can filter the
@@ -24,7 +24,7 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).parent
-PAGE = HERE / "index.html"
+PAGE = HERE / "research.html"
 API = "https://zenodo.org/api/records"
 OPEN = re.compile(r'<div class="(paper|tool)"(?:\s+data-kw="[^"]*")?>')
 # An entry's body ends at the next entry, the next section heading, or the footer. Without all
@@ -84,13 +84,13 @@ def main():
     if missing:
         print(f"no keywords ({len(missing)}): {', '.join(t[:38] for t in missing)}")
     if args.dry_run:
-        print("dry run, index.html unchanged")
+        print("dry run, research.html unchanged")
         return 0
     if new == page:
-        print("index.html already current")
+        print("research.html already current")
         return 0
     PAGE.write_text(new)
-    print("index.html updated")
+    print("research.html updated")
     return 0
 
 

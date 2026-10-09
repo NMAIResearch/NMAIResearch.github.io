@@ -19,7 +19,7 @@
         {
           "project": "Power demand",
           "text": "Distinguish announced AI power demand from the capacity that can be delivered.",
-          "url": "index.html#work-power",
+          "url": "research.html#work-power",
           "label": "See the power-demand study",
           "limit": ""
         },
@@ -33,21 +33,21 @@
         {
           "project": "Forecast scorecard",
           "text": "Compare electricity-demand forecasts within compatible units, scopes and horizons.",
-          "url": "index.html#work-forecast",
+          "url": "research.html#work-forecast",
           "label": "See the forecast scorecard",
           "limit": ""
         },
         {
           "project": "Article 50",
           "text": "Keep the historical public-evidence snapshot distinct from a current compliance assessment.",
-          "url": "index.html#work-article50",
+          "url": "research.html#work-article50",
           "label": "See the Article 50 study",
           "limit": ""
         },
         {
           "project": "FineWeb-Edu",
           "text": "A question at the mechanism level: how score rounding and a threshold affect which documents enter a training corpus.",
-          "url": "index.html#work-fineweb",
+          "url": "research.html#work-fineweb",
           "label": "See the FineWeb-Edu audit",
           "limit": "The published output illustrates the question; this link is not a completed novelty-search record."
         }
@@ -82,7 +82,7 @@
         {
           "project": "FineWeb-Edu",
           "text": "The explorer exposes the score threshold and rounding rule so their effects can be inspected.",
-          "url": "index.html#work-fineweb",
+          "url": "research.html#work-fineweb",
           "label": "Open the study entry",
           "limit": ""
         },
@@ -96,7 +96,7 @@
         {
           "project": "Model Dependency",
           "text": "The corrected release distinguishes model-run provenance from answer checking and states what can be reconstructed from stored outputs.",
-          "url": "index.html#work-model",
+          "url": "research.html#work-model",
           "label": "See the corrected model audit",
           "limit": ""
         }
@@ -166,7 +166,7 @@
         {
           "project": "Model Dependency",
           "text": "The corrected release distinguishes model-run provenance from answer checking and states what can be reconstructed from stored outputs.",
-          "url": "index.html#work-model",
+          "url": "research.html#work-model",
           "label": "See the corrected model audit",
           "limit": "The corrected release illustrates revision. It does not document every earlier stage in the study."
         }

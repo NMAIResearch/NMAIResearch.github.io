@@ -9,7 +9,7 @@ One front door linking the interactive tools and open-access studies on Zenodo, 
 - **Interactive tools:** self-contained front-ends over frozen or versioned research datasets.
 - **Studies:** reproducible working papers and analytical notes built from public data.
 
-A single self-contained `index.html` (no dependencies, no build step). Edit it directly to add a new tool or paper.
+Static pages with no build step, except `portfolio-map.html`, which `reproduce_portfolio.py` generates. `index.html` is the homepage; add a new tool or paper to `research.html`.
 
 ## Licence
 

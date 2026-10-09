@@ -20,7 +20,7 @@ def link(url, label):
         valid = parsed.scheme == 'https' and bool(parsed.netloc)
     else:
         valid = not parsed.netloc and parsed.path in {
-            'index.html', 'portfolio-research-architecture.html',
+            'index.html', 'research.html', 'portfolio-research-architecture.html',
             'sovereign-watch-case-study.html', 'sovereign-watch-workflow-v4.html',
             'RESEARCH_ROUTE_EXAMPLES.md'}
     if not valid:
@@ -53,25 +53,30 @@ def render_guide(data):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Shared research architecture with linked examples from the NM AI Research portfolio.">
 <title>{escape(data['title'])} | NM AI Research</title>
+<link rel="stylesheet" href="portfolio.css">
 <style>
 :root{{color-scheme:light;--bg:#fff;--fg:#2d3748;--heading:#1a365d;--muted:#4a5568;--line:#e2e8f0;--panel:#fff;--link:#2b6cb0}}
 @media(prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--bg:#0f141d;--fg:#e8edf4;--heading:#e2e8f0;--muted:#a0aec0;--line:#2a3444;--panel:#161d2b;--link:#63b3ed;color-scheme:dark}}}}
 html[data-theme="dark"]{{--bg:#0f141d;--fg:#e8edf4;--heading:#e2e8f0;--muted:#a0aec0;--line:#2a3444;--panel:#161d2b;--link:#63b3ed;color-scheme:dark}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,sans-serif}}
-main{{max-width:1180px;margin:auto;padding:28px clamp(20px,4vw,48px)}}a{{color:var(--link);text-underline-offset:.2em}}
-nav{{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:.9rem}}h1{{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:36px 0 18px}}
+a{{color:var(--link);text-underline-offset:.2em}}
+h1{{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:36px 0 18px}}
 h2{{font-size:1.35rem;line-height:1.3;margin:0 0 12px}}h3{{font-size:1rem;line-height:1.4;margin:0 0 8px}}p{{margin:0 0 14px}}
-h1,h2,h3{{color:var(--heading)}}#themeToggle{{font:inherit;font-size:.85rem;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--fg);padding:4px 10px;cursor:pointer;margin-left:auto}}
+h1,h2,h3{{color:var(--heading)}}
 .intro{{max-width:820px}}.eyebrow{{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}}
 .projects{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:28px 0 34px}}
 .projects article{{border-top:2px solid var(--fg);padding-top:16px}}.projects p{{font-size:.92rem}}
 .map{{margin:24px 0 40px}}iframe{{width:100%;height:940px;border:1px solid var(--line);background:var(--panel)}}
 .operations{{display:grid;grid-template-columns:1fr;gap:34px}}section{{border-top:1px solid var(--line);padding-top:22px;scroll-margin-top:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));column-gap:36px;align-content:start}}
 section>h2,section>.summary{{grid-column:1/-1}}.summary{{color:var(--muted);max-width:820px}}.example{{margin-top:22px}}.limit{{font-size:.86rem;color:var(--muted)}}
-footer{{margin-top:46px;border-top:1px solid var(--line);padding-top:24px;font-size:.85rem;color:var(--muted)}}
+footer{{margin-top:46px;border-top:1px solid var(--line);padding:24px 0 28px;font-size:.85rem;color:var(--muted)}}
 :focus-visible{{outline:3px solid var(--link);outline-offset:4px}}@media(max-width:720px){{.projects,.operations{{grid-template-columns:1fr}}iframe{{height:620px}}}}
-</style><script src="portfolio-theme.js"></script></head><body><main>
-<nav aria-label="Main navigation"><a href="index.html#work">Research</a><a href="sovereign-watch-case-study.html">SW case study</a><a href="portfolio-map.html" aria-current="page">Portfolio map</a><button id="themeToggle" type="button" hidden>Change theme</button></nav>
+</style><script src="portfolio-theme.js"></script></head><body><a class="skip-link" href="#guide">Skip to content</a>
+<header class="site-header"><div><a class="brand" href="index.html">NM AI Research</a>
+<div class="brand-subtitle">Independent AI research</div></div>
+<nav aria-label="Main navigation" class="site-nav"><a href="research.html">Research</a><a href="https://nmairesearch.github.io/crossreview/">Crossreview</a><a href="https://nmairesearch.com/vibe-vault/">Vibe Vault</a><a href="sovereign-watch-case-study.html">SW case study</a><a aria-current="page" href="portfolio-map.html">Portfolio map</a></nav>
+<button class="theme-toggle-btn" hidden id="themeToggle" type="button">Theme</button></header>
+<main class="page-shell" id="guide">
 <h1>{escape(data['title'])}</h1><p class="intro">{escape(data['introduction'])}</p>
 
 <div class="map"><p>{link(data['diagram'],'Open the full research map')}</p><iframe src="{escape(data['diagram'],quote=True)}" title="Research loop: queue, selection, research, publication, alignment, monitoring, revision and archive" loading="lazy"></iframe></div>
@@ -111,6 +116,7 @@ def main():
             dest.mkdir()
             (dest / 'portfolio-map.html').write_bytes(guide)
             (dest / 'portfolio-theme.js').write_bytes((ROOT / 'portfolio-theme.js').read_bytes())
+            (dest / 'portfolio.css').write_bytes((ROOT / 'portfolio.css').read_bytes())
             if renderer:
                 output = dest / 'portfolio-research-architecture.html'
                 result = subprocess.run(['node',str(renderer),'deliver','workflow',
