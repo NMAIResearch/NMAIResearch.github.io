@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Software Vault · NM AI Research</title>
+<meta name="description" content="Open-source tools and live explorers from NM AI Research, each linked to its source code and research record.">
+<link rel="canonical" href="https://nmairesearch.com/software-vault/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NM AI Research">
+<meta property="og:title" content="Software Vault · NM AI Research">
+<meta property="og:description" content="Open-source tools and live explorers from NM AI Research, each linked to its source code and research record.">
+<meta property="og:url" content="https://nmairesearch.com/software-vault/">
+<meta property="og:image" content="https://nmairesearch.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NM AI Research: Research you can inspect">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Software Vault · NM AI Research","url":"https://nmairesearch.com/software-vault/","isPartOf":{"@type":"WebSite","name":"NM AI Research","url":"https://nmairesearch.com/"}}</script>
+<link rel="stylesheet" href="../portfolio.css"><script src="../portfolio-theme.js"></script><script defer src="../survey-field.js"></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div><a class="brand" href="../index.html">NM AI Research</a>
+<div class="brand-subtitle">Independent AI research</div></div>
+<nav aria-label="Main navigation" class="site-nav"><a href="../research.html">Research<span class="nav-vault"> Vault</span></a><a aria-current="page" href="../software-vault/">Software<span class="nav-vault"> Vault</span></a><a href="https://nmairesearch.com/vibe-vault/">Game<span class="nav-vault"> Vault</span></a><a href="../music-vault/">Music<span class="nav-vault"> Vault</span></a><a href="../video-vault/">Video<span class="nav-vault"> Vault</span></a></nav>
+<button class="theme-toggle-btn" hidden id="themeToggle" type="button">Theme</button></header>
+<div class="swiss-grid">
+<main class="stream-pane" id="main"><div class="rail-header" data-survey-field><p class="eyebrow">Software Vault</p>
+<h1>Software you can run</h1>
+<p>Open-source tools and live explorers from NM AI Research. Each one also sits in the Research Vault beside the research it supports.</p>
+</div>
+<div class="project-grid" id="tools"><noscript><p>This list loads from the <a href="../research.html">research index</a>, where the same tools are listed first.</p></noscript></div>
+</main></div>
+<script>(async function () {
+  const box = document.getElementById("tools");
+  const src = new URL("../research.html", location.href);
+  try {
+    const res = await fetch(src);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const doc = new DOMParser().parseFromString(await res.text(), "text/html");
+    const tools = doc.querySelectorAll('article.entry-row[data-kind="tool"]');
+    if (!tools.length) throw new Error("no tool entries");
+    for (const el of tools) {
+      el.querySelectorAll("a[href]").forEach(a => a.setAttribute("href", new URL(a.getAttribute("href"), src).href));
+      box.append(document.importNode(el, true));
+    }
+  } catch (e) {
+    box.innerHTML = '<p>The tool list did not load. The same tools are listed first in the <a href="../research.html">Research Vault</a>.</p>';
+  }
+})();</script>
+<footer class="hub-footer"><div class="ai-disclaimer">AI disclosure: Claude Opus 5.5 (Anthropic) drafted this page's layout and text.</div></footer>
+</body></html>
