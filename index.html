@@ -17,12 +17,12 @@
 <meta content="NM AI Research: Research you can inspect" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NM AI Research","url":"https://nmairesearch.com/","description":"Independent research on AI governance, model evaluation, and infrastructure economics. Open-access research, tools and source code, with project-specific version records.","sameAs":["https://github.com/NMAIResearch","https://huggingface.co/NMAIResearch","https://orcid.org/0009-0003-4213-7769","https://bsky.app/profile/nmairesearch.com","https://www.instagram.com/nmai_research/"]}</script>
-<link href="portfolio.css" rel="stylesheet"/><script src="portfolio-theme.js"></script>
+<link href="portfolio.css" rel="stylesheet"/><script src="portfolio-theme.js"></script><script defer src="survey-field.js"></script>
 <style>
   .home{max-width:1200px;margin:auto;padding:0 28px}
   .home section{padding:56px 0;border-top:1px solid var(--line)}
-  .home .brand-hero{border-top:0;padding:72px 0 64px;position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
-  .brand-hero::before{content:"";position:absolute;left:-28px;top:76px;width:6px;height:132px;background:var(--heading);border-radius:0 3px 3px 0}
+  .home .brand-hero{border-top:0;padding:88px 0 84px;position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+  .brand-hero::before{content:"";position:absolute;left:-28px;top:92px;width:5px;height:132px;background:linear-gradient(var(--accent),var(--heading));border-radius:0 3px 3px 0}
   .brand-hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);max-width:13ch;margin:0 0 26px}
   .brand-hero .lede{font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.65;color:var(--muted);max-width:60ch;margin:0 0 34px}
   .cta-row{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
@@ -34,18 +34,20 @@
   .follow{margin-top:26px;font-size:.88rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
   .follow a{color:var(--muted)}
   .follow a:hover{color:var(--accent)}
-  .hero-panel{padding:24px 28px 12px;background:var(--raised);border:1px solid var(--line);border-radius:14px}
+  .hero-panel{padding:24px 28px 12px;background:var(--glass);-webkit-backdrop-filter:blur(12px) saturate(1.15);backdrop-filter:blur(12px) saturate(1.15);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
   .hero-panel h2{font-size:.76rem;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;margin:0 0 6px}
   .areas{list-style:none;margin:0;padding:0}
   .areas li+li{border-top:1px solid var(--line)}
   .areas a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:48px;padding:10px 0;color:var(--heading);font-weight:650;font-size:1.06rem;text-decoration:none}
-  .areas a span{color:var(--accent);font-weight:400}
+  .areas a span{color:var(--accent);font-weight:400;transition:transform .25s var(--ease)}
+  .areas a:hover span{transform:translateX(4px)}
   .areas a:hover{color:var(--accent)}
   .section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:26px}
   .section-head h2{font-size:clamp(1.5rem,2.6vw,2rem);margin:0}
   .section-head a{font-size:.92rem;font-weight:600}
   .featured{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-  .card{display:flex;flex-direction:column;min-width:0;padding:26px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px}
+  .card{display:flex;flex-direction:column;min-width:0;padding:26px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
   .card .kind{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:650;margin:0 0 12px}
   .card h3{font-size:1.28rem;line-height:1.3;letter-spacing:-.02em;margin:0 0 14px;color:var(--heading)}
   .card h3 a{color:inherit;text-decoration-color:var(--line)}
@@ -66,7 +68,8 @@
   .elsewhere{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
   .elsewhere a{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--heading);font-weight:650}
   .elsewhere a span{display:block;font-weight:400;font-size:.82rem;color:var(--muted);margin-top:3px}
-  .elsewhere a:hover{border-color:var(--accent)}
+  .elsewhere a:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
+  @media(prefers-reduced-motion:reduce){.card:hover,.elsewhere a:hover,.areas a:hover span{transform:none}}
   .home + .hub-footer{margin-top:10px}
   @media(max-width:960px){.home .brand-hero{grid-template-columns:1fr;gap:40px}.hero-panel{max-width:560px}.featured{grid-template-columns:1fr}.duo{grid-template-columns:1fr}.band{padding:28px}.elsewhere{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:620px){.home{padding:0 20px}.home .brand-hero{padding:44px 0 40px;gap:32px}.brand-hero::before{left:-20px;top:48px;height:96px;width:5px}.hero-panel{padding:20px 22px 10px}.principles{grid-template-columns:1fr}.elsewhere{grid-template-columns:1fr}.home section{padding:40px 0}.card{padding:22px}.band{padding:22px}}
@@ -79,7 +82,7 @@
 <button class="theme-toggle-btn" hidden="" id="themeToggle" type="button">Theme</button></header>
 
 <main class="home" id="start">
-<section class="brand-hero" aria-labelledby="home-title">
+<section class="brand-hero" aria-labelledby="home-title" data-survey-field>
 <div class="hero-copy">
 <p class="eyebrow">Independent research · Open evidence</p>
 <h1 id="home-title">Research you can inspect</h1>

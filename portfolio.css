@@ -29,3 +29,17 @@ h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.12;letter-spacing:-.045em;fo
 
 /* Heading colour follows the paper and Article 50 palette in both themes. */
 h1,h2{color:var(--heading)}
+
+/* Survey field and finishing layer. The field (survey-field.js) paints behind every element of the page. */
+:root{--field-rgb:26,54,93;--field-alpha:.075;--field-major-alpha:.15;--field-lens-rgb:43,108,176;--field-lens-alpha:.55;--field-glow:rgba(43,108,176,.07);--glass:rgba(247,250,252,.8);--shadow:0 1px 2px rgba(16,34,64,.05),0 12px 28px -16px rgba(16,34,64,.28);--ease:cubic-bezier(.2,.7,.2,1)}
+:root[data-theme="dark"]{--field-rgb:126,172,232;--field-alpha:.09;--field-major-alpha:.17;--field-lens-rgb:99,179,237;--field-lens-alpha:.75;--field-glow:rgba(66,133,214,.14);--glass:rgba(22,29,43,.74);--shadow:0 1px 2px rgba(0,0,0,.35),0 14px 30px -16px rgba(0,0,0,.8)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--field-rgb:126,172,232;--field-alpha:.09;--field-major-alpha:.17;--field-lens-rgb:99,179,237;--field-lens-alpha:.75;--field-glow:rgba(66,133,214,.14);--glass:rgba(22,29,43,.74);--shadow:0 1px 2px rgba(0,0,0,.35),0 14px 30px -16px rgba(0,0,0,.8)}}
+.survey-field{position:absolute;left:0;top:0;width:100%;z-index:-1;pointer-events:none;overflow:hidden;background:radial-gradient(1100px 620px at 78% 8%,var(--field-glow),transparent 70%);-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 100%)}
+.survey-field canvas{display:block}
+::selection{background:var(--heading);color:var(--bg)}
+.eyebrow::before{content:"";display:inline-block;width:20px;height:1px;margin:0 10px 0 0;background:currentColor;vertical-align:.3em;opacity:.7}
+a,button,.btn{transition:color .18s var(--ease),background-color .18s var(--ease),border-color .18s var(--ease),box-shadow .25s var(--ease),transform .25s var(--ease)}
+.entry-row{transition:border-color .2s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease)}
+.entry-row:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));box-shadow:var(--shadow);transform:translateY(-2px)}
+.control-header,.case-context{background:var(--glass);-webkit-backdrop-filter:blur(10px) saturate(1.15);backdrop-filter:blur(10px) saturate(1.15)}
+@media(prefers-reduced-motion:reduce){a,button,.btn,.entry-row{transition:none}.entry-row:hover{transform:none}}
