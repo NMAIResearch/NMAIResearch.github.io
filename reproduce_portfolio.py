@@ -71,13 +71,14 @@ h1,h2,h3{{color:var(--heading)}}
 section>h2,section>.summary{{grid-column:1/-1}}.summary{{color:var(--muted);max-width:820px}}.example{{margin-top:22px}}.limit{{font-size:.86rem;color:var(--muted)}}
 footer{{margin-top:46px;border-top:1px solid var(--line);padding:24px 0 28px;font-size:.85rem;color:var(--muted)}}
 :focus-visible{{outline:3px solid var(--link);outline-offset:4px}}@media(max-width:720px){{.projects,.operations{{grid-template-columns:1fr}}iframe{{height:620px}}}}
-</style><script src="portfolio-theme.js"></script></head><body><a class="skip-link" href="#guide">Skip to content</a>
+</style><script src="portfolio-theme.js"></script><script defer src="survey-field.js"></script></head><body><a class="skip-link" href="#guide">Skip to content</a>
 <header class="site-header"><div><a class="brand" href="index.html">NM AI Research</a>
 <div class="brand-subtitle">Independent AI research</div></div>
-<nav aria-label="Main navigation" class="site-nav"><a href="research.html">Research</a><a href="https://nmairesearch.github.io/crossreview/">Crossreview</a><a href="https://nmairesearch.com/vibe-vault/">Vibe Vault</a><a href="sovereign-watch-case-study.html">SW case study</a><a aria-current="page" href="portfolio-map.html">Portfolio map</a></nav>
+<nav aria-label="Main navigation" class="site-nav"><a aria-current="true" href="research.html">Research<span class="nav-vault"> Vault</span></a><a href="software-vault/">Software<span class="nav-vault"> Vault</span></a><a href="https://nmairesearch.com/vibe-vault/">Game<span class="nav-vault"> Vault</span></a><a href="music-vault/">Music<span class="nav-vault"> Vault</span></a><a href="video-vault/">Video<span class="nav-vault"> Vault</span></a></nav>
 <button class="theme-toggle-btn" hidden id="themeToggle" type="button">Theme</button></header>
+<nav aria-label="Research Vault" class="vault-subnav"><span aria-hidden="true" class="vault-subnav-title">Research Vault</span><a href="research.html">All research</a><a href="https://nmairesearch.github.io/crossreview/">Crossreview</a><a aria-current="page" href="portfolio-map.html">Portfolio map</a><a href="sovereign-watch-case-study.html">Sovereign Watch case study</a></nav>
 <main class="page-shell" id="guide">
-<h1>{escape(data['title'])}</h1><p class="intro">{escape(data['introduction'])}</p>
+<h1>{escape(data['title'])}</h1><p class="intro" data-survey-field>{escape(data['introduction'])}</p>
 
 <div class="map"><p>{link(data['diagram'],'Open the full research map')}</p><iframe src="{escape(data['diagram'],quote=True)}" title="Research loop: queue, selection, research, publication, alignment, monitoring, revision and archive" loading="lazy"></iframe></div>
 <div class="operations">{''.join(sections)}</div>
@@ -117,6 +118,7 @@ def main():
             (dest / 'portfolio-map.html').write_bytes(guide)
             (dest / 'portfolio-theme.js').write_bytes((ROOT / 'portfolio-theme.js').read_bytes())
             (dest / 'portfolio.css').write_bytes((ROOT / 'portfolio.css').read_bytes())
+            (dest / 'survey-field.js').write_bytes((ROOT / 'survey-field.js').read_bytes())
             if renderer:
                 output = dest / 'portfolio-research-architecture.html'
                 result = subprocess.run(['node',str(renderer),'deliver','workflow',

@@ -43,3 +43,11 @@ a,button,.btn{transition:color .18s var(--ease),background-color .18s var(--ease
 .entry-row:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));box-shadow:var(--shadow);transform:translateY(-2px)}
 .control-header,.case-context{background:var(--glass);-webkit-backdrop-filter:blur(10px) saturate(1.15);backdrop-filter:blur(10px) saturate(1.15)}
 @media(prefers-reduced-motion:reduce){a,button,.btn,.entry-row{transition:none}.entry-row:hover{transform:none}}
+/* Vault menus: five vaults in the main menu, a sub-menu for the current vault */
+.vault-subnav{max-width:1200px;margin:auto;padding:10px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;border-bottom:1px solid var(--line);font-size:.85rem}
+.vault-subnav-title{font-weight:700;color:var(--heading);letter-spacing:.02em;margin-right:4px}
+.vault-subnav a{color:var(--muted);text-decoration:none;padding:5px 0}
+.vault-subnav a:hover{color:var(--accent)}
+.vault-subnav a[aria-current]{color:var(--accent);border-bottom:2px solid var(--accent)}
+@media(max-width:620px){.vault-subnav{padding:8px 20px;gap:2px 16px}.nav-vault{display:none}}
+@media print{.vault-subnav{display:none}}
