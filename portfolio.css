@@ -62,3 +62,9 @@ a,button,.btn{transition:color .18s var(--ease),background-color .18s var(--ease
 @media(prefers-color-scheme:dark){:root.vault-software:not([data-theme="light"]){--bg:#111317;--surface:#1a1d23;--raised:#1a1d23;--text:#e8eaee;--muted:#a7adb8;--line:#2c3038;--accent:#cbd5e1;--heading:#eef1f5;--tag:#1a1d23;--field-rgb:203,213,225;--field-lens-rgb:148,163,184;--field-glow:rgba(148,163,184,.1);--glass:rgba(26,29,35,.74)}
 :root.vault-music:not([data-theme="light"]){--bg:#0b1615;--surface:#112220;--raised:#112220;--text:#e4f4f1;--muted:#a1c3bd;--line:#1f3d39;--accent:#2dd4bf;--heading:#e2f8f4;--tag:#112220;--field-rgb:94,234,212;--field-lens-rgb:45,212,191;--field-glow:rgba(45,212,191,.12);--glass:rgba(17,34,32,.74)}
 :root.vault-video:not([data-theme="light"]){--bg:#180e0f;--surface:#241517;--raised:#241517;--text:#f6e8e8;--muted:#cdabab;--line:#43282b;--accent:#fc8181;--heading:#fdeaea;--tag:#241517;--field-rgb:252,129,129;--field-lens-rgb:252,129,129;--field-glow:rgba(245,101,101,.12);--glass:rgba(36,21,23,.74)}}
+
+/* Language menu (Hungarian pilot) */
+.lang-switch{display:flex;gap:12px;font-size:.85rem}.lang-switch a{color:var(--muted);text-decoration:none;padding:7px 0}
+.lang-switch a[aria-current]{color:var(--heading);font-weight:650;border-bottom:2px solid var(--accent)}
+.translation-note{margin-bottom:10px}
+@media(max-width:850px){.lang-switch{margin-left:auto}}

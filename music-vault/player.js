@@ -25,7 +25,7 @@
     var frame = document.createElement("iframe");
     frame.className = "track-frame";
     frame.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
-    frame.title = link.getAttribute("data-title") + " (YouTube video player)";
+    frame.title = link.getAttribute("data-title") + (document.documentElement.lang === "hu" ? " (YouTube-videólejátszó)" : " (YouTube video player)");
     frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
     link.replaceWith(frame);
