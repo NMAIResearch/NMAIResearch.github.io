@@ -1,6 +1,8 @@
 // Use a saved site preference, otherwise follow the system colour scheme.
 (() => {
   const root = document.documentElement;
+  const THEME_TEXT = {en: {light: 'Light theme', dark: 'Dark theme', toLight: 'Switch to light theme', toDark: 'Switch to dark theme'},
+    hu: {light: 'Világos téma', dark: 'Sötét téma', toLight: 'Váltás világos témára', toDark: 'Váltás sötét témára'}};
   const system = window.matchMedia('(prefers-color-scheme: dark)');
   let preference = null;
   try {
@@ -16,8 +18,9 @@
     const button = document.getElementById('themeToggle');
     if (button) {
       button.hidden = false;
-      button.textContent = theme === 'dark' ? 'Light theme' : 'Dark theme';
-      button.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+      const t = THEME_TEXT[root.lang === 'hu' ? 'hu' : 'en'];
+      button.textContent = theme === 'dark' ? t.light : t.dark;
+      button.setAttribute('aria-label', theme === 'dark' ? t.toLight : t.toDark);
     }
   }
   apply();
