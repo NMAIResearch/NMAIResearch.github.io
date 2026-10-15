@@ -74,7 +74,7 @@
         },
         {
           "project": "Forecast scorecard",
-          "text": "The reproducer recomputes the scorecard table and its transparency tiers from one CSV with the Python standard library, and regenerates the dispersion chart.",
+          "text": "The read-only package check recalculates the declared outputs, binds the review receipts to the current records and compares output bytes and package hashes, using only the Python standard library.",
           "url": "https://doi.org/10.5281/zenodo.20572928",
           "label": "Open the release and its reproducer",
           "limit": "Reproduction recomputes the scorecard from the recorded inputs; it does not re-verify each forecast at its source."
