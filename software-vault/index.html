@@ -14,7 +14,7 @@
 <meta property="og:image:alt" content="NM AI Research: Research you can inspect">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Software Vault · NM AI Research","url":"https://nmairesearch.com/software-vault/","isPartOf":{"@type":"WebSite","name":"NM AI Research","url":"https://nmairesearch.com/"}}</script>
-<link rel="stylesheet" href="../portfolio.css"><script src="../portfolio-theme.js"></script><script defer src="../survey-field.js"></script></head><body>
+<link rel="stylesheet" href="../portfolio.css"><style>.tool-kind{margin:0 0 .4rem;font-size:.9rem}.tool-kind strong{text-transform:uppercase;letter-spacing:.06em}</style><script src="../portfolio-theme.js"></script><script defer src="../survey-field.js"></script></head><body>
 <a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div><a class="brand" href="../index.html">NM AI Research</a>
 <div class="brand-subtitle">Independent AI research</div></div>
 <nav aria-label="Main navigation" class="site-nav"><a href="../research.html">Research<span class="nav-vault"> Vault</span></a><a aria-current="page" href="../software-vault/">Software<span class="nav-vault"> Vault</span></a><a href="https://nmairesearch.com/vibe-vault/">Game<span class="nav-vault"> Vault</span></a><a href="../music-vault/">Music<span class="nav-vault"> Vault</span></a><a href="../video-vault/">Video<span class="nav-vault"> Vault</span></a></nav>
@@ -35,9 +35,26 @@
     const doc = new DOMParser().parseFromString(await res.text(), "text/html");
     const tools = doc.querySelectorAll('article.entry-row[data-kind="tool"]');
     if (!tools.length) throw new Error("no tool entries");
+    // A plain label on each item, so visitors can tell what kind of tool it is.
+    const kindOf = el => {
+      const top = (el.querySelector(".entry-top") || {}).textContent || "";
+      if ([...el.querySelectorAll(".action-group a")].some(a => /^live tool/i.test(a.textContent.trim()))) return "runs in your browser";
+      if (/OPEN SOURCE/i.test(top)) return "open-source software to install";
+      if (/OPEN METHOD/i.test(top)) return "research method with code";
+      return "";
+    };
     for (const el of tools) {
       el.querySelectorAll("a[href]").forEach(a => a.setAttribute("href", new URL(a.getAttribute("href"), src).href));
-      box.append(document.importNode(el, true));
+      const node = document.importNode(el, true);
+      const label = document.createElement("p");
+      label.className = "tool-kind";
+      const strong = document.createElement("strong");
+      strong.textContent = "Tool";
+      label.append(strong);
+      const kind = kindOf(el);
+      if (kind) label.append(" \u00b7 " + kind);
+      node.insertBefore(label, node.firstChild);
+      box.append(node);
     }
   } catch (e) {
     box.innerHTML = '<p>The tool list did not load. The same tools are listed first in the <a href="../research.html">Research Vault</a>.</p>';
