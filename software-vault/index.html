@@ -37,6 +37,7 @@
     if (!tools.length) throw new Error("no tool entries");
     // A plain label on each item, so visitors can tell what kind of tool it is.
     const kindOf = el => {
+      if (el.dataset.toolKind) return el.dataset.toolKind;
       const top = (el.querySelector(".entry-top") || {}).textContent || "";
       if ([...el.querySelectorAll(".action-group a")].some(a => /^live tool/i.test(a.textContent.trim()))) return "runs in your browser";
       if (/OPEN SOURCE/i.test(top)) return "open-source software to install";
