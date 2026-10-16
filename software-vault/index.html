@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en-GB" class="vault-software"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Software Vault · NM AI Research</title>
-<meta name="description" content="Open-source tools and live explorers from NM AI Research, each linked to its source code and research record.">
+<meta name="description" content="Open-source software, kits and live explorers from NM AI Research.">
 <link rel="canonical" href="https://nmairesearch.com/software-vault/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NM AI Research">
 <meta property="og:title" content="Software Vault · NM AI Research">
-<meta property="og:description" content="Open-source tools and live explorers from NM AI Research, each linked to its source code and research record.">
+<meta property="og:description" content="Open-source software, kits and live explorers from NM AI Research.">
 <meta property="og:url" content="https://nmairesearch.com/software-vault/">
 <meta property="og:image" content="https://nmairesearch.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,9 +22,40 @@
 <div class="swiss-grid">
 <main class="stream-pane" id="main"><div class="rail-header" data-survey-field><p class="eyebrow">Software Vault</p>
 <h1>Software you can run</h1>
-<p>Open-source tools and live explorers from NM AI Research. Each one also sits in the Research Vault beside the research it supports.</p>
+<p>Open-source software, kits and live explorers from NM AI Research. Standalone software and kits come first; each tool that goes with a paper also sits in the Research Vault beside it.</p>
 </div>
-<div class="project-grid" id="tools"><noscript><p>This list loads from the <a href="../research.html">research index</a>, where the same tools are listed first.</p></noscript></div>
+<div class="project-grid" id="standalone"><div class="section-label">Standalone software and kits (2)</div><article class="entry-row" id="work-plag">
+<p class="tool-kind"><strong>Tool</strong> · experimental source alpha for technical Linux users</p>
+<div class="entry-top">
+<span>OPEN SOURCE · SOURCE ALPHA</span>
+<span class="tag-badge tag-tool">LOCAL INFRASTRUCTURE</span>
+</div>
+<h2><a href="https://github.com/NMAIResearch/plag-in" rel="noopener" target="_blank">PLAG IN, Private Local AI Gateway</a></h2>
+<p>An experimental Linux source alpha for technical users who need evidence of locality and reproducible model operation. It provides exact local model identity, bounded embedded libllama serving, authenticated loopback transport and metadata-only inference receipts. The accepted result covers one synthetic L3 trial, not production readiness, repeated-run reliability, model quality or comparative performance.</p>
+<footer class="entry-bottom">
+<span class="stack-line">Python 3.14+ · embedded libllama adapter · authenticated loopback transport · Apache-2.0</span>
+<div class="action-group">
+<a href="https://github.com/NMAIResearch/plag-in" rel="noopener" target="_blank">Source &amp; documentation</a>
+<a href="https://github.com/NMAIResearch/plag-in/releases/tag/v0.1.0a1" rel="noopener" target="_blank">earlier v0.1.0a1 prerelease</a>
+</div>
+</footer>
+</article><article class="entry-row" id="work-starter">
+<p class="tool-kind"><strong>Tool</strong> · research kit to download</p>
+<div class="entry-top">
+<span>OPEN METHOD · PUBLIC PILOT</span>
+<span class="tag-badge tag-tool">RESEARCH KIT</span>
+</div>
+<h2><a href="../ai-research-starter/">AI Research Starter</a></h2>
+<p>A starter pack for planning, investigating, challenging and documenting a checkable research project with an AI assistant: a starting prompt, working rules, a method menu, a project notebook, two small checkers and a worked example. A public pilot edition shared for trial and feedback; it is not evidence that the pack improves research quality.</p>
+<footer class="entry-bottom">
+<span class="stack-line">Markdown guides · Python stdlib checkers · CC BY 4.0 documents, MIT scripts</span>
+<div class="action-group">
+<a href="../ai-research-starter/">Kit page</a>
+<a href="../ai-research-starter/AI_Research_Starter.zip" download>Download zip</a>
+</div>
+</footer>
+</article></div>
+<div class="project-grid" id="tools"><div class="section-label">Tools that go with our papers</div><noscript><p>This list loads from the <a href="../research.html">Research Vault</a>, where each tool sits beside its paper.</p></noscript></div>
 </main></div>
 <script>(async function () {
   const box = document.getElementById("tools");
@@ -58,7 +89,7 @@
       box.append(node);
     }
   } catch (e) {
-    box.innerHTML = '<p>The tool list did not load. The same tools are listed first in the <a href="../research.html">Research Vault</a>.</p>';
+    box.innerHTML = '<p>This list did not load. The same tools are listed in the <a href="../research.html">Research Vault</a>.</p>';
   }
 })();</script>
 <footer class="hub-footer"><div class="ai-disclaimer">AI disclosure: Claude Opus 5.5 (Anthropic) drafted this page's layout and text.</div></footer>
