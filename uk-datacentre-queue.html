@@ -37,6 +37,9 @@
   .footer{ border-top:1.5px solid var(--navy); margin-top:24pt; padding-top:6pt;
            font-size:9.5pt; color:var(--slate); }
   .footer a{ color:var(--navy); text-decoration:none; }
+  @media screen and (max-width:8.75in){
+    .page{ width:auto; min-height:0; margin:0; padding:24px 16px; box-shadow:none; }
+  }
   @page{ size:Letter; margin:1in; }
   @media print{
     body{ background:#fff; }
