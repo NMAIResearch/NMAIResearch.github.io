@@ -19,3 +19,15 @@
 .track-credits{margin:22px 0 0;color:var(--muted);font-size:.92rem;line-height:1.65;max-width:75ch}
 @media(prefers-reduced-motion:reduce){.play-badge{transition:none}}
 @media(max-width:620px){.track-list{grid-template-columns:1fr;gap:18px}}
+/* Comparison sets on the Video Vault */
+.set-lead{margin:28px 0 10px;max-width:75ch}
+.prompt-text{margin:0 0 16px;max-width:75ch;color:var(--muted)}
+.prompt-text summary{cursor:pointer;color:var(--accent)}
+.prompt-text p{line-height:1.55}
+.track-list+.track-list{margin-top:22px}
+.track-list.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.track-list.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.track-list.trio{grid-template-columns:1fr}}
+.made-wrap{overflow-x:auto}
+.made-table{border-collapse:collapse;font-size:.9rem;margin:6px 0 0}
+.made-table th,.made-table td{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
