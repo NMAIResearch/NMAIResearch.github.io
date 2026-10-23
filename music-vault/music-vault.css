@@ -31,3 +31,7 @@
 .made-wrap{overflow-x:auto}
 .made-table{border-collapse:collapse;font-size:.9rem;margin:6px 0 0}
 .made-table th,.made-table td{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+.group-lead{margin:-6px 0 18px;max-width:75ch;color:var(--muted);line-height:1.55}
+.group-nav{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0}
+.credits-more{margin-top:10px}
+.credits-more summary{cursor:pointer;color:var(--muted);font-weight:600}
