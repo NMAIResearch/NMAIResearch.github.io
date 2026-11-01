@@ -1,6 +1,6 @@
 # NMAIResearch.github.io
 
-The landing page for NM AI Research: AI-assisted research, model experiments and creative production. Open-access research, tools and source code, with project-specific version records.
+The landing page for NMAI Research: AI-assisted research, model experiments and creative production. Open-access research, tools and source code, with project-specific version records.
 
 **Live:** https://nmairesearch.com/
 

@@ -51,8 +51,8 @@ def render_guide(data):
     link(data['diagram'], 'Diagram')
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Shared research architecture with linked examples from the NM AI Research portfolio.">
-<title>{escape(data['title'])} | NM AI Research</title>
+<meta name="description" content="Shared research architecture with linked examples from the NMAI Research portfolio.">
+<title>{escape(data['title'])} | NMAI Research</title>
 <link rel="stylesheet" href="portfolio.css">
 <style>
 :root{{color-scheme:light;--bg:#fff;--fg:#2d3748;--heading:#1a365d;--muted:#4a5568;--line:#e2e8f0;--panel:#fff;--link:#2b6cb0}}
@@ -72,7 +72,7 @@ section>h2,section>.summary{{grid-column:1/-1}}.summary{{color:var(--muted);max-
 footer{{margin-top:46px;border-top:1px solid var(--line);padding:24px 0 28px;font-size:.85rem;color:var(--muted)}}
 :focus-visible{{outline:3px solid var(--link);outline-offset:4px}}@media(max-width:720px){{.projects,.operations{{grid-template-columns:1fr}}iframe{{height:620px}}}}
 </style><script src="portfolio-theme.js"></script><script defer src="survey-field.js"></script></head><body><a class="skip-link" href="#guide">Skip to content</a>
-<header class="site-header"><div><a class="brand" href="index.html">NM AI Research</a>
+<header class="site-header"><div><a class="brand" href="index.html">NMAI Research</a>
 <div class="brand-subtitle">Independent AI research</div></div>
 <nav aria-label="Main navigation" class="site-nav"><a aria-current="true" href="research.html">Research<span class="nav-vault"> Vault</span></a><a href="software-vault/">Software<span class="nav-vault"> Vault</span></a><a href="https://nmairesearch.com/game-vault/">Game<span class="nav-vault"> Vault</span></a><a href="music-vault/">Music<span class="nav-vault"> Vault</span></a><a href="video-vault/">Video<span class="nav-vault"> Vault</span></a></nav>
 <button class="theme-toggle-btn" hidden id="themeToggle" type="button">Theme</button></header>

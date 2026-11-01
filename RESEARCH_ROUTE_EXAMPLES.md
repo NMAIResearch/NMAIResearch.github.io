@@ -24,4 +24,4 @@ The extracts were checked against the retained project records for the stated de
 
 ## AI assistance
 
-NM AI Research selected the permitted examples and makes substantive and publication decisions. OpenAI GPT-6 prepared these summaries from the records; Claude Opus proposed wording and reviewed an earlier candidate. Both providers are subjects of the wider portfolio.
+NMAI Research selected the permitted examples and makes substantive and publication decisions. OpenAI GPT-6 prepared these summaries from the records; Claude Opus proposed wording and reviewed an earlier candidate. Both providers are subjects of the wider portfolio.
