@@ -1,11 +1,12 @@
-/* The Music Vault in the visualisers' colours: their dark ground, and each card in its own song's two ring colours, as --a and --b.
+/* The Music Vault: the Game Vault's old purple ground, its visualisers' colours on the cards, and each card in its own song's two ring colours, as --a and --b.
    It sits after portfolio.css and music-vault.css, and changes colour only. The ground is the median of the darker half of the page's thumbnails.
    The last block holds one rule per card, by video id; a card with no rule takes the renderer's default pair, set on .track. */
 :root.vault-music.vault-music{color-scheme:dark;
-  --bg:#0c0c1b;--surface:#131326;--raised:#131326;--tag:#131326;--text:#e7e8f2;--muted:#a9abc4;--line:#2a2b45;--heading:#f4f4fb;--accent:#2dd4bf;
-  --field-rgb:139,92,246;--field-alpha:.13;--field-major-alpha:.22;--field-lens-rgb:45,212,191;--field-lens-alpha:.6;--field-glow:rgba(139,92,246,.1);--glass:rgba(19,19,38,.74);--shadow:0 1px 2px rgba(0,0,0,.45),0 14px 30px -16px rgba(0,0,0,.85)}
+  --bg:#110e1c;--surface:#1a1628;--raised:#1a1628;--tag:#1a1628;--text:#ece8f6;--muted:#b4abca;--line:#2e2844;--heading:#efe9fc;--accent:#b794f4;
+  --field-rgb:183,148,244;--field-alpha:.085;--field-major-alpha:.16;--field-lens-rgb:196,165,250;--field-lens-alpha:.75;--field-glow:rgba(140,100,220,.16);--glass:rgba(26,22,40,.74);--shadow:0 1px 2px rgba(0,0,0,.45),0 14px 30px -16px rgba(0,0,0,.85)}
 /* The ground is dark in both themes, so there is nothing for the theme button to switch */
 .theme-toggle-btn{display:none}
+:root.vault-music.vault-music{--bar-accent:#63b3ed}
 .track{--a:#8b5cf6;--b:#2dd4bf;background-color:color-mix(in srgb,var(--a) 7%,var(--surface));border-color:color-mix(in srgb,var(--a) 30%,var(--line));transition:box-shadow .25s var(--ease,ease)}
 .track:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 70%,transparent),0 16px 44px -18px var(--a)}
 .track-play,.track-frame{background:var(--bg)}
