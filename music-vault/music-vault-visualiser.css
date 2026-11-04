@@ -1,0 +1,83 @@
+/* The Music Vault in the visualisers' colours: their dark ground, and each card in its own song's two ring colours, as --a and --b.
+   It sits after portfolio.css and music-vault.css, and changes colour only. The ground is the median of the darker half of the page's thumbnails.
+   The last block holds one rule per card, by video id; a card with no rule takes the renderer's default pair, set on .track. */
+:root.vault-music.vault-music{color-scheme:dark;
+  --bg:#0c0c1b;--surface:#131326;--raised:#131326;--tag:#131326;--text:#e7e8f2;--muted:#a9abc4;--line:#2a2b45;--heading:#f4f4fb;--accent:#2dd4bf;
+  --field-rgb:139,92,246;--field-alpha:.13;--field-major-alpha:.22;--field-lens-rgb:45,212,191;--field-lens-alpha:.6;--field-glow:rgba(139,92,246,.1);--glass:rgba(19,19,38,.74);--shadow:0 1px 2px rgba(0,0,0,.45),0 14px 30px -16px rgba(0,0,0,.85)}
+/* The ground is dark in both themes, so there is nothing for the theme button to switch */
+.theme-toggle-btn{display:none}
+.track{--a:#8b5cf6;--b:#2dd4bf;background-color:color-mix(in srgb,var(--a) 7%,var(--surface));border-color:color-mix(in srgb,var(--a) 30%,var(--line));transition:box-shadow .25s var(--ease,ease)}
+.track:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 70%,transparent),0 16px 44px -18px var(--a)}
+.track-play,.track-frame{background:var(--bg)}
+.track-meta{position:relative}
+.track-meta::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--a),var(--b))}
+.track-meta h3{color:color-mix(in srgb,var(--a) 22%,var(--heading))}
+.track-len{color:color-mix(in srgb,var(--b) 60%,var(--heading))}
+.play-badge{background:color-mix(in srgb,var(--bg) 66%,transparent);border-color:color-mix(in srgb,var(--a) 62%,var(--heading))}
+.play-badge svg{fill:color-mix(in srgb,var(--b) 35%,var(--heading))}
+.track-play:hover .play-badge,.track-play:focus-visible .play-badge{background:color-mix(in srgb,var(--a) 42%,var(--bg))}
+@media(prefers-reduced-motion:reduce){.track{transition:none}}
+.track:has(a[data-video="AKdQocVCWLU"],iframe[src*="/embed/AKdQocVCWLU?"]){--a:#7f5eeb;--b:#5edbeb}
+.track:has(a[data-video="4dLn1KrRuxg"],iframe[src*="/embed/4dLn1KrRuxg?"]){--a:#7c5eeb;--b:#5ed6eb}
+.track:has(a[data-video="3GksjZDbons"],iframe[src*="/embed/3GksjZDbons?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="vFE2HSK1Hsc"],iframe[src*="/embed/vFE2HSK1Hsc?"]){--a:#93c5fd;--b:#e0f2fe}
+.track:has(a[data-video="Ysdrpg_1dB4"],iframe[src*="/embed/Ysdrpg_1dB4?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="BykSJqvgVzg"],iframe[src*="/embed/BykSJqvgVzg?"]){--a:#93c5fd;--b:#e0f2fe}
+.track:has(a[data-video="FpzpMdqv06U"],iframe[src*="/embed/FpzpMdqv06U?"]){--a:#f43f5e;--b:#fbbf24}
+.track:has(a[data-video="JKkoOesbPho"],iframe[src*="/embed/JKkoOesbPho?"]){--a:#93c5fd;--b:#e0f2fe}
+.track:has(a[data-video="2pqLDFvxmQ8"],iframe[src*="/embed/2pqLDFvxmQ8?"]){--a:#eb389c;--b:#c15eeb}
+.track:has(a[data-video="rOhE5NAkkYw"],iframe[src*="/embed/rOhE5NAkkYw?"]){--a:#5e97eb;--b:#3dd1eb}
+.track:has(a[data-video="RPBq8dGJva8"],iframe[src*="/embed/RPBq8dGJva8?"]){--a:#f43f5e;--b:#fbbf24}
+.track:has(a[data-video="URyh76zca-Y"],iframe[src*="/embed/URyh76zca-Y?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="cnxQSl2GTIU"],iframe[src*="/embed/cnxQSl2GTIU?"]){--a:#f43f5e;--b:#fbbf24}
+.track:has(a[data-video="Us1MDoPooCs"],iframe[src*="/embed/Us1MDoPooCs?"]){--a:#93c5fd;--b:#e0f2fe}
+.track:has(a[data-video="ph2PF1TCl7s"],iframe[src*="/embed/ph2PF1TCl7s?"]){--a:#d97706;--b:#fde68a}
+.track:has(a[data-video="7N67U28tuVc"],iframe[src*="/embed/7N67U28tuVc?"]){--a:#f43f5e;--b:#fbbf24}
+.track:has(a[data-video="XMGSG8ruEIk"],iframe[src*="/embed/XMGSG8ruEIk?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="b5hQCAsIzQ4"],iframe[src*="/embed/b5hQCAsIzQ4?"]){--a:#ebc427;--b:#eb5b46}
+.track:has(a[data-video="QRssxvwTFnU"],iframe[src*="/embed/QRssxvwTFnU?"]){--a:#ec4899;--b:#a78bfa}
+.track:has(a[data-video="tgZ3JC6uCFc"],iframe[src*="/embed/tgZ3JC6uCFc?"]){--a:#f59e0b;--b:#ef4444}
+.track:has(a[data-video="MxQOR3K7WOM"],iframe[src*="/embed/MxQOR3K7WOM?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="mqfS9n5ravs"],iframe[src*="/embed/mqfS9n5ravs?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="6EZSLf3n0EU"],iframe[src*="/embed/6EZSLf3n0EU?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="5k3uobC5GyI"],iframe[src*="/embed/5k3uobC5GyI?"]){--a:#d97706;--b:#fde68a}
+.track:has(a[data-video="Vwg3bG2z5U4"],iframe[src*="/embed/Vwg3bG2z5U4?"]){--a:#ec4899;--b:#a78bfa}
+.track:has(a[data-video="QJDNoirbPdA"],iframe[src*="/embed/QJDNoirbPdA?"]){--a:#d97706;--b:#fde68a}
+.track:has(a[data-video="4gq5c2k-ai4"],iframe[src*="/embed/4gq5c2k-ai4?"]){--a:#5ea0eb;--b:#eb5ed2}
+.track:has(a[data-video="xn8xDbgv1Rc"],iframe[src*="/embed/xn8xDbgv1Rc?"]){--a:#d97706;--b:#fde68a}
+.track:has(a[data-video="Zt5sZzrmg4Q"],iframe[src*="/embed/Zt5sZzrmg4Q?"]){--a:#f59e0b;--b:#ef4444}
+.track:has(a[data-video="IchnAftZP1w"],iframe[src*="/embed/IchnAftZP1w?"]){--a:#f59e0b;--b:#ef4444}
+.track:has(a[data-video="3eL7mSq-zbc"],iframe[src*="/embed/3eL7mSq-zbc?"]){--a:#955eeb;--b:#52bfeb}
+.track:has(a[data-video="LtpLv7PpBmY"],iframe[src*="/embed/LtpLv7PpBmY?"]){--a:#93c5fd;--b:#e0f2fe}
+.track:has(a[data-video="fEI3WXbgK9A"],iframe[src*="/embed/fEI3WXbgK9A?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="n78FhqNQkPs"],iframe[src*="/embed/n78FhqNQkPs?"]){--a:#50e4eb;--b:#5ea3eb}
+.track:has(a[data-video="YY7HKSz5fHY"],iframe[src*="/embed/YY7HKSz5fHY?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="oKopLksScdU"],iframe[src*="/embed/oKopLksScdU?"]){--a:#f59e0b;--b:#ef4444}
+.track:has(a[data-video="MIY5hquJpfc"],iframe[src*="/embed/MIY5hquJpfc?"]){--a:#f59e0b;--b:#ef4444}
+.track:has(a[data-video="DeDcIhDc8NM"],iframe[src*="/embed/DeDcIhDc8NM?"]){--a:#ec4899;--b:#a78bfa}
+.track:has(a[data-video="PKBCym38FU8"],iframe[src*="/embed/PKBCym38FU8?"]){--a:#50ebde;--b:#31d8eb}
+.track:has(a[data-video="pVpjP2RrGK4"],iframe[src*="/embed/pVpjP2RrGK4?"]){--a:#93c5fd;--b:#e0f2fe}
+.track:has(a[data-video="HXw1L680_y0"],iframe[src*="/embed/HXw1L680_y0?"]){--a:#ebd35e;--b:#eb5e88}
+.track:has(a[data-video="m0ZAn9JOQvw"],iframe[src*="/embed/m0ZAn9JOQvw?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="WRI1ebVKFU4"],iframe[src*="/embed/WRI1ebVKFU4?"]){--a:#d97706;--b:#fde68a}
+.track:has(a[data-video="Sj1ecUaaFSg"],iframe[src*="/embed/Sj1ecUaaFSg?"]){--a:#eb9906;--b:#d65aeb}
+.track:has(a[data-video="HaKglUKKVec"],iframe[src*="/embed/HaKglUKKVec?"]){--a:#f59e0b;--b:#ef4444}
+.track:has(a[data-video="rt5WAynchks"],iframe[src*="/embed/rt5WAynchks?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="riKPG9jv6QQ"],iframe[src*="/embed/riKPG9jv6QQ?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="ItIc2KmJjLM"],iframe[src*="/embed/ItIc2KmJjLM?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="ii7bf4vXa0g"],iframe[src*="/embed/ii7bf4vXa0g?"]){--a:#ebc64a;--b:#eb9e3b}
+.track:has(a[data-video="vcFRzjOtPME"],iframe[src*="/embed/vcFRzjOtPME?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="Hz3LjqJLk68"],iframe[src*="/embed/Hz3LjqJLk68?"]){--a:#36cdeb;--b:#5da7eb}
+.track:has(a[data-video="9S_BrmWs1R8"],iframe[src*="/embed/9S_BrmWs1R8?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="Y0B9_o4rVa8"],iframe[src*="/embed/Y0B9_o4rVa8?"]){--a:#d97706;--b:#fde68a}
+.track:has(a[data-video="J81ORXYwd3I"],iframe[src*="/embed/J81ORXYwd3I?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="FaZICO-Z54w"],iframe[src*="/embed/FaZICO-Z54w?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="O8qOnzQ_5jw"],iframe[src*="/embed/O8qOnzQ_5jw?"]){--a:#ec4899;--b:#a78bfa}
+.track:has(a[data-video="o1XIuRSvEDI"],iframe[src*="/embed/o1XIuRSvEDI?"]){--a:#ec4899;--b:#a78bfa}
+.track:has(a[data-video="FagyNXmOBbw"],iframe[src*="/embed/FagyNXmOBbw?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="SQCQyk2ILzA"],iframe[src*="/embed/SQCQyk2ILzA?"]){--a:#22c55e;--b:#06b6d4}
+.track:has(a[data-video="8_zfcbKyvqo"],iframe[src*="/embed/8_zfcbKyvqo?"]){--a:#855eeb;--b:#51e4eb}
+.track:has(a[data-video="04kCCGFtu3o"],iframe[src*="/embed/04kCCGFtu3o?"]){--a:#38bdf8;--b:#a78bfa}
+.track:has(a[data-video="MfS4WQhTg2s"],iframe[src*="/embed/MfS4WQhTg2s?"]){--a:#ea580c;--b:#fbbf24}
+.track:has(a[data-video="JvMDEz-0TCY"],iframe[src*="/embed/JvMDEz-0TCY?"]){--a:#a78bfa;--b:#99f6e4}
+.track:has(a[data-video="6uPbKSVFDA4"],iframe[src*="/embed/6uPbKSVFDA4?"]){--a:#2dd4bf;--b:#60a5fa}
