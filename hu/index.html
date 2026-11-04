@@ -23,76 +23,25 @@
 <meta content="NMAI Research: Research you can inspect" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NMAI Research","url":"https://nmairesearch.com/","description":"MI-támogatott kutatás, modellkísérletek és kreatív alkotás. Nyílt hozzáférésű kutatások, eszközök és forráskód, projektenkénti verziónyilvántartással.","sameAs":["https://github.com/NMAIResearch","https://huggingface.co/NMAIResearch","https://orcid.org/0009-0003-4213-7769","https://bsky.app/profile/nmairesearch.com","https://www.instagram.com/nmai_research/"]}</script>
-<link href="../portfolio.css" rel="stylesheet" /><script src="../portfolio-theme.js"></script><script defer src="../survey-field.js"></script>
-<style>
-  .home{max-width:1200px;margin:auto;padding:0 28px}
-  .home section{padding:56px 0;border-top:1px solid var(--line)}
-  .home .brand-hero{border-top:0;padding:88px 0 84px;position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
-  .brand-hero::before{content:"";position:absolute;left:-28px;top:92px;width:5px;height:132px;background:linear-gradient(var(--accent),var(--heading));border-radius:0 3px 3px 0}
-  .brand-hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);max-width:13ch;margin:0 0 26px}
-  .brand-hero .lede{font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.65;color:var(--muted);max-width:60ch;margin:0 0 34px}
-  .cta-row{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
-  .btn{display:inline-flex;align-items:center;min-height:48px;padding:.7rem 1.25rem;border-radius:8px;font-weight:650;font-size:.98rem;text-decoration:none;border:1px solid var(--line)}
-  .btn-primary{background:var(--heading);border-color:var(--heading);color:var(--bg)}
-  .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
-  .btn-quiet{color:var(--heading);background:var(--surface)}
-  .btn-quiet:hover{border-color:var(--accent);color:var(--accent)}
-  .follow{margin-top:26px;font-size:.88rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
-  .follow a{color:var(--muted)}
-  .follow a:hover{color:var(--accent)}
-  .hero-panel{padding:24px 28px 12px;background:var(--glass);-webkit-backdrop-filter:blur(12px) saturate(1.15);backdrop-filter:blur(12px) saturate(1.15);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
-  .hero-panel h2{font-size:.76rem;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;margin:0 0 6px}
-  .areas{list-style:none;margin:0;padding:0}
-  .areas li+li{border-top:1px solid var(--line)}
-  .areas a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:48px;padding:10px 0;color:var(--heading);font-weight:650;font-size:1.06rem;text-decoration:none}
-  .areas a span{color:var(--accent);font-weight:400;transition:transform .25s var(--ease)}
-  .areas a:hover span{transform:translateX(4px)}
-  .areas a:hover{color:var(--accent)}
-  .section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:26px}
-  .section-head h2{font-size:clamp(1.5rem,2.6vw,2rem);margin:0}
-  .section-head a{font-size:.92rem;font-weight:600}
-  .featured{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-  .card{display:flex;flex-direction:column;min-width:0;padding:26px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
-  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
-  .card .kind{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:650;margin:0 0 12px}
-  .card h3{font-size:1.28rem;line-height:1.3;letter-spacing:-.02em;margin:0 0 14px;color:var(--heading)}
-  .card h3 a{color:inherit;text-decoration-color:var(--line)}
-  .card h3 a:hover{color:var(--accent)}
-  .card p{font-size:.98rem;line-height:1.7;margin:0 0 18px}
-  .card .links{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.88rem}
-  .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-  .band{display:flex;flex-direction:column;min-width:0;padding:32px;background:var(--raised);border:1px solid var(--line);border-radius:14px}
-  .band h3{font-size:clamp(1.4rem,2.3vw,1.75rem);line-height:1.25;letter-spacing:-.025em;margin:0 0 14px;color:var(--heading)}
-  .band p{margin:0 0 14px;color:var(--text)}
-  .band .small{font-size:.88rem;color:var(--muted)}
-  .band-side{margin-top:auto;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
-  .band-side .pair{flex-basis:100%;font-size:1.1rem;font-weight:650;color:var(--heading);margin:0}
-  .principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 36px;margin:0;padding:0;list-style:none}
-  .principles li{padding:22px 0 0;border-top:2px solid var(--heading)}
-  .principles h3{font-size:1.08rem;margin:0 0 8px;color:var(--heading);letter-spacing:-.01em}
-  .principles p{margin:0;font-size:.98rem;color:var(--muted);line-height:1.7}
-  .elsewhere{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .elsewhere a{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--heading);font-weight:650}
-  .elsewhere a span{display:block;font-weight:400;font-size:.82rem;color:var(--muted);margin-top:3px}
-  .elsewhere a:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
-  @media(prefers-reduced-motion:reduce){.card:hover,.elsewhere a:hover,.areas a:hover span{transform:none}}
-  .home + .hub-footer{margin-top:10px}
-  @media(max-width:960px){.home .brand-hero{grid-template-columns:1fr;gap:40px}.hero-panel{max-width:560px}.featured{grid-template-columns:1fr}.duo{grid-template-columns:1fr}.band{padding:28px}.elsewhere{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:620px){.home{padding:0 20px}.home .brand-hero{padding:44px 0 40px;gap:32px}.brand-hero::before{left:-20px;top:48px;height:96px;width:5px}.hero-panel{padding:20px 22px 10px}.principles{grid-template-columns:1fr}.elsewhere{grid-template-columns:1fr}.home section{padding:40px 0}.card{padding:22px}.band{padding:22px}}
-</style>
+<link href="../portfolio.css" rel="stylesheet" /><link href="../home.css" rel="stylesheet"/><script src="../portfolio-theme.js"></script><script defer src="../survey-field.js"></script>
 </head>
 <body><a class="skip-link" href="#start">Ugrás a tartalomhoz</a>
-<header class="site-header"><div><a class="brand" href="index.html">NMAI Research</a>
+<div class="shell">
+<header class="site-header side-menu"><div class="side-inner">
+<svg class="side-mark" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><circle cx="60" cy="60" r="57" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-width="2.4"/><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M57 19c17-3 35 5 42 21s5 34-8 46-35 16-50 7-25-27-20-44 19-27 36-30z" opacity=".55"/><path d="M59 30c13-2 27 4 32 16s3 26-7 35-26 11-37 4-18-20-14-32 14-21 26-23z" opacity=".7"/><path d="M60 41c8-1 17 3 21 11s1 17-5 23-17 7-24 2-11-13-8-20 8-15 16-16z" opacity=".85"/><path d="M60 52c4 0 9 2 10 6s0 8-3 11-8 3-11 1-5-6-4-10 4-8 8-8z"/></g></svg>
+<div class="side-brand"><a class="brand" href="index.html">NMAI Research</a>
 <div class="brand-subtitle">Független MI-kutatás</div></div>
 <nav aria-label="Fő navigáció" class="site-nav"><a href="research.html">Kutatás<span class="nav-vault"> Széf</span></a><a href="software-vault/">Szoftver<span class="nav-vault"> Széf</span></a><a href="https://nmairesearch.com/game-vault/">Játék<span class="nav-vault"> Széf</span></a><a href="music-vault/">Zene<span class="nav-vault"> Széf</span></a><a href="video-vault/">Videó<span class="nav-vault"> Széf</span></a></nav>
 <nav aria-label="Nyelv" class="lang-switch"><a href="../" hreflang="en" lang="en">English</a><a href="./" hreflang="hu" lang="hu" aria-current="page">Magyar</a></nav>
-<button class="theme-toggle-btn" hidden="" id="themeToggle" type="button">Téma</button></header>
+<button class="theme-toggle-btn" hidden="" id="themeToggle" type="button">Téma</button>
+</div></header>
+<div class="page">
 
 <main class="home" id="start">
 <section class="brand-hero" aria-labelledby="home-title" data-survey-field>
 <div class="hero-copy">
 <p class="eyebrow">Független kutatás · Nyílt bizonyítékok</p>
-<h1 id="home-title">Ellenőrizhető kutatás</h1>
+<h1 id="home-title"><span class="hl">Ellenőrizhető</span> kutatás</h1>
 <p class="lede">MI-támogatott kutatás, modellkísérletek és kreatív alkotás. Nyílt hozzáférésű kutatások, eszközök és forráskód, projektenkénti verziónyilvántartással.</p>
 <div class="cta-row">
 <a class="btn btn-primary" href="research.html">Az összes kutatás</a>
@@ -204,5 +153,7 @@
 <a href="privacy/">Adatvédelem</a>
 </div>
 </footer>
+</div>
+</div>
 </body>
 </html>
