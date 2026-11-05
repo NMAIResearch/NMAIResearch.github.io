@@ -6,7 +6,6 @@
   --field-rgb:183,148,244;--field-alpha:.085;--field-major-alpha:.16;--field-lens-rgb:196,165,250;--field-lens-alpha:.75;--field-glow:rgba(140,100,220,.16);--glass:rgba(26,22,40,.74);--shadow:0 1px 2px rgba(0,0,0,.45),0 14px 30px -16px rgba(0,0,0,.85)}
 /* The ground is dark in both themes, so there is nothing for the theme button to switch */
 .theme-toggle-btn{display:none}
-:root.vault-music.vault-music{--bar-accent:#63b3ed}
 .track{--a:#8b5cf6;--b:#2dd4bf;background-color:color-mix(in srgb,var(--a) 7%,var(--surface));border-color:color-mix(in srgb,var(--a) 30%,var(--line));transition:box-shadow .25s var(--ease,ease)}
 .track:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 70%,transparent),0 16px 44px -18px var(--a)}
 .track-play,.track-frame{background:var(--bg)}
@@ -14,9 +13,9 @@
 .track-meta::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--a),var(--b))}
 .track-meta h3{color:color-mix(in srgb,var(--a) 22%,var(--heading))}
 .track-len{color:color-mix(in srgb,var(--b) 60%,var(--heading))}
-.play-badge{background:color-mix(in srgb,var(--bg) 66%,transparent);border-color:color-mix(in srgb,var(--a) 62%,var(--heading))}
-.play-badge svg{fill:color-mix(in srgb,var(--b) 35%,var(--heading))}
-.track-play:hover .play-badge,.track-play:focus-visible .play-badge{background:color-mix(in srgb,var(--a) 42%,var(--bg))}
+.play-badge{background:color-mix(in srgb,var(--bg) 66%,transparent);border-color:var(--accent)}
+.play-badge svg{fill:var(--heading)}
+.track-play:hover .play-badge,.track-play:focus-visible .play-badge{background:color-mix(in srgb,var(--accent) 42%,var(--bg))}
 @media(prefers-reduced-motion:reduce){.track{transition:none}}
 .track:has(a[data-video="AKdQocVCWLU"],iframe[src*="/embed/AKdQocVCWLU?"]){--a:#7f5eeb;--b:#5edbeb}
 .track:has(a[data-video="4dLn1KrRuxg"],iframe[src*="/embed/4dLn1KrRuxg?"]){--a:#7c5eeb;--b:#5ed6eb}
