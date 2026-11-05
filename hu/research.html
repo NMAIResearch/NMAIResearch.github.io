@@ -521,7 +521,7 @@
         const catLabel = activeFilter === "all" ? "" : `, téma: &bdquo;${subject.options[subject.selectedIndex].text}&rdquo;`;
         found.innerHTML = hits
           ? `<b>${hits}</b> / ${rows.length} bejegyzés látható${searchLabel}${catLabel}.`
-          : `Nincs találat${searchLabel}${catLabel}. Minden tanulmányunk archiválva van itt: <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.identifiers.identifier%3A%220009-0003-4213-7769%22" target="_blank" rel="noopener">Zenodo</a>.`;
+          : `Nincs találat${searchLabel}${catLabel}. Minden tanulmány archiválva van itt: <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.identifiers.identifier%3A%220009-0003-4213-7769%22" target="_blank" rel="noopener">Zenodo</a>.`;
       }
 
       subject.addEventListener("change", () => {
