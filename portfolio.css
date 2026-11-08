@@ -68,3 +68,8 @@ a,button,.btn{transition:color .18s var(--ease),background-color .18s var(--ease
 .lang-switch a[aria-current]{color:var(--heading);font-weight:650;border-bottom:2px solid var(--accent)}
 .translation-note{margin-bottom:10px}
 @media(max-width:850px){.lang-switch{margin-left:auto}}
+/* The cards' glow on the rest of the site (N.'s 963), after the Music Vault's (music-vault/music-vault-visualiser.css): on the pointer, or when a link in the card has keyboard focus,
+   the card's ground takes 7 per cent of the page's accent, its border 30 per cent, with a 1 px ring and a soft shadow in the accent. The Music Vault keeps its own rules, by song. */
+.entry-row,.vault-video .track{--a:var(--accent);transition:box-shadow .25s var(--ease,ease),background-color .25s var(--ease,ease),border-color .25s var(--ease,ease)}
+.entry-row:hover,.entry-row:focus-within,.vault-video .track:hover,.vault-video .track:focus-within{background-color:color-mix(in srgb,var(--a) 7%,var(--surface));border-color:color-mix(in srgb,var(--a) 30%,var(--line));box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 70%,transparent),0 16px 44px -18px var(--a)}
+@media(prefers-reduced-motion:reduce){.entry-row,.vault-video .track{transition:none}}

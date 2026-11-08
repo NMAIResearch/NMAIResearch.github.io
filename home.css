@@ -97,3 +97,22 @@
    The dark theme's own logo rule in portfolio.css shows the light-on-dark logo. Text on black: body 12.04:1, headings 14.88:1, quiet text 7.65:1, links and the highlight 21:1, the logo 17.03:1. */
 :root.home-black[data-theme="dark"]{color-scheme:dark;--bg:#000;--surface:#0f0f0f;--raised:#151515;--tag:#151515;--text:#c4c4c4;--muted:#9c9c9c;--line:#2b2b2b;--accent:#fff;--heading:#d9d9d9;--field-rgb:255,255,255;--field-alpha:.06;--field-major-alpha:.12;--field-lens-rgb:255,255,255;--field-lens-alpha:.5;--field-glow:rgba(255,255,255,.05);--glass:rgba(0,0,0,.72);--shadow:0 1px 2px rgba(0,0,0,.6),0 14px 30px -16px rgba(0,0,0,.9)}
 @media(prefers-color-scheme:dark){:root.home-black:not([data-theme="light"]){color-scheme:dark;--bg:#000;--surface:#0f0f0f;--raised:#151515;--tag:#151515;--text:#c4c4c4;--muted:#9c9c9c;--line:#2b2b2b;--accent:#fff;--heading:#d9d9d9;--field-rgb:255,255,255;--field-alpha:.06;--field-major-alpha:.12;--field-lens-rgb:255,255,255;--field-lens-alpha:.5;--field-glow:rgba(255,255,255,.05);--glass:rgba(0,0,0,.72);--shadow:0 1px 2px rgba(0,0,0,.6),0 14px 30px -16px rgba(0,0,0,.9)}}
+/* The music-note button (N.'s 958): beside the theme button, in its border, corner and ground, and only the page's own colours, so it follows both themes.
+   The pause sign and the accent border show while the song plays. The caption under the header appears at the first press and carries the song's licence. */
+.header-tools{display:flex;align-items:center;gap:10px}
+.music-toggle-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;min-height:44px;padding:0;color:var(--text);transition:border-color .2s var(--ease,ease)}
+.music-toggle-btn svg{display:block;width:20px;height:20px}
+.music-toggle-btn .icon-pause,.music-toggle-btn.is-playing .icon-note{display:none}
+.music-toggle-btn.is-playing .icon-pause{display:block}
+.music-toggle-btn:hover,.music-toggle-btn.is-playing{border-color:var(--accent)}
+.music-caption{max-width:1200px;margin:8px auto 0;padding:0 28px;text-align:right;color:var(--muted);font-size:.8rem;line-height:1.5}
+.music-caption a{color:var(--accent)}
+@media(max-width:850px){.header-tools{margin-left:auto}.header-tools .theme-toggle-btn{margin-left:0}}
+@media(max-width:620px){.music-caption{padding:0 20px}}
+@media(prefers-reduced-motion:reduce){.music-toggle-btn{transition:none}}
+
+/* The cards' glow (N.'s 963), after the Music Vault's: on the pointer, or when a link in the card has keyboard focus, a faint ground and a ring in the page's accent,
+   white on the black front page and blue on the light one. These cards have no box, so the glow is drawn round them by shadows alone, and their size and the layout stay as they are. */
+.home .card,.home .band{--a:var(--accent);transition:box-shadow .25s var(--ease,ease),background-color .25s var(--ease,ease)}
+.home .card:hover,.home .card:focus-within,.home .band:hover,.home .band:focus-within{background-color:color-mix(in srgb,var(--a) 7%,var(--bg));box-shadow:0 0 0 14px color-mix(in srgb,var(--a) 7%,var(--bg)),0 0 0 15px color-mix(in srgb,var(--a) 45%,transparent),0 18px 46px -16px color-mix(in srgb,var(--a) 70%,transparent)}
+@media(prefers-reduced-motion:reduce){.home .card,.home .band{transition:none}}
