@@ -1,5 +1,6 @@
 /* The home page, in both languages: thin ruled cards under the same top bar as every other page. It sits after portfolio.css and overrides only what the home page shows.
-   It sets no palette: every colour below is a variable from portfolio.css, in both themes, and the contour field keeps its own. */
+   It sets no palette but one: every colour below is a variable from portfolio.css, in both themes, and the contour field keeps its own;
+   the black front page's palette, at the end, replaces those variables on the front page alone. */
 .page{font-size:16.5px;line-height:1.6}
 
 .page{display:flex;flex-direction:column;min-width:0}
@@ -90,3 +91,8 @@
 }
 @media(max-width:480px){.brand-hero h1{font-size:clamp(2.6rem,12.4vw,3.3rem)}.cta-row .btn{flex:1 1 auto;justify-content:center}.card h3 a{display:block;padding:11px 0;margin:-11px 0}.follow{gap:0 18px}.follow span{flex-basis:100%}.elsewhere{grid-template-columns:1fr}.card .links a,.follow a,.band-side>a:not(.btn){min-height:44px;display:inline-flex;align-items:center}.footer-links a{display:inline-flex;align-items:center;min-height:44px}.section-head a{display:inline-flex;align-items:center;min-height:44px}}
 @media(prefers-reduced-motion:reduce){.areas a:hover span{transform:none}}
+
+/* The black front page: the front page alone in black and white, in both themes and both languages; every other page keeps its own palette.
+   Set by the class home-black on the front pages' root element. Text on black: body 12.04:1, headings 14.88:1, quiet text 7.65:1, links and the highlight 21:1, the logo 17.03:1. */
+:root.home-black,:root.home-black[data-theme]{color-scheme:dark;--bg:#000;--surface:#0f0f0f;--raised:#151515;--tag:#151515;--text:#c4c4c4;--muted:#9c9c9c;--line:#2b2b2b;--accent:#fff;--heading:#d9d9d9;--field-rgb:255,255,255;--field-alpha:.06;--field-major-alpha:.12;--field-lens-rgb:255,255,255;--field-lens-alpha:.5;--field-glow:rgba(255,255,255,.05);--glass:rgba(0,0,0,.72);--shadow:0 1px 2px rgba(0,0,0,.6),0 14px 30px -16px rgba(0,0,0,.9)}
+@media(forced-colors:none){:root.home-black .brand{background-image:url(brand/header-nmai-research-dark.svg)}}
