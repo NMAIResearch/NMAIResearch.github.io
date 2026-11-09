@@ -17,6 +17,10 @@
 .play-badge svg{fill:var(--heading)}
 .track-play:hover .play-badge,.track-play:focus-visible .play-badge{background:color-mix(in srgb,var(--accent) 42%,var(--bg))}
 @media(prefers-reduced-motion:reduce){.track{transition:none}}
+.track:has(a[data-video="AKdQocVCWLU"],iframe[src*="/embed/AKdQocVCWLU?"]){--a:#7f5eeb;--b:#5edbeb}
+.track:has(a[data-video="4dLn1KrRuxg"],iframe[src*="/embed/4dLn1KrRuxg?"]){--a:#7c5eeb;--b:#5ed6eb}
+.track:has(a[data-video="3GksjZDbons"],iframe[src*="/embed/3GksjZDbons?"]){--a:#8b5cf6;--b:#2dd4bf}
+.track:has(a[data-video="vFE2HSK1Hsc"],iframe[src*="/embed/vFE2HSK1Hsc?"]){--a:#93c5fd;--b:#e0f2fe}
 .track:has(a[data-video="FpzpMdqv06U"],iframe[src*="/embed/FpzpMdqv06U?"]){--a:#f43f5e;--b:#fbbf24}
 .track:has(a[data-video="7N67U28tuVc"],iframe[src*="/embed/7N67U28tuVc?"]){--a:#f43f5e;--b:#fbbf24}
 .track:has(a[data-video="5k3uobC5GyI"],iframe[src*="/embed/5k3uobC5GyI?"]){--a:#d97706;--b:#fde68a}
