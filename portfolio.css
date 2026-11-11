@@ -51,16 +51,20 @@ a,button,.btn{transition:color .18s var(--ease),background-color .18s var(--ease
 .vault-subnav a[aria-current]{color:var(--accent);border-bottom:2px solid var(--accent)}
 @media(max-width:620px){.vault-subnav{padding:8px 20px;gap:2px 16px}.nav-vault{display:none}}
 @media print{.vault-subnav{display:none}}
-/* Vault palettes: Research keeps the base blue and the Game Vault is purple in its own repository. A vault page sets
-   class="vault-software", "vault-music" or "vault-video" on <html>, where survey-field.js reads its colours. */
-:root.vault-software{--bg:#fcfcfd;--surface:#fff;--raised:#f4f5f7;--text:#2b313c;--muted:#535b68;--line:#e3e6eb;--accent:#334155;--heading:#1e2633;--tag:#f4f5f7;--field-rgb:30,38,51;--field-lens-rgb:71,85,105;--field-glow:rgba(71,85,105,.07);--glass:rgba(244,245,247,.8)}
-:root.vault-music{--bg:#fbfefd;--surface:#fff;--raised:#f0faf8;--text:#22393a;--muted:#43605d;--line:#d6eee9;--accent:#0f766e;--heading:#134e4a;--tag:#eef9f6;--field-rgb:19,78,74;--field-lens-rgb:15,118,110;--field-glow:rgba(15,118,110,.08);--glass:rgba(240,250,248,.8)}
+/* Vault palettes: Research keeps the base blue, Software is cosmic latte (#fff8e7: the paper in the light theme, the accent
+   on a warm dark ground in the dark), Music is purple (its dark palette is the Music Vault's own ground, which
+   music-vault/music-vault-visualiser.css keeps in both themes), Video is red, and the Game Vault is green in its own
+   repository. A vault page sets class="vault-software", "vault-music" or "vault-video" on <html>, where
+   survey-field.js reads its colours.
+   Contrast on each palette's own ground (WCAG 2): software light: body 12.22:1, headings 14.39:1, quiet text 7.54:1 (7.06:1 on raised cards), links and the highlight 6.38:1 (5.97:1 on raised cards); software dark: body 13.60:1, headings 17.50:1, quiet text 8.17:1 (7.54:1 on raised cards), links and the highlight 17.50:1 (16.15:1 on raised cards); music light: body 13.76:1, headings 10.13:1, quiet text 7.84:1 (7.26:1 on raised cards), links and the highlight 6.19:1 (5.74:1 on raised cards); music dark: body 15.81:1, headings 16.07:1, quiet text 8.72:1 (8.09:1 on raised cards), links and the highlight 7.75:1 (7.19:1 on raised cards). */
+:root.vault-software{--bg:#fff8e7;--surface:#fffcf4;--raised:#fbf0d8;--text:#3a3020;--muted:#5c4f37;--line:#eadfc4;--accent:#7a5418;--heading:#2e2414;--tag:#fbf0d8;--field-rgb:94,74,36;--field-lens-rgb:122,84,24;--field-glow:rgba(122,84,24,.07);--glass:rgba(255,248,231,.8)}
+:root.vault-music{--bg:#fcfaff;--surface:#fff;--raised:#f5f0fe;--text:#2f2640;--muted:#54487a;--line:#e6dcfa;--accent:#6b46c1;--heading:#44337a;--tag:#f3edfd;--field-rgb:68,51,122;--field-lens-rgb:107,70,193;--field-glow:rgba(107,70,193,.08);--glass:rgba(245,240,254,.8)}
 :root.vault-video{--bg:#fffbfb;--surface:#fff;--raised:#fdf2f2;--text:#3b2828;--muted:#654747;--line:#f3dddd;--accent:#c53030;--heading:#742a2a;--tag:#fdf0f0;--field-rgb:116,42,42;--field-lens-rgb:197,48,48;--field-glow:rgba(197,48,48,.07);--glass:rgba(253,242,242,.8)}
-:root.vault-software[data-theme="dark"]{--bg:#111317;--surface:#1a1d23;--raised:#1a1d23;--text:#e8eaee;--muted:#a7adb8;--line:#2c3038;--accent:#cbd5e1;--heading:#eef1f5;--tag:#1a1d23;--field-rgb:203,213,225;--field-lens-rgb:148,163,184;--field-glow:rgba(148,163,184,.1);--glass:rgba(26,29,35,.74)}
-:root.vault-music[data-theme="dark"]{--bg:#0b1615;--surface:#112220;--raised:#112220;--text:#e4f4f1;--muted:#a1c3bd;--line:#1f3d39;--accent:#2dd4bf;--heading:#e2f8f4;--tag:#112220;--field-rgb:94,234,212;--field-lens-rgb:45,212,191;--field-glow:rgba(45,212,191,.12);--glass:rgba(17,34,32,.74)}
+:root.vault-software[data-theme="dark"]{--bg:#16130e;--surface:#201b14;--raised:#201b14;--text:#e6dcc6;--muted:#b8ab90;--line:#3a3224;--accent:#fff8e7;--heading:#fff8e7;--tag:#201b14;--field-rgb:255,248,231;--field-lens-rgb:255,240,205;--field-glow:rgba(255,248,231,.08);--glass:rgba(32,27,20,.74)}
+:root.vault-music[data-theme="dark"]{--bg:#110e1c;--surface:#1a1628;--raised:#1a1628;--text:#ece8f6;--muted:#b4abca;--line:#2e2844;--accent:#b794f4;--heading:#efe9fc;--tag:#1a1628;--field-rgb:183,148,244;--field-lens-rgb:196,165,250;--field-glow:rgba(140,100,220,.16);--glass:rgba(26,22,40,.74)}
 :root.vault-video[data-theme="dark"]{--bg:#180e0f;--surface:#241517;--raised:#241517;--text:#f6e8e8;--muted:#cdabab;--line:#43282b;--accent:#fc8181;--heading:#fdeaea;--tag:#241517;--field-rgb:252,129,129;--field-lens-rgb:252,129,129;--field-glow:rgba(245,101,101,.12);--glass:rgba(36,21,23,.74)}
-@media(prefers-color-scheme:dark){:root.vault-software:not([data-theme="light"]){--bg:#111317;--surface:#1a1d23;--raised:#1a1d23;--text:#e8eaee;--muted:#a7adb8;--line:#2c3038;--accent:#cbd5e1;--heading:#eef1f5;--tag:#1a1d23;--field-rgb:203,213,225;--field-lens-rgb:148,163,184;--field-glow:rgba(148,163,184,.1);--glass:rgba(26,29,35,.74)}
-:root.vault-music:not([data-theme="light"]){--bg:#0b1615;--surface:#112220;--raised:#112220;--text:#e4f4f1;--muted:#a1c3bd;--line:#1f3d39;--accent:#2dd4bf;--heading:#e2f8f4;--tag:#112220;--field-rgb:94,234,212;--field-lens-rgb:45,212,191;--field-glow:rgba(45,212,191,.12);--glass:rgba(17,34,32,.74)}
+@media(prefers-color-scheme:dark){:root.vault-software:not([data-theme="light"]){--bg:#16130e;--surface:#201b14;--raised:#201b14;--text:#e6dcc6;--muted:#b8ab90;--line:#3a3224;--accent:#fff8e7;--heading:#fff8e7;--tag:#201b14;--field-rgb:255,248,231;--field-lens-rgb:255,240,205;--field-glow:rgba(255,248,231,.08);--glass:rgba(32,27,20,.74)}
+:root.vault-music:not([data-theme="light"]){--bg:#110e1c;--surface:#1a1628;--raised:#1a1628;--text:#ece8f6;--muted:#b4abca;--line:#2e2844;--accent:#b794f4;--heading:#efe9fc;--tag:#1a1628;--field-rgb:183,148,244;--field-lens-rgb:196,165,250;--field-glow:rgba(140,100,220,.16);--glass:rgba(26,22,40,.74)}
 :root.vault-video:not([data-theme="light"]){--bg:#180e0f;--surface:#241517;--raised:#241517;--text:#f6e8e8;--muted:#cdabab;--line:#43282b;--accent:#fc8181;--heading:#fdeaea;--tag:#241517;--field-rgb:252,129,129;--field-lens-rgb:252,129,129;--field-glow:rgba(245,101,101,.12);--glass:rgba(36,21,23,.74)}}
 
 /* Language menu (Hungarian pilot) */
@@ -68,6 +72,30 @@ a,button,.btn{transition:color .18s var(--ease),background-color .18s var(--ease
 .lang-switch a[aria-current]{color:var(--heading);font-weight:650;border-bottom:2px solid var(--accent)}
 .translation-note{margin-bottom:10px}
 @media(max-width:850px){.lang-switch{margin-left:auto}}
+/* The header's boxes in the same place on every page and in both languages. A grid with fixed slots: the brand
+   (211 px), the five main links from a fixed start, the two language links (each a fixed width, so the current one's
+   bold changes nothing), and the buttons (the music button's place, 44 px and a 10 px gap, is kept on every page, the
+   theme button wide enough for either label). A page without the language menu, the music button or the theme button
+   (the Music Vault hides it) leaves its slot empty and moves nothing. Every link carries its underline's 2 px, coloured
+   only on the current page's link, and the scrollbar's room is kept on short pages too. */
+html{scrollbar-gutter:stable}
+:root{--hdr-lang:calc(2 * 4.2 * .85rem + 12px);--hdr-theme:7rem;--hdr-tools:calc(54px + var(--hdr-theme))}
+.site-header{display:grid;grid-template-columns:211px minmax(0,1fr) var(--hdr-lang) var(--hdr-tools);grid-template-rows:minmax(44px,auto);grid-template-areas:"brand nav lang tools";align-items:center;column-gap:24px;row-gap:15px}
+.site-header>div:first-child{grid-area:brand;min-width:0}
+.site-header>.site-nav{grid-area:nav;justify-self:start;margin-left:12px}
+.site-header>.lang-switch{grid-area:lang;justify-self:end;margin-left:0}
+.site-header>.header-tools,.site-header>.theme-toggle-btn{grid-area:tools;justify-self:end;margin-left:0}
+.site-header .theme-toggle-btn{min-width:var(--hdr-theme);text-align:center}
+.site-nav a,.lang-switch a{border-bottom:2px solid transparent}
+.lang-switch a{min-width:4.2em;text-align:center}
+/* Below 1200 px the five links (with "Vault") and the slots no longer fit in one row in both languages: the links take
+   their own row under the brand; at 620 px and below the language links and the buttons take a row of their own too. */
+@media(max-width:1199px){.site-header{grid-template-rows:auto auto;grid-template-areas:"brand . lang tools" "nav nav nav nav"}.site-header>.site-nav{margin-left:0}}
+@media(max-width:620px){:root{--hdr-theme:6.4rem}.site-header{grid-template-columns:minmax(0,1fr) var(--hdr-lang) var(--hdr-tools);grid-template-rows:auto minmax(44px,auto) auto;grid-template-areas:"brand brand brand" ". lang tools" "nav nav nav";column-gap:10px}}
+/* Below 360 px the fixed slots would not fit beside each other: the language links and the buttons take their own width */
+@media(max-width:359px){.site-header{grid-template-columns:minmax(0,1fr) auto auto;column-gap:8px}.lang-switch a{min-width:0}}
+/* Printing still leaves the header out, as the print rule above says; the grid rule comes after it */
+@media print{.site-header{display:none}}
 /* The cards' glow on the rest of the site (N.'s 963), after the Music Vault's (music-vault/music-vault-visualiser.css): on the pointer, or when a link in the card has keyboard focus,
    the card's ground takes 7 per cent of the page's accent, its border 30 per cent, with a 1 px ring and a soft shadow in the accent. The Music Vault keeps its own rules, by song. */
 .entry-row,.vault-video .track{--a:var(--accent);transition:box-shadow .25s var(--ease,ease),background-color .25s var(--ease,ease),border-color .25s var(--ease,ease)}
