@@ -6,6 +6,9 @@
   --field-rgb:183,148,244;--field-alpha:.085;--field-major-alpha:.16;--field-lens-rgb:196,165,250;--field-lens-alpha:.75;--field-glow:rgba(140,100,220,.16);--glass:rgba(26,22,40,.74);--shadow:0 1px 2px rgba(0,0,0,.45),0 14px 30px -16px rgba(0,0,0,.85)}
 /* The ground is dark in both themes, so there is nothing for the theme button to switch */
 .theme-toggle-btn{display:none}
+/* The logo: the light-on-dark one on this ground in both themes, as the dark theme shows it on the other pages. Its letters (#e2e8f0) give 15.44:1 on #110e1c; the dark-blue logo's (#1a365d) gave 1.57:1. Forced colours keep the text name, as portfolio.css says. */
+:root.vault-music.vault-music .brand{background-image:url(../brand/header-nmai-research-dark.svg)}
+@media(forced-colors:active){:root.vault-music.vault-music .brand{background:none}}
 .track{--a:#8b5cf6;--b:#2dd4bf;background-color:color-mix(in srgb,var(--a) 7%,var(--surface));border-color:color-mix(in srgb,var(--a) 30%,var(--line));transition:box-shadow .25s var(--ease,ease)}
 .track:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 70%,transparent),0 16px 44px -18px var(--a)}
 .track-play,.track-frame{background:var(--bg)}
