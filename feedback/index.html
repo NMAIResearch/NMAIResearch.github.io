@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feedback · NMAI Research</title>
+<meta name="description" content="Comments, corrections and ideas about this site and the Game Vault's games are welcome by email.">
+<link rel="canonical" href="https://nmairesearch.com/feedback/">
+<link href="https://nmairesearch.com/feedback/" hreflang="en" rel="alternate"/>
+<link href="https://nmairesearch.com/hu/feedback/" hreflang="hu" rel="alternate"/>
+<link href="https://nmairesearch.com/feedback/" hreflang="x-default" rel="alternate"/>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NMAI Research">
+<meta property="og:title" content="Feedback · NMAI Research">
+<meta property="og:description" content="Comments, corrections and ideas about this site and the Game Vault's games are welcome by email.">
+<meta property="og:url" content="https://nmairesearch.com/feedback/">
+<meta property="og:image" content="https://nmairesearch.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NMAI Research: Research you can inspect">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Feedback · NMAI Research","url":"https://nmairesearch.com/feedback/","dateModified":"2026-11-12","isPartOf":{"@type":"WebSite","name":"NMAI Research","url":"https://nmairesearch.com/"}}</script>
+<link rel="stylesheet" href="../portfolio.css"><script src="../portfolio-theme.js"></script><script defer src="../survey-field.js"></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div><a class="brand" href="../index.html">NMAI Research</a>
+<div class="brand-subtitle">Independent AI research</div></div>
+<nav aria-label="Main navigation" class="site-nav"><a href="../research.html">Research<span class="nav-vault"> Vault</span></a><a href="../software-vault/">Software<span class="nav-vault"> Vault</span></a><a href="https://nmairesearch.com/game-vault/">Game<span class="nav-vault"> Vault</span></a><a href="../music-vault/">Music<span class="nav-vault"> Vault</span></a><a href="../video-vault/">Video<span class="nav-vault"> Vault</span></a></nav>
+<nav aria-label="Language" class="lang-switch"><a href="./" hreflang="en" lang="en" aria-current="page">English</a><a href="../hu/feedback/" hreflang="hu" lang="hu">Magyar</a></nav>
+<button class="theme-toggle-btn" hidden id="themeToggle" type="button">Theme</button></header>
+<main class="page-shell" id="main"><div class="hero case-hero" data-survey-field><h1>Feedback</h1>
+<p>Comments, corrections and ideas about anything on this site, the Game Vault's games included, are welcome by email at <a id="feedback-mail" href="mailto:NMAIResearch@proton.me">NMAIResearch@proton.me</a>.</p>
+<p>Each game in the Game Vault also has a discussion thread on GitHub, on its rating page, where others can see reactions and comments.</p>
+<p>Please leave out private work, personal data and credentials. How email to this address is handled is on the <a href="../privacy/">privacy page</a>.</p></div>
+</main>
+<footer class="hub-footer"><div class="ai-disclaimer">AI disclosure: page text drafted with Opus 5.5 (Claude Code CLI) under the author's direction.</div></footer>
+<script>
+// A link from the Game Vault names its game (?game=). The name goes into the mail link's subject as text only: control
+// characters and line breaks become spaces, at most 80 characters are kept, and it enters the link only through
+// encodeURIComponent and the link's href, never the page. Without scripts the link has no subject.
+(function () {
+    "use strict";
+    const PREFIX = "Game Vault feedback: ";
+    const link = document.getElementById("feedback-mail");
+    const game = new URLSearchParams(location.search).get("game");
+    if (!link || !game) return;
+    const name = Array.from(game.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " ").replace(/\s+/gu, " ").trim()).slice(0, 80).join("").trim();
+    if (name) link.href = link.getAttribute("href").split("?")[0] + "?subject=" + encodeURIComponent(PREFIX + name);
+})();
+</script>
+</body></html>
