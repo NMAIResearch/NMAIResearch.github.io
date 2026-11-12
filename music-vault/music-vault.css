@@ -24,7 +24,8 @@
 .prompt-text{margin:0 0 16px;max-width:75ch;color:var(--muted)}
 .prompt-text summary{cursor:pointer;color:var(--accent)}
 .prompt-text p{line-height:1.55}
-.track-list+.track-list{margin-top:22px}
+/* Each prompt's clips on the Video Vault are one list, so two lists in a row are different prompts: more space between them than between cards */
+.track-list+.track-list{margin-top:48px}
 .track-list.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:900px){.track-list.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.track-list.trio{grid-template-columns:1fr}}
