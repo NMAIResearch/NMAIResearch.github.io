@@ -87,6 +87,8 @@ html{scrollbar-gutter:stable}
 .site-header>.header-tools,.site-header>.theme-toggle-btn{grid-area:tools;justify-self:end;margin-left:0}
 .site-header .theme-toggle-btn{min-width:var(--hdr-theme);text-align:center}
 .site-nav a,.lang-switch a{border-bottom:2px solid transparent}
+/* In forced colours (such as a Windows contrast theme) a transparent border is drawn in the text colour: there only the current page's link keeps its underline, the others keep its 2 px as padding, and the brand shows its text name alone in either theme */
+@media(forced-colors:active){.site-nav a:not([aria-current]),.lang-switch a:not([aria-current]){border-bottom-style:none;padding-bottom:9px}.brand{background:none!important}}
 .lang-switch a{min-width:4.2em;text-align:center}
 /* Below 1200 px the five links (with "Vault") and the slots no longer fit in one row in both languages: the links take
    their own row under the brand; at 620 px and below the language links and the buttons take a row of their own too. */
