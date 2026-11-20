@@ -36,7 +36,7 @@
 <script>
 // A link from the Game Vault names its game (?game=). The name goes into the mail link's subject as text only: control
 // characters and line breaks become spaces, at most 80 characters are kept, and it enters the link only through
-// encodeURIComponent and the link's href, never the page. Without scripts the link has no subject.
+// encodeURIComponent and the link's href, never the page. The language switch carries the same name, the same way. Without scripts the link has no subject.
 (function () {
     "use strict";
     const PREFIX = "Visszajelzés a Játék Széfből: ";
@@ -44,6 +44,8 @@
     const game = new URLSearchParams(location.search).get("game");
     if (!link || !game) return;
     const name = Array.from(game.replace(/[\p{C}\p{Zl}\p{Zp}]/gu, " ").replace(/\s+/gu, " ").trim()).slice(0, 80).join("").trim();
+    // Both links of the language switch, to this page and to the other language's, carry the same name.
+    if (name) document.querySelectorAll(".lang-switch a").forEach(a => { a.href = a.getAttribute("href").split("?")[0] + "?game=" + encodeURIComponent(name); });
     if (name) link.href = link.getAttribute("href").split("?")[0] + "?subject=" + encodeURIComponent(PREFIX + name);
 })();
 </script>
