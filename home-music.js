@@ -1,4 +1,4 @@
-// The front page's music-note button (N.'s 958): Orchestra in My Pocket plays when the button is pressed and pauses on the next press.
+// The home page music button starts playback on the first press and toggles play and pause on later presses.
 // It never starts by itself: the audio element is made inside the click handler, so nothing of the song loads before the first press.
 // The button stays hidden without this script, and where the browser says it cannot play FLAC. Its name, in the page's language, says what a press does.
 (() => {
